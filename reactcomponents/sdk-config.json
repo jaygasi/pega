@@ -1,0 +1,14 @@
+{
+  "serverConfig": {
+    "server": "https://your-pega-instance.com/prweb",
+    "clientId": "YOUR_OAUTH_CLIENT_ID",
+    "clientSecret": "YOUR_OAUTH_CLIENT_SECRET",
+    "authService": "api",
+    "useToken": true
+  },
+  "components": {
+    "library": "YourLibrary",
+    "source": "src/components/custom",
+    "destination": "pega-component-bundle.js"
+  }
+}
