@@ -1,0 +1,67 @@
+{
+  "name": "Jaygasi_Extensions_pizzaIconButtonURL",
+  "label": "pizza Icon Button URL",
+  "description": "pizza Icon Button URL",
+  "organization": "Jaygasi",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Jaygasi_Extensions_pizzaIconButtonURL",
+  "type": "Field",
+  "subtype": "Text-URL",
+  "icon": "images/pz-url-active.svg",
+  "properties": [
+    {
+      "format": "SELECT",
+      "name": "countryCode",
+      "label": "Country code",
+      "defaultValue": "USA",
+      "source": [
+        {
+          "key": "USA",
+          "value": "United States"
+        },
+        {
+          "key": "CAN",
+          "value": "Canada"
+        },
+        {
+          "key": "AUS",
+          "value": "Australia"
+        },
+        {
+          "key": "JPN",
+          "value": "Japan"
+        },
+        {
+          "key": "IND",
+          "value": "India"
+        },
+        {
+          "key": "TUR",
+          "value": "Turkey"
+        }
+      ]
+    },
+    {
+      "label": "Advanced",
+      "format": "GROUP",
+      "collapsible": true,
+      "properties": [
+        {
+          "name": "testId",
+          "label": "Test ID",
+          "format": "TEXT",
+          "ignorePattern": "[^-_\\p{N}\\p{L}]",
+          "includeAnnotations": false
+        }
+      ]
+    }
+  ],
+  "defaultConfig": {
+    "label": "@L $this.label",
+    "detailFVLItem": true,
+    "isFormWidth" : false,
+    "isContainerWidth" : false
+  }
+}

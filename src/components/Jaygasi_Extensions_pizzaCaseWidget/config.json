@@ -1,0 +1,23 @@
+{
+  "name": "Jaygasi_Extensions_pizzaCaseWidget",
+  "label": "pizza Case Widget",
+  "description": "pizza Case Widget",
+  "organization": "Jaygasi",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Jaygasi_Extensions_pizzaCaseWidget",
+  "type": "Widget",
+  "subtype": "CASE",
+  "icon": "OneColumnPage.svg",
+  "properties": [
+   {
+      "name": "label",
+      "label": "Label value",
+      "format": "TEXT"
+    }
+  ],
+  "defaultConfig": {
+     "label": "@L pizza Case Widget"
+  }
+}

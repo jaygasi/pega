@@ -1,0 +1,170 @@
+{
+  "name": "Jaygasi_Extensions_pdfViewer",
+  "label": "pdf Viewer",
+  "description": "pdf Viewer",
+  "organization": "Jaygasi",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Jaygasi_Extensions_pdfViewer",
+  "type": "Field",
+  "subtype": "Text",
+  "icon": "images/pz-text-input-active.svg",
+  "modes": [
+    {
+      "name": "Editable",
+      "label": "Editable",
+      "description": "Standard edit mode."
+    },
+    {
+      "name": "Read-Only",
+      "label": "Read-only",
+      "description": "Read-only display of the value."
+    }
+  ],
+  "properties": [
+    {
+      "name": "label",
+      "label": "Field label",
+      "format": "TEXT",
+      "required": true
+    },
+    {
+      "name": "readOnly",
+      "label": "Edit mode",
+      "format": "READONLY"
+    },
+    {
+      "name": "height",
+      "label": "Viewer Height",
+      "format": "TEXT",
+      "placeholder": "600px",
+      "description": "Specify the height of the PDF viewer (e.g., 600px or 80vh)."
+    },
+    {
+      "name": "searchPropRef",
+      "label": "Search Property Reference",
+      "description": "Specify the Pega property to update with the search term (e.g., .SearchTerm).",
+      "format": "PROPERTY",
+      "required": true
+    },
+    {
+      "label": "Column settings",
+      "format": "GROUP",
+      "visibility": "@VIEWTYPE == 'MultiRecordDisplayAsTable'",
+      "properties": [
+        {
+          "name": "columnWidth",
+          "label": "Column width",
+          "format": "SELECT",
+          "source": [
+            {
+              "key": "auto",
+              "value": "Auto"
+            },
+            {
+              "key": "custom",
+              "value": "Custom"
+            }
+          ]
+        },
+        {
+          "name": "width",
+          "label": "Width (px)",
+          "format": "NUMBER",
+          "visibility": "$this.columnWidth == 'custom'"
+        }
+      ]
+    },
+    {
+      "label": "Input settings",
+      "format": "GROUP",
+      "visibility": "(!readOnly = true)",
+      "properties": [
+        {
+          "name": "placeholder",
+          "label": "Placeholder",
+          "format": "TEXT"
+        },
+        {
+          "name": "helperText",
+          "label": "Helper text",
+          "format": "TEXT"
+        },
+        {
+          "name": "hasSuggestions",
+          "label": "Enable suggestions",
+          "format": "BOOLEAN"
+        },
+        {
+          "name": "formatter",
+          "label": "Formatter",
+          "format": "SELECT",
+          "source": [
+            {
+              "key": "TextInput",
+              "value": "Text Input"
+            },
+            {
+              "key": "Email",
+              "value": "Email"
+            },
+            {
+              "key": "Phone",
+              "value": "Phone"
+            },
+            {
+              "key": "URL",
+              "value": "URL"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Conditions",
+      "format": "GROUP",
+      "properties": [
+        {
+          "name": "required",
+          "label": "Required",
+          "format": "REQUIRED",
+          "visibility": "(!readOnly = true)"
+        },
+        {
+          "name": "disabled",
+          "label": "Disabled",
+          "format": "DISABLED",
+          "visibility": "(!readOnly = true)"
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "format": "VISIBILITY"
+        }
+      ]
+    },
+    {
+      "label": "Advanced",
+      "format": "GROUP",
+      "collapsible": true,
+      "properties": [
+        {
+          "name": "testId",
+          "label": "Test ID",
+          "format": "TEXT",
+          "ignorePattern": "[^-_\\p{N}\\p{L}]",
+          "includeAnnotations": false
+        }
+      ]
+    }
+  ],
+  "defaultConfig": {
+    "label": "@L $this.label",
+    "detailFVLItem": true,
+    "isFormWidth" : false,
+    "isContainerWidth" : false,
+    "hasSuggestions": false,
+    "formatter": "TextInput"
+  }
+}
