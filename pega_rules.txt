@@ -1,0 +1,30 @@
+pyExpressLPContentTemplate Pega-Ext-ExpExplorer-Library -> extendable: this is the library section on the App Studio 
+    Need to identify how to add to this (tab for views, and any other ui fields - components)
+    1. Case Types -> D_pzLibraryCaseTypes (refreshes: D_pzLibraryCaseTypes.pySearchText Changes  || D_pzLibraryCaseTypes.pySelectedApplicationName Changes )
+        Repeating Dynamic Layout: pzLibraryTile of Rule-Obj-CaseType
+        Report: pzLibraryCaseTypes (no filters other than by ruleset and app context)
+        Post load Processing: pzProcessLibraryCaseTypes -> Java step: Remove case type results, that are not configured on any application in application stack
+    2. Data Objects -> D_pzLibraryDataObjects (refreshes: D_pzLibraryDataObjects.pySearchText Changes  || D_pzLibraryDataObjects.pySelectedApplicationName Changes)
+        Repeating Dynamic Layout: pzLibraryTile of Rule-DataObject
+        Report: pzLibraryDataObjects (no filters other than by ruleset)
+            Class Join Only Matching Rows: Rule-Obj-Class (ROC.pyClassName is equal .pyClassName)
+            Post load Processing: pzProcessLibraryDataObjects -> Java step: Remove data objects results, that are not configured on any application in application stack
+        Consits of the following:
+            Data Pages
+            Classes
+    3. Business logic currently consists of: D_pzAuthorableRelevantRecords (Param.ContextClass: pyRuleLibraryLandingPage.pyRelevantRecClass) (refreshes: pyRuleLibraryLandingPage.pyRelevantRecClass Changes || pyRuleLibraryLandingPage.pyRuleType Changes || pyRuleLibraryLandingPage.pySearchText Changes)
+        Data Transform: pzLoadAuthorableRelevantRecords -> essentially it get the list of all the Relevant record and then get a subset of these below.
+            loops through: D_pxAuthorableRelevantRecordTypes.pxResults -> pzCanRuleBeAuthored
+                Loops through: D_pxRuleResolvedRelevantRecords[ContextClass: param.ContextClass, RecordType: .pyStandardValue].pxResults
+        Repeating Dynamic Layout: pzLibraryTile of Data-Tag-RelevantRecord
+        Consists of the following rule types:
+            Correspondence
+            Data Transform
+            Decision Table
+            Decision Tree
+            Process
+            User Action -> this is the views
+            When
+
+Components: RULE-UI-COMPONENT
+    How to make them Relevant Records: pzDisplayMarkAsRelevantAtRuleActions

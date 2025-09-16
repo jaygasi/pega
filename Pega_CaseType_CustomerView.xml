@@ -1,0 +1,1310 @@
+<?xml version="1.0"?>
+
+<pagedata>
+<pxUpdateSystemID>pega</pxUpdateSystemID>
+<pyRuleName>pyDefault</pyRuleName>
+<pyValueChanged>false</pyValueChanged>
+<pyXMLSignature>&lt;methodSignature&gt;&lt;pyStepsPageAliases&gt;&lt;/pyStepsPageAliases&gt;&lt;/methodSignature&gt;</pyXMLSignature>
+<pxUpdateDateTime>20250729T162908.990 GMT</pxUpdateDateTime>
+<pzRuleSetVersionMinor>01</pzRuleSetVersionMinor>
+<pzRuleSetVersionMajor>01</pzRuleSetVersionMajor>
+<pyTemplateTrueFalse>true</pyTemplateTrueFalse>
+<pxCreateDateTime>20250708T145349.451 GMT</pxCreateDateTime>
+<pzGeolocationWhenExists>false</pzGeolocationWhenExists>
+<pyBaseRule>false</pyBaseRule>
+<pxInsName>OUR-SHOPS-WORK-CUSTOMERREVIEW!PYDEFAULT</pxInsName>
+<pxSaveDateTime>20250729T162911.791 GMT</pxSaveDateTime>
+<pyLicenseCategory>Execution</pyLicenseCategory>
+<pzInsKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzInsKey>
+<pxInsId>!PYDEFAULT</pxInsId>
+<pyIsStaleRuleCheckEnabled>false</pyIsStaleRuleCheckEnabled>
+<pyRuleSetVersion>01-01-01</pyRuleSetVersion>
+<pzDocumentKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzDocumentKey>
+<pxUpdateOpName>Jay Hysenbegasi</pxUpdateOpName>
+<pxUpdateOperator>jay.hysenbegasi@gmail.com</pxUpdateOperator>
+<pyObjClassLabel>Case Type</pyObjClassLabel>
+<pyLifeCycleTabs>Lifecycle</pyLifeCycleTabs>
+<pzChecksum>1306318314</pzChecksum>
+<pxTabLabel>pyDefault</pxTabLabel>
+<pxObjClass>Rule-Obj-CaseType</pxObjClass>
+<pyCategory>Custom</pyCategory>
+<pyTemplateInputBox>Run</pyTemplateInputBox>
+<pyLPGeolocationEnabled>Disabled</pyLPGeolocationEnabled>
+<pxCreateSystemID>pega</pxCreateSystemID>
+<pxCommitDateTime>20250729T162912.810 GMT</pxCommitDateTime>
+<pzIsPrimaryGrid>Create</pzIsPrimaryGrid>
+<pyRuleAvailable>Yes</pyRuleAvailable>
+<pyAllowRemoteInstantiation>false</pyAllowRemoteInstantiation>
+<pyJavaClassName>Rule_Obj_CaseType_Our_Shops_Work_CustomerReview_pyDefault_Action_20250729T162854_653_GMT</pyJavaClassName>
+<pzIndexCount>55</pzIndexCount>
+<pyClassName>Our-Shops-Work-CustomerReview</pyClassName>
+<pyLocaleReference>OUR-SHOPS-WORK-CUSTOMERREVIEW!CASE!CUSTOMER REVIEW</pyLocaleReference>
+<pySortDateCircumWithinRSMajor>true</pySortDateCircumWithinRSMajor>
+<pyRuleFormStatusTime>20250731T143412.614 GMT</pyRuleFormStatusTime>
+<pzRuleSetVersionPatch>01</pzRuleSetVersionPatch>
+<pxHostId>pega-pega-8c84d8784-s5xvr</pxHostId>
+<pyRuleFormType>Harness</pyRuleFormType>
+<pyRuleSet>Shops_Branch_BP-2</pyRuleSet>
+<pyRuleHarness>RuleForm</pyRuleHarness>
+<pyCreateTemporaryObject>false</pyCreateTemporaryObject>
+<pyShowJavaWindowName>GeneratedJava20250731T143412.733 GMT</pyShowJavaWindowName>
+<pyPurpose>pyDefault</pyPurpose>
+<pyWorkPartiesRule>pyCaseManagementDefault</pyWorkPartiesRule>
+<pyRuleFormStatus>Good</pyRuleFormStatus>
+<pyStepPageReference>RH_1</pyStepPageReference>
+<pyIcon>cmicons/pycase.svg</pyIcon>
+<pyDescription>This case type is used to manage and process customer feedback and reviews received through the online platform. It includes steps for collecting feedback, analyzing sentiment, identifying areas for improvement, and responding to customers to enhance their experience and loyalty. The process also involves categorizing feedback for targeted action.</pyDescription>
+<pyProcessesViewMode>Tile</pyProcessesViewMode>
+<pyEnableAutoSaveOnAssignmentForm>false</pyEnableAutoSaveOnAssignmentForm>
+<pyIsConstellationCase>false</pyIsConstellationCase>
+<pyLockingMode>Default</pyLockingMode>
+<pyStageIDMax>5</pyStageIDMax>
+<pyAltStageIDMax>1</pyAltStageIDMax>
+<pzUpdateWhenContextNeedsRefresh>20250729T162727.848 GMT</pzUpdateWhenContextNeedsRefresh>
+<pzShowLifeCycleStagesOnly>true</pzShowLifeCycleStagesOnly>
+<pxSLAIDMax>6</pxSLAIDMax>
+<pxCreateOperator>jay.hysenbegasi@gmail.com</pxCreateOperator>
+<pyLPGeolocationStatus>false</pyLPGeolocationStatus>
+<pyIsRemote>false</pyIsRemote>
+<pyDoNotLockParent>false</pyDoNotLockParent>
+<pxLimitedAccess>Dev</pxLimitedAccess>
+<pyLabel>Customer Review</pyLabel>
+<pxCreateOpName>Jay Hysenbegasi</pxCreateOpName>
+<pzStatus>valid</pzStatus>
+<pyCaseMatchList REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-ChooseRule</pxObjClass>
+</rowdata>
+</pyCaseMatchList>
+<pyRuleVersionsList REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Rule-</pxObjClass>
+<pyValue>4</pyValue>
+<pxListSubscript>1</pxListSubscript>
+<pzInsKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzInsKey>
+<pyLabel>BP-2 (Available)</pyLabel>
+</rowdata>
+</pyRuleVersionsList>
+<pyStages REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pyClassName>Our-Shops-Work-CustomerReview</pyClassName>
+<pyIsInitializationStage>true</pyIsInitializationStage>
+<pyIsTerminalStage>false</pyIsTerminalStage>
+<pxFlowIDMax>0</pxFlowIDMax>
+<pyStageName>Feedback Collection</pyStageName>
+<pyChannelMenuLabel>Add create process</pyChannelMenuLabel>
+<pyStageTransition>automatic</pyStageTransition>
+<pzUpdateWhenContextNeedsRefresh>20250708T145349.549 GMT</pzUpdateWhenContextNeedsRefresh>
+<pyStageID>PRIM0</pyStageID>
+<pxObjClass>Embed-Stage</pxObjClass>
+<pxListSubscript>1</pxListSubscript>
+<pyAttachments REPEATINGTYPE="PageList"/>
+<pyChannels REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Data-Channel-Configuration</pxObjClass>
+<pyLabel>Default</pyLabel>
+<pyShowChannel>false</pyShowChannel>
+<pzChannelName>Default</pzChannelName>
+</rowdata>
+</pyChannels>
+<pyOptionalProcesses REPEATINGTYPE="PageList"/>
+<pyPersonas REPEATINGTYPE="PageList"/>
+<pyRequiredCategories REPEATINGTYPE="PageList"/>
+<pyLocalActions REPEATINGTYPE="PageList"/>
+<pxAdditionalProcessingEvents REPEATINGTYPE="PageList"/>
+<pySteps REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Assignment</pyStepType>
+<pyStepName>Collect Customer Feedback</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="2">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Automation</pyStepType>
+<pyStepName>Categorize Feedback Data</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="3">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Send Notification</pyStepType>
+<pyStepName>Send Feedback Notification</pyStepName>
+</rowdata>
+</pySteps>
+<pyProcesses REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pzRuleParametersShowSkills>false</pzRuleParametersShowSkills>
+<pySLAType>Never</pySLAType>
+<pyFlowName>FeedbackCollection_Flow</pyFlowName>
+<pyLaunchOnReentry>true</pyLaunchOnReentry>
+<pyShowBackButton>false</pyShowBackButton>
+<pySkipOrAllowType>always</pySkipOrAllowType>
+<pxObjClass>Embed-StageProcess</pxObjClass>
+<pxListSubscript>1</pxListSubscript>
+<pxFlowID>FLOW0</pxFlowID>
+<pyLabel>Feedback Collection</pyLabel>
+<pyStartType>PARALLEL</pyStartType>
+<pyExpressionGadget>
+<pxObjClass>PegaGadget-ExpressionBuilder</pxObjClass>
+<pyShowCustomPages>true</pyShowCustomPages>
+<pyShowLocalVariables>false</pyShowLocalVariables>
+<pyShowParameters>true</pyShowParameters>
+<pyEditable>true</pyEditable>
+<pyIsLaunchAsOverlay>false</pyIsLaunchAsOverlay>
+<pyExpressionMapNew REPEATINGTYPE="PropertyGroup">
+</pyExpressionMapNew>
+</pyExpressionGadget>
+<pyCallParams>
+</pyCallParams>
+<pzRuleParameters REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-MethodParams</pxObjClass>
+</rowdata>
+</pzRuleParameters>
+</rowdata>
+</pyProcesses>
+<pxWarningsToDisplay REPEATINGTYPE="PageList"/>
+<pyDataObjects REPEATINGTYPE="PageList"/>
+</rowdata>
+<rowdata REPEATINGINDEX="2">
+<pyClassName>Our-Shops-Work-CustomerReview</pyClassName>
+<pyIsTerminalStage>false</pyIsTerminalStage>
+<pxFlowIDMax>0</pxFlowIDMax>
+<pyChannelMenuLabel>Add channel process</pyChannelMenuLabel>
+<pyStageName>Sentiment Analysis</pyStageName>
+<pxPageReference>RH_1.pyStages(2)</pxPageReference>
+<pyStageTransition>automatic</pyStageTransition>
+<pzUpdateWhenContextNeedsRefresh>20250708T145350.338 GMT</pzUpdateWhenContextNeedsRefresh>
+<pyStageID>PRIM1</pyStageID>
+<pxObjClass>Embed-Stage</pxObjClass>
+<pxListSubscript>2</pxListSubscript>
+<pyAttachments REPEATINGTYPE="PageList"/>
+<pyOptionalProcesses REPEATINGTYPE="PageList"/>
+<pyPersonas REPEATINGTYPE="PageList"/>
+<pyRequiredCategories REPEATINGTYPE="PageList"/>
+<pyLocalActions REPEATINGTYPE="PageList"/>
+<pxAdditionalProcessingEvents REPEATINGTYPE="PageList"/>
+<pySteps REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Automation</pyStepType>
+<pyStepName>Analyze Sentiment Data</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="2">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Decision</pyStepType>
+<pyStepName>Check Sentiment Polarity</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="3">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Assignment</pyStepType>
+<pyStepName>Identify Improvement Areas</pyStepName>
+</rowdata>
+</pySteps>
+<pyProcesses REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pzRuleParametersShowSkills>false</pzRuleParametersShowSkills>
+<pySLAType>Custom</pySLAType>
+<pyStepSLA>Process_0</pyStepSLA>
+<pyFlowName>SentimentAnalysis_Flow</pyFlowName>
+<pyLaunchOnReentry>true</pyLaunchOnReentry>
+<pyShowBackButton>false</pyShowBackButton>
+<pySkipOrAllowType>always</pySkipOrAllowType>
+<pxObjClass>Embed-StageProcess</pxObjClass>
+<pxListSubscript>1</pxListSubscript>
+<pxFlowID>FLOW0</pxFlowID>
+<pyLabel>Sentiment Analysis</pyLabel>
+<pyStartType>PARALLEL</pyStartType>
+<pyExpressionGadget>
+<pxObjClass>PegaGadget-ExpressionBuilder</pxObjClass>
+<pyShowCustomPages>true</pyShowCustomPages>
+<pyShowLocalVariables>false</pyShowLocalVariables>
+<pyShowParameters>true</pyShowParameters>
+<pyEditable>true</pyEditable>
+<pyIsLaunchAsOverlay>false</pyIsLaunchAsOverlay>
+<pyExpressionMapNew REPEATINGTYPE="PropertyGroup">
+</pyExpressionMapNew>
+</pyExpressionGadget>
+<pyCallParams>
+</pyCallParams>
+<pzRuleParameters REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-MethodParams</pxObjClass>
+</rowdata>
+</pzRuleParameters>
+</rowdata>
+</pyProcesses>
+<pyExpressionGadget>
+<pxObjClass>PegaGadget-ExpressionBuilder</pxObjClass>
+<pyShowCustomPages>true</pyShowCustomPages>
+<pyShowLocalVariables>false</pyShowLocalVariables>
+<pyShowParameters>true</pyShowParameters>
+<pyEditable>true</pyEditable>
+<pyIsLaunchAsOverlay>false</pyIsLaunchAsOverlay>
+<pyExpressionMapNew REPEATINGTYPE="PropertyGroup">
+</pyExpressionMapNew>
+</pyExpressionGadget>
+<pyDataObjects REPEATINGTYPE="PageList"/>
+<pxWarningsToDisplay REPEATINGTYPE="PageList"/>
+</rowdata>
+<rowdata REPEATINGINDEX="3">
+<pyClassName>Our-Shops-Work-CustomerReview</pyClassName>
+<pyStageTransition>automatic</pyStageTransition>
+<pyIsTerminalStage>false</pyIsTerminalStage>
+<pzUpdateWhenContextNeedsRefresh>20250708T145350.858 GMT</pzUpdateWhenContextNeedsRefresh>
+<pxFlowIDMax>0</pxFlowIDMax>
+<pyStageID>PRIM2</pyStageID>
+<pyStageName>Customer Response</pyStageName>
+<pyChannelMenuLabel>Add channel process</pyChannelMenuLabel>
+<pxObjClass>Embed-Stage</pxObjClass>
+<pxListSubscript>3</pxListSubscript>
+<pyAttachments REPEATINGTYPE="PageList"/>
+<pySteps REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Assignment</pyStepType>
+<pyStepName>Draft Customer Response</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="2">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Approval</pyStepType>
+<pyStepName>Approve Response Content</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="3">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Send Notification</pyStepType>
+<pyStepName>Send Response to Customer</pyStepName>
+</rowdata>
+</pySteps>
+<pyProcesses REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-StageProcess</pxObjClass>
+<pxListSubscript>1</pxListSubscript>
+<pxFlowID>FLOW0</pxFlowID>
+<pySLAType>Never</pySLAType>
+<pyLabel>Customer Response</pyLabel>
+<pyFlowName>CustomerResponse_Flow</pyFlowName>
+<pyLaunchOnReentry>true</pyLaunchOnReentry>
+<pySkipOrAllowType>always</pySkipOrAllowType>
+<pyStartType>PARALLEL</pyStartType>
+<pyCallParams>
+</pyCallParams>
+</rowdata>
+</pyProcesses>
+<pyOptionalProcesses REPEATINGTYPE="PageList"/>
+<pyPersonas REPEATINGTYPE="PageList"/>
+<pyRequiredCategories REPEATINGTYPE="PageList"/>
+<pyLocalActions REPEATINGTYPE="PageList"/>
+<pxAdditionalProcessingEvents REPEATINGTYPE="PageList"/>
+<pyDataObjects REPEATINGTYPE="PageList"/>
+</rowdata>
+<rowdata REPEATINGINDEX="4">
+<pyClassName>Our-Shops-Work-CustomerReview</pyClassName>
+<pyStageTransition>automatic</pyStageTransition>
+<pyIsTerminalStage>false</pyIsTerminalStage>
+<pzUpdateWhenContextNeedsRefresh>20250708T145351.646 GMT</pzUpdateWhenContextNeedsRefresh>
+<pxFlowIDMax>0</pxFlowIDMax>
+<pyStageID>PRIM3</pyStageID>
+<pyChannelMenuLabel>Add channel process</pyChannelMenuLabel>
+<pxObjClass>Embed-Stage</pxObjClass>
+<pyStageName>Implement Improvements</pyStageName>
+<pxListSubscript>4</pxListSubscript>
+<pyAttachments REPEATINGTYPE="PageList"/>
+<pySteps REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Assignment</pyStepType>
+<pyStepName>Assign Task to Team</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="2">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Assignment</pyStepType>
+<pyStepName>Implement Improvements Action</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="3">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Approval</pyStepType>
+<pyStepName>Approve Improvement Changes</pyStepName>
+</rowdata>
+</pySteps>
+<pyProcesses REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-StageProcess</pxObjClass>
+<pxListSubscript>1</pxListSubscript>
+<pySLAType>Never</pySLAType>
+<pxFlowID>FLOW0</pxFlowID>
+<pyFlowName>ImplementImprovements_Flow</pyFlowName>
+<pyLabel>Implement Improvements</pyLabel>
+<pyLaunchOnReentry>true</pyLaunchOnReentry>
+<pySkipOrAllowType>always</pySkipOrAllowType>
+<pyStartType>PARALLEL</pyStartType>
+<pyCallParams>
+</pyCallParams>
+</rowdata>
+</pyProcesses>
+<pyOptionalProcesses REPEATINGTYPE="PageList"/>
+<pyPersonas REPEATINGTYPE="PageList"/>
+<pyRequiredCategories REPEATINGTYPE="PageList"/>
+<pyLocalActions REPEATINGTYPE="PageList"/>
+<pxAdditionalProcessingEvents REPEATINGTYPE="PageList"/>
+<pyDataObjects REPEATINGTYPE="PageList"/>
+</rowdata>
+<rowdata REPEATINGINDEX="5">
+<pyClassName>Our-Shops-Work-CustomerReview</pyClassName>
+<pyStageTransition>automatic</pyStageTransition>
+<pyIsTerminalStage>false</pyIsTerminalStage>
+<pzUpdateWhenContextNeedsRefresh>20250708T145352.306 GMT</pzUpdateWhenContextNeedsRefresh>
+<pxFlowIDMax>0</pxFlowIDMax>
+<pyStageID>PRIM4</pyStageID>
+<pxObjClass>Embed-Stage</pxObjClass>
+<pyStageName>Monitor and Report</pyStageName>
+<pyChannelMenuLabel>Add channel process</pyChannelMenuLabel>
+<pxListSubscript>5</pxListSubscript>
+<pyAttachments REPEATINGTYPE="PageList"/>
+<pyProcesses REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-StageProcess</pxObjClass>
+<pxListSubscript>1</pxListSubscript>
+<pxFlowID>FLOW0</pxFlowID>
+<pySLAType>Never</pySLAType>
+<pyLabel>Monitor and Report</pyLabel>
+<pyFlowName>MonitorAndReport_Flow</pyFlowName>
+<pyLaunchOnReentry>true</pyLaunchOnReentry>
+<pySkipOrAllowType>always</pySkipOrAllowType>
+<pyStartType>PARALLEL</pyStartType>
+<pyCallParams>
+</pyCallParams>
+</rowdata>
+</pyProcesses>
+<pySteps REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Automation</pyStepType>
+<pyStepName>Generate Feedback Reports</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="2">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Assignment</pyStepType>
+<pyStepName>Review Generated Reports</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="3">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Send Notification</pyStepType>
+<pyStepName>Share Reports Notification</pyStepName>
+</rowdata>
+</pySteps>
+<pyOptionalProcesses REPEATINGTYPE="PageList"/>
+<pyPersonas REPEATINGTYPE="PageList"/>
+<pyRequiredCategories REPEATINGTYPE="PageList"/>
+<pyLocalActions REPEATINGTYPE="PageList"/>
+<pxAdditionalProcessingEvents REPEATINGTYPE="PageList"/>
+<pyDataObjects REPEATINGTYPE="PageList"/>
+</rowdata>
+<rowdata REPEATINGINDEX="6">
+<pyClassName>Our-Shops-Work-CustomerReview</pyClassName>
+<pyIsTerminalStage>true</pyIsTerminalStage>
+<pyStageTransition>resolution</pyStageTransition>
+<pzUpdateWhenContextNeedsRefresh>20250708T145352.881 GMT</pzUpdateWhenContextNeedsRefresh>
+<pxFlowIDMax>0</pxFlowIDMax>
+<pyStageID>PRIM5</pyStageID>
+<pxObjClass>Embed-Stage</pxObjClass>
+<pyChannelMenuLabel>Add channel process</pyChannelMenuLabel>
+<pyStageName>Information Request</pyStageName>
+<pxListSubscript>6</pxListSubscript>
+<pyAttachments REPEATINGTYPE="PageList"/>
+<pySteps REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Assignment</pyStepType>
+<pyStepName>Request More Information</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="2">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Decision</pyStepType>
+<pyStepName>Check Information Need</pyStepName>
+</rowdata>
+<rowdata REPEATINGINDEX="3">
+<pxObjClass>Embed-ShapeNode</pxObjClass>
+<pyStepType>Send Notification</pyStepType>
+<pyStepName>Notify Review Completion</pyStepName>
+</rowdata>
+</pySteps>
+<pyProcesses REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-StageProcess</pxObjClass>
+<pxListSubscript>1</pxListSubscript>
+<pySLAType>Never</pySLAType>
+<pxFlowID>FLOW0</pxFlowID>
+<pyFlowName>InformationRequest_Flow</pyFlowName>
+<pyLabel>Information Request</pyLabel>
+<pyLaunchOnReentry>true</pyLaunchOnReentry>
+<pySkipOrAllowType>always</pySkipOrAllowType>
+<pyStartType>PARALLEL</pyStartType>
+<pyCallParams>
+</pyCallParams>
+</rowdata>
+</pyProcesses>
+<pyOptionalProcesses REPEATINGTYPE="PageList"/>
+<pyPersonas REPEATINGTYPE="PageList"/>
+<pyRequiredCategories REPEATINGTYPE="PageList"/>
+<pyLocalActions REPEATINGTYPE="PageList"/>
+<pxAdditionalProcessingEvents REPEATINGTYPE="PageList"/>
+<pyDataObjects REPEATINGTYPE="PageList"/>
+</rowdata>
+</pyStages>
+<pyRemoteFields REPEATINGTYPE="PageList"/>
+<pyFlowsToStart REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pyAutomaticStart>false</pyAutomaticStart>
+<pyProcessStartType>user</pyProcessStartType>
+<pyShowBackButton>false</pyShowBackButton>
+<pxObjClass>Embed-ChooseRule</pxObjClass>
+<pyManualStart>true</pyManualStart>
+<pyExpressionGadget>
+<pxObjClass>PegaGadget-ExpressionBuilder</pxObjClass>
+<pyShowCustomPages>true</pyShowCustomPages>
+<pyShowLocalVariables>false</pyShowLocalVariables>
+<pyShowParameters>true</pyShowParameters>
+<pyEditable>true</pyEditable>
+<pyIsLaunchAsOverlay>false</pyIsLaunchAsOverlay>
+<pyExpressionMapNew REPEATINGTYPE="PropertyGroup">
+</pyExpressionMapNew>
+</pyExpressionGadget>
+<pyCallParams>
+</pyCallParams>
+<pzRuleParameters REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-MethodParams</pxObjClass>
+</rowdata>
+</pzRuleParameters>
+</rowdata>
+</pyFlowsToStart>
+<pyCaseWideLocalActions REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-Pega-AssignAction</pxObjClass>
+<pyActionLabel>Edit details</pyActionLabel>
+<pyAllowWhenCaseIsResolved>false</pyAllowWhenCaseIsResolved>
+<pyClassName>Work-</pyClassName>
+<pxPageReference>RH_1.pyCaseWideLocalActions(1)</pxPageReference>
+<pyActionName>pyUpdateCaseDetails</pyActionName>
+<pyExpressionGadget>
+<pxObjClass>PegaGadget-ExpressionBuilder</pxObjClass>
+<pyShowCustomPages>true</pyShowCustomPages>
+<pyShowLocalVariables>false</pyShowLocalVariables>
+<pyShowParameters>true</pyShowParameters>
+<pyEditable>true</pyEditable>
+<pyIsLaunchAsOverlay>false</pyIsLaunchAsOverlay>
+<pyExpressionMapNew REPEATINGTYPE="PropertyGroup">
+</pyExpressionMapNew>
+</pyExpressionGadget>
+</rowdata>
+<rowdata REPEATINGINDEX="2">
+<pyAllowWhenCaseIsResolved>false</pyAllowWhenCaseIsResolved>
+<pxObjClass>Embed-Pega-AssignAction</pxObjClass>
+<pyActionLabel>Change stage</pyActionLabel>
+<pyClassName>Work-</pyClassName>
+<pxPageReference>RH_1.pyCaseWideLocalActions(2)</pxPageReference>
+<pyActionName>pyChangeStage</pyActionName>
+<pyExpressionGadget>
+<pxObjClass>PegaGadget-ExpressionBuilder</pxObjClass>
+<pyShowCustomPages>true</pyShowCustomPages>
+<pyShowLocalVariables>false</pyShowLocalVariables>
+<pyShowParameters>true</pyShowParameters>
+<pyEditable>true</pyEditable>
+<pyIsLaunchAsOverlay>false</pyIsLaunchAsOverlay>
+<pyExpressionMapNew REPEATINGTYPE="PropertyGroup">
+</pyExpressionMapNew>
+</pyExpressionGadget>
+</rowdata>
+<rowdata REPEATINGINDEX="3">
+<pxObjClass>Embed-Pega-AssignAction</pxObjClass>
+<pyActionLabel>Reopen</pyActionLabel>
+<pyAllowWhenCaseIsResolved>true</pyAllowWhenCaseIsResolved>
+<pyWhen>Resolved</pyWhen>
+<pyClassName>Work-</pyClassName>
+<pxPageReference>RH_1.pyCaseWideLocalActions(3)</pxPageReference>
+<pyActionName>pyReopen</pyActionName>
+<pySkipOrAllowType>when</pySkipOrAllowType>
+<pyExpressionGadget>
+<pxObjClass>PegaGadget-ExpressionBuilder</pxObjClass>
+<pyShowCustomPages>true</pyShowCustomPages>
+<pyShowLocalVariables>false</pyShowLocalVariables>
+<pyShowParameters>true</pyShowParameters>
+<pyEditable>true</pyEditable>
+<pyIsLaunchAsOverlay>false</pyIsLaunchAsOverlay>
+<pyExpressionMapNew REPEATINGTYPE="PropertyGroup">
+</pyExpressionMapNew>
+</pyExpressionGadget>
+</rowdata>
+</pyCaseWideLocalActions>
+<pyProcessList REPEATINGTYPE="PageList"/>
+<pyDependents REPEATINGTYPE="PageGroup">
+</pyDependents>
+<pyRMAction>
+<pxObjClass>Embed-RuleManagement</pxObjClass>
+<pyAction>load</pyAction>
+</pyRMAction>
+<pyCustomFields REPEATINGTYPE="PageGroup">
+<rowdata REPEATINGINDEX="empty">
+<pxObjClass>Embed-CustomFieldsList</pxObjClass>
+<pxSubscript>empty</pxSubscript>
+</rowdata>
+</pyCustomFields>
+<pyAttachments REPEATINGTYPE="PageList"/>
+<pyAlternateStages REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pyCleanupProcess>true</pyCleanupProcess>
+<pyClassName>Our-Shops-Work-CustomerReview</pyClassName>
+<pyIsTerminalStage>true</pyIsTerminalStage>
+<pyStageTransition>resolution</pyStageTransition>
+<pyStageWorkStatus>Resolved-Rejected</pyStageWorkStatus>
+<pyStageID>ALT1</pyStageID>
+<pyChannelMenuLabel>Add channel process</pyChannelMenuLabel>
+<pyStageName>Approval Rejection</pyStageName>
+<pxObjClass>Embed-Stage</pxObjClass>
+<pyChildCaseStatus>Resolved-Rejected</pyChildCaseStatus>
+<pxListSubscript>1</pxListSubscript>
+<pyAttachments REPEATINGTYPE="PageList"/>
+<pySteps REPEATINGTYPE="PageList"/>
+<pyProcesses REPEATINGTYPE="PageList"/>
+<pyOptionalProcesses REPEATINGTYPE="PageList"/>
+<pyPersonas REPEATINGTYPE="PageList"/>
+<pyRequiredCategories REPEATINGTYPE="PageList"/>
+<pyLocalActions REPEATINGTYPE="PageList"/>
+<pxAdditionalProcessingEvents REPEATINGTYPE="PageList"/>
+<pyDataObjects REPEATINGTYPE="PageList"/>
+</rowdata>
+</pyAlternateStages>
+<pyCreateCaseView>
+<pxObjClass>Embed-CaseTypeView</pxObjClass>
+<pyLabel>pyCreate</pyLabel>
+<pyType>Harness</pyType>
+</pyCreateCaseView>
+<pyPagesAndClasses REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-PagesAndClasses</pxObjClass>
+</rowdata>
+</pyPagesAndClasses>
+<pyCoverableClasses REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-ChooseRule</pxObjClass>
+<pyAutomaticStartOption>ParentCaseStart</pyAutomaticStartOption>
+<pyAutomaticStart>false</pyAutomaticStart>
+<pyIsValidCircumstance>true</pyIsValidCircumstance>
+<pyManualStart>false</pyManualStart>
+</rowdata>
+</pyCoverableClasses>
+<pyPreviousValues>
+<pxObjClass>@baseclass</pxObjClass>
+</pyPreviousValues>
+<pxNamedPageReferences REPEATINGTYPE="PageList"/>
+<pyCaseConfiguration REPEATINGTYPE="PageGroup">
+<rowdata REPEATINGINDEX="Settings">
+<pxObjClass>Embed-CaseTypeUI</pxObjClass>
+<pxSubscript>Settings</pxSubscript>
+</rowdata>
+</pyCaseConfiguration>
+<pxMessageSummary>
+<pxObjClass>Embed-Message-Summary</pxObjClass>
+<pxUnjustifiedWarningCount>1</pxUnjustifiedWarningCount>
+<pxWarningCount>1</pxWarningCount>
+</pxMessageSummary>
+<pyCasePredictions REPEATINGTYPE="PageList"/>
+<pyToolBarSettings>
+<pyFavorites>true</pyFavorites>
+<pxCanJustifyWarnings>true</pxCanJustifyWarnings>
+<pyRecover>false</pyRecover>
+<pyForward>true</pyForward>
+<pyBranchOut>false</pyBranchOut>
+<pyRestore>false</pyRestore>
+<pySave>false</pySave>
+<pyLaunch>true</pyLaunch>
+<pyHasQualifiers>false</pyHasQualifiers>
+<pyCheckIn>false</pyCheckIn>
+<pyRequiresCheckOut>true</pyRequiresCheckOut>
+<pySiblings>true</pySiblings>
+<pyAvailability>false</pyAvailability>
+<pyHelpRef>/rule-/rule-obj-/rule-obj-casetype/main</pyHelpRef>
+<pyDelegates>false</pyDelegates>
+<pyRefresh>true</pyRefresh>
+<pyPreview>false</pyPreview>
+<pyRun>false</pyRun>
+<pyCheckOut>true</pyCheckOut>
+<pyRuleData>true</pyRuleData>
+<pyVersionSecure>false</pyVersionSecure>
+<pyRuleResolution>true</pyRuleResolution>
+<pyCurrentlyOpen>true</pyCurrentlyOpen>
+<pxObjClass>Embed-WBSettings-ToolBar</pxObjClass>
+<pyDelete>true</pyDelete>
+<pyShowJava>true</pyShowJava>
+<pyNew>true</pyNew>
+<pyBack>true</pyBack>
+<pyHelpURI>https://community.pega.com/help_v824/rule-/rule-obj-/rule-obj-casetype/main</pyHelpURI>
+<pySaveAs>true</pySaveAs>
+<pyPropertyPane>false</pyPropertyPane>
+<pyUsesInheritance>true</pyUsesInheritance>
+</pyToolBarSettings>
+<pxAPIMethodReferences REPEATINGTYPE="PageList"/>
+<pyPerformCaseView>
+<pxObjClass>Embed-CaseTypeView</pxObjClass>
+<pyLabel>Perform</pyLabel>
+<pyType>Harness</pyType>
+</pyPerformCaseView>
+<pxWarnings REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-Warning</pxObjClass>
+<pxWarningSeverity>3</pxWarningSeverity>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxWarningMessage>(Rule-)pxPegaUnit</pxWarningMessage>
+<pxWarningType>Maintainability</pxWarningType>
+<pxWarningCreateOperator>jay.hysenbegasi@gmail.com</pxWarningCreateOperator>
+<pxWarningRuleSetType>PEGA</pxWarningRuleSetType>
+<pxWarningCreatedTime>20250708T145354.466 GMT</pxWarningCreatedTime>
+<pxWarningName>Pega Unit Warning</pxWarningName>
+<pxWarningDetails>(Rule-)pxPegaUnit</pxWarningDetails>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="Warnings">0</rowdata>
+</pzIndexes>
+</rowdata>
+</pxWarnings>
+<pyCalculations REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-Rule-Obj-CaseType-Calc</pxObjClass>
+<pyLabel>Property to calculate</pyLabel>
+<pyOperation>SUM</pyOperation>
+<pyInputs REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-Rule-Obj-CaseType-CalcInput</pxObjClass>
+</rowdata>
+</pyInputs>
+</rowdata>
+</pyCalculations>
+<pyRelatedClasses REPEATINGTYPE="PageList"/>
+<pyCasetypeStartingFlows REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-ChooseRule</pxObjClass>
+</rowdata>
+</pyCasetypeStartingFlows>
+<pxRuleReferences REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>Resolved</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-When</pxRuleObjClass>
+<pxRuleFamilyName>RESOLVED</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">1</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="2">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>Our-Shops-Work-CustomerReview</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Class</pxRuleObjClass>
+<pxRuleFamilyName>OUR-SHOPS-WORK-CUSTOMERREVIEW</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">2</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="3">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>MonitorAndReport_Flow</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Flow</pxRuleObjClass>
+<pxRuleFamilyName>MONITORANDREPORT_FLOW</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">3</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="4">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyChangeStage</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FlowAction</pxRuleObjClass>
+<pxRuleFamilyName>PYCHANGESTAGE</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">4</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="5">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>Process_0</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-ServiceLevel</pxRuleObjClass>
+<pxRuleFamilyName>PROCESS_0</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">5</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="6">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>ImplementImprovements_Flow</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Flow</pxRuleObjClass>
+<pxRuleFamilyName>IMPLEMENTIMPROVEMENTS_FLOW</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">6</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="7">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyUpdateCaseDetails</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FlowAction</pxRuleObjClass>
+<pxRuleFamilyName>PYUPDATECASEDETAILS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">7</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="8">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaseManagementDefault</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-WorkParties</pxRuleObjClass>
+<pxRuleFamilyName>PYCASEMANAGEMENTDEFAULT</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">8</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="9">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>CustomerResponse_Flow</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Flow</pxRuleObjClass>
+<pxRuleFamilyName>CUSTOMERRESPONSE_FLOW</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">9</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="10">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyReopen</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FlowAction</pxRuleObjClass>
+<pxRuleFamilyName>PYREOPEN</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">10</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="11">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>SentimentAnalysis_Flow</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Flow</pxRuleObjClass>
+<pxRuleFamilyName>SENTIMENTANALYSIS_FLOW</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">11</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="12">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>FeedbackCollection_Flow</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Flow</pxRuleObjClass>
+<pxRuleFamilyName>FEEDBACKCOLLECTION_FLOW</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">12</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="13">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>InformationRequest_Flow</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Flow</pxRuleObjClass>
+<pxRuleFamilyName>INFORMATIONREQUEST_FLOW</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">13</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="14">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>@baseclass</pxRuleClassName>
+<pyRuleName>@baseclass</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Class</pxRuleObjClass>
+<pxRuleFamilyName>@BASECLASS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">14</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="15">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyActionPrompt Feedback Collection</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYACTIONPROMPT!FEEDBACK COLLECTION</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">15</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="16">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyButtonLabel Feedback Collection</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYBUTTONLABEL!FEEDBACK COLLECTION</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">16</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="17">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Feedback Collection</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!FEEDBACK COLLECTION</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">17</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="18">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyActionPrompt Sentiment Analysis</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYACTIONPROMPT!SENTIMENT ANALYSIS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">18</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="19">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyButtonLabel Sentiment Analysis</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYBUTTONLABEL!SENTIMENT ANALYSIS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">19</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="20">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Sentiment Analysis</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!SENTIMENT ANALYSIS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">20</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="21">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyActionPrompt Customer Response</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYACTIONPROMPT!CUSTOMER RESPONSE</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">21</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="22">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyButtonLabel Customer Response</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYBUTTONLABEL!CUSTOMER RESPONSE</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">22</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="23">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Customer Response</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!CUSTOMER RESPONSE</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">23</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="24">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyActionPrompt Implement Improvements</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYACTIONPROMPT!IMPLEMENT IMPROVEMENTS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">24</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="25">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyButtonLabel Implement Improvements</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYBUTTONLABEL!IMPLEMENT IMPROVEMENTS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">25</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="26">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Implement Improvements</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!IMPLEMENT IMPROVEMENTS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">26</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="27">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyActionPrompt Monitor and Report</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYACTIONPROMPT!MONITOR AND REPORT</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">27</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="28">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyButtonLabel Monitor and Report</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYBUTTONLABEL!MONITOR AND REPORT</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">28</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="29">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Monitor and Report</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!MONITOR AND REPORT</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">29</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="30">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyActionPrompt Information Request</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYACTIONPROMPT!INFORMATION REQUEST</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">30</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="31">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyButtonLabel Information Request</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYBUTTONLABEL!INFORMATION REQUEST</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">31</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="32">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Information Request</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!INFORMATION REQUEST</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">32</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="33">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyActionPrompt Approval Rejection</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYACTIONPROMPT!APPROVAL REJECTION</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">33</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="34">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyButtonLabel Approval Rejection</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYBUTTONLABEL!APPROVAL REJECTION</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">34</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="35">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Approval Rejection</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!APPROVAL REJECTION</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">35</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="36">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyLabel Customer Review</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYLABEL!CUSTOMER REVIEW</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">36</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="37">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Customer Review</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!CUSTOMER REVIEW</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">37</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="38">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyLabel Customer Review</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYLABEL!CUSTOMER REVIEW</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">38</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="39">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Customer Review</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!CUSTOMER REVIEW</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">39</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="40">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Feedback Collection</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!FEEDBACK COLLECTION</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">40</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="41">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Sentiment Analysis</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!SENTIMENT ANALYSIS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">41</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="42">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Customer Response</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!CUSTOMER RESPONSE</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">42</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="43">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Implement Improvements</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!IMPLEMENT IMPROVEMENTS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">43</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="44">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Monitor and Report</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!MONITOR AND REPORT</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">44</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="45">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Information Request</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!INFORMATION REQUEST</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">45</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="46">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyButtonLabel Edit details</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYBUTTONLABEL!EDIT DETAILS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">46</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="47">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyActionPrompt Edit details</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYACTIONPROMPT!EDIT DETAILS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">47</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="48">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Edit details</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!EDIT DETAILS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">48</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="49">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyButtonLabel Change stage</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYBUTTONLABEL!CHANGE STAGE</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">49</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="50">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyActionPrompt Change stage</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYACTIONPROMPT!CHANGE STAGE</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">50</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="51">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Change stage</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!CHANGE STAGE</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">51</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="52">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyButtonLabel Reopen</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYBUTTONLABEL!REOPEN</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">52</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="53">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyActionPrompt Reopen</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYACTIONPROMPT!REOPEN</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">53</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="54">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>pyCaption Reopen</pyRuleName>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-FieldValue</pxRuleObjClass>
+<pxRuleFamilyName>PYCAPTION!REOPEN</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">54</rowdata>
+</pzIndexes>
+</rowdata>
+</pxRuleReferences>
+<pyCaseOptionalProcesses REPEATINGTYPE="PageList"/>
+<pyStatusGroups REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-Rule-Obj-CaseType-Status</pxObjClass>
+<pyStatusWorkList REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-Rule-Obj-CaseType-Status</pxObjClass>
+</rowdata>
+</pyStatusWorkList>
+</rowdata>
+</pyStatusGroups>
+<pxWarningsToDisplay REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-Warning</pxObjClass>
+<pxWarningSeverity>3</pxWarningSeverity>
+<pzIndexOwnerKey>RULE-OBJ-CASETYPE OUR-SHOPS-WORK-CUSTOMERREVIEW PYDEFAULT #20250708T145349.451 GMT</pzIndexOwnerKey>
+<pxWarningMessage>You should create a test case for this rule to identify any regression issues that might occur when this rule is modified.</pxWarningMessage>
+<pxWarningType>Maintainability</pxWarningType>
+<pxWarningCreateOperator>jay.hysenbegasi@gmail.com</pxWarningCreateOperator>
+<pxWarningRuleSetType>PEGA</pxWarningRuleSetType>
+<pxWarningName>Pega Unit Warning</pxWarningName>
+<pxWarningCreatedTime>20250708T145354.466 GMT</pxWarningCreatedTime>
+<pxWarningDetails>(Rule-)pxPegaUnit</pxWarningDetails>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="Warnings">0</rowdata>
+</pzIndexes>
+</rowdata>
+</pxWarningsToDisplay>
+</pagedata>

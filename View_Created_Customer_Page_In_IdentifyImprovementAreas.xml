@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+
+<pagedata>
+<pyRuleAvailable>Yes</pyRuleAvailable>
+<pyRuleName>IdentifyImprovementAreas_Customer</pyRuleName>
+<pxUpdateSystemID>pega</pxUpdateSystemID>
+<pzIndexCount>6</pzIndexCount>
+<pyValueChanged>false</pyValueChanged>
+<pyClassName>Our-Shops-Work-CustomerReview</pyClassName>
+<pxUpdateDateTime>20250729T161805.140 GMT</pxUpdateDateTime>
+<pzRuleSetVersionMinor>01</pzRuleSetVersionMinor>
+<pyTempIdentifier>Customer Review</pyTempIdentifier>
+<pySortDateCircumWithinRSMajor>true</pySortDateCircumWithinRSMajor>
+<pzRuleSetVersionMajor>01</pzRuleSetVersionMajor>
+<pyRuleFormStatusTime>20250731T144009.672 GMT</pyRuleFormStatusTime>
+<pxContextMetadata>{"$properties":[".Customer.pyGUID",".Customer.Address",".Customer"],"$insights":[],"$genAICoaches":[],"$attachments":[],"$widgets":[],"$addresses":[],"$associated":[],"$users":[],"$classesmetadata":[{"name":"Our-Shops-Data-Customer","fetchDefaultDataSources":true}],"$views":[],"$pagelists":[{"metaDataOnly":true,"pagelist":"D_CustomerList"}],"$whens":[],"$paragraphs":[]}</pxContextMetadata>
+<pxDependencies>{"components":["Region","AutoComplete","DataReference"],"localeReferences":["@BASECLASS!DATAPAGE!D_CUSTOMERLIST","OUR-SHOPS-WORK-CUSTOMERREVIEW!VIEW!IDENTIFYIMPROVEMENTAREAS_CUSTOMER"]}</pxDependencies>
+<pzRuleSetVersionPatch>01</pzRuleSetVersionPatch>
+<pxHostId>pega-pega-8c84d8784-s5xvr</pxHostId>
+<pxCreateDateTime>20250729T161804.213 GMT</pxCreateDateTime>
+<pyRuleFormType>Harness</pyRuleFormType>
+<pyRuleSet>Shops_Branch_BP-2</pyRuleSet>
+<pyRuleHarness>RuleForm</pyRuleHarness>
+<pyBaseRule>false</pyBaseRule>
+<pxInsName>OUR-SHOPS-WORK-CUSTOMERREVIEW!IDENTIFYIMPROVEMENTAREAS_CUSTOMER</pxInsName>
+<pyShowJavaWindowName>GeneratedJava20250731T144009.677 GMT</pyShowJavaWindowName>
+<pxViewMetadata>{"name":"IdentifyImprovementAreas_Customer","type":"View","config":{"template":"DataReference","referenceList":"D_CustomerList","name":"Customer","mode":"singleselect","contextClass":"Our-Shops-Data-Customer","ruleClass":"Our-Shops-Work-CustomerReview","selectionMode":"single","classKeys":[{"name":"pyGUID"}],"localeReference":"@LR OUR-SHOPS-WORK-CUSTOMERREVIEW!VIEW!IDENTIFYIMPROVEMENTAREAS_CUSTOMER"},"children":[{"type":"AutoComplete","config":{"value":"@P .Customer.pyGUID","label":"@L ","placeholder":"Select...","listType":"datapage","datasource":"D_CustomerList","primaryField":"@P .Customer.Address","deferDatasource":true,"contextPage":"@P .Customer","columns":[{"value":".pyGUID","setProperty":"Associated property","key":"true"},{"value":".Address","display":"true","useForSearch":true,"primary":"true"}]}},{"name":"Views","type":"Region","children":[]}]}</pxViewMetadata>
+<pxSaveDateTime>20250729T161805.222 GMT</pxSaveDateTime>
+<pzInsKey>RULE-UI-VIEW OUR-SHOPS-WORK-CUSTOMERREVIEW IDENTIFYIMPROVEMENTAREAS_CUSTOMER #20250729T161804.213 GMT</pzInsKey>
+<pxInsId>!IDENTIFYIMPROVEMENTAREAS_CUSTOMER</pxInsId>
+<pyIsStaleRuleCheckEnabled>false</pyIsStaleRuleCheckEnabled>
+<pyRuleFormStatus>Good</pyRuleFormStatus>
+<pyRuleSetVersion>01-01-01</pyRuleSetVersion>
+<pzDocumentKey>RULE-UI-VIEW OUR-SHOPS-WORK-CUSTOMERREVIEW IDENTIFYIMPROVEMENTAREAS_CUSTOMER #20250729T161804.213 GMT</pzDocumentKey>
+<pyStepPageReference>RH_1</pyStepPageReference>
+<pxUpdateOpName>Jay Hysenbegasi</pxUpdateOpName>
+<pxUpdateOperator>jay.hysenbegasi@gmail.com</pxUpdateOperator>
+<pyObjClassLabel>View</pyObjClassLabel>
+<pxSecurityData>{"$actions":[]}</pxSecurityData>
+<pyHasViewDivergedFromSection>true</pyHasViewDivergedFromSection>
+<pzChecksum>-1254340068</pzChecksum>
+<pyDescription>Auto-generated from the IdentifyImprovementAreas_Customer section.</pyDescription>
+<pxTabLabel>IdentifyImprovementAreas_Customer</pxTabLabel>
+<pxObjClass>Rule-UI-View</pxObjClass>
+<pxViewType>datareference</pxViewType>
+<pxCreateOperator>jay.hysenbegasi@gmail.com</pxCreateOperator>
+<pxCreateSystemID>pega</pxCreateSystemID>
+<pxLimitedAccess>Dev</pxLimitedAccess>
+<pyLabel>Identify Improvement Areas - Customer</pyLabel>
+<pxCommitDateTime>20250729T161805.292 GMT</pxCommitDateTime>
+<pxCreateOpName>Jay Hysenbegasi</pxCreateOpName>
+<pzStatus>valid</pzStatus>
+<pyListOfViewPrivileges REPEATINGTYPE="PageList"/>
+<pyRuleVersionsList REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Rule-</pxObjClass>
+<pyValue>4</pyValue>
+<pxListSubscript>1</pxListSubscript>
+<pzInsKey>RULE-UI-VIEW OUR-SHOPS-WORK-CUSTOMERREVIEW IDENTIFYIMPROVEMENTAREAS_CUSTOMER #20250729T161804.213 GMT</pzInsKey>
+<pyLabel>BP-2 (Available)</pyLabel>
+</rowdata>
+</pyRuleVersionsList>
+<pyToolBarSettings>
+<pyFavorites>true</pyFavorites>
+<pxCanJustifyWarnings>true</pxCanJustifyWarnings>
+<pyRecover>false</pyRecover>
+<pyForward>true</pyForward>
+<pyRestore>false</pyRestore>
+<pyBranchOut>false</pyBranchOut>
+<pySave>false</pySave>
+<pyLaunch>true</pyLaunch>
+<pyHasQualifiers>false</pyHasQualifiers>
+<pyCheckIn>false</pyCheckIn>
+<pySiblings>true</pySiblings>
+<pyRequiresCheckOut>true</pyRequiresCheckOut>
+<pyAvailability>false</pyAvailability>
+<pyHelpRef>/rule-/rule-ui-/rule-ui-view/main</pyHelpRef>
+<pyDelegates>false</pyDelegates>
+<pyRefresh>true</pyRefresh>
+<pyPreview>false</pyPreview>
+<pyRun>false</pyRun>
+<pyCheckOut>true</pyCheckOut>
+<pyRuleData>true</pyRuleData>
+<pyVersionSecure>false</pyVersionSecure>
+<pyRuleResolution>true</pyRuleResolution>
+<pyCurrentlyOpen>true</pyCurrentlyOpen>
+<pxObjClass>Embed-WBSettings-ToolBar</pxObjClass>
+<pyNew>true</pyNew>
+<pyDelete>true</pyDelete>
+<pyShowJava>false</pyShowJava>
+<pyBack>true</pyBack>
+<pyHelpURI>https://community.pega.com/help_v824/rule-/rule-ui-/rule-ui-view/main</pyHelpURI>
+<pySaveAs>true</pySaveAs>
+<pyPropertyPane>false</pyPropertyPane>
+<pyUsesInheritance>true</pyUsesInheritance>
+</pyToolBarSettings>
+<pyRMAction>
+<pxObjClass>Embed-RuleManagement</pxObjClass>
+<pyAction>load</pyAction>
+</pyRMAction>
+<pyCustomFields REPEATINGTYPE="PageGroup">
+<rowdata REPEATINGINDEX="empty">
+<pxObjClass>Embed-CustomFieldsList</pxObjClass>
+<pxSubscript>empty</pxSubscript>
+</rowdata>
+</pyCustomFields>
+<pxWarnings REPEATINGTYPE="PageList"/>
+<pxRuleReferences REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>Customer</pyRuleName>
+<pzIndexOwnerKey>RULE-UI-VIEW OUR-SHOPS-WORK-CUSTOMERREVIEW IDENTIFYIMPROVEMENTAREAS_CUSTOMER #20250729T161804.213 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Property</pxRuleObjClass>
+<pxRuleFamilyName>CUSTOMER</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">0</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="2">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Data-Customer</pxRuleClassName>
+<pyRuleName>pyGUID</pyRuleName>
+<pzIndexOwnerKey>RULE-UI-VIEW OUR-SHOPS-WORK-CUSTOMERREVIEW IDENTIFYIMPROVEMENTAREAS_CUSTOMER #20250729T161804.213 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Property</pxRuleObjClass>
+<pxRuleFamilyName>PYGUID</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">1</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="3">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>Customer</pyRuleName>
+<pzIndexOwnerKey>RULE-UI-VIEW OUR-SHOPS-WORK-CUSTOMERREVIEW IDENTIFYIMPROVEMENTAREAS_CUSTOMER #20250729T161804.213 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Property</pxRuleObjClass>
+<pxRuleFamilyName>CUSTOMER</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">2</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="4">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Data-Customer</pxRuleClassName>
+<pyRuleName>Address</pyRuleName>
+<pzIndexOwnerKey>RULE-UI-VIEW OUR-SHOPS-WORK-CUSTOMERREVIEW IDENTIFYIMPROVEMENTAREAS_CUSTOMER #20250729T161804.213 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Property</pxRuleObjClass>
+<pxRuleFamilyName>ADDRESS</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">3</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="5">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pxRuleClassName>Our-Shops-Work-CustomerReview</pxRuleClassName>
+<pyRuleName>Customer</pyRuleName>
+<pzIndexOwnerKey>RULE-UI-VIEW OUR-SHOPS-WORK-CUSTOMERREVIEW IDENTIFYIMPROVEMENTAREAS_CUSTOMER #20250729T161804.213 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Obj-Property</pxRuleObjClass>
+<pxRuleFamilyName>CUSTOMER</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">4</rowdata>
+</pzIndexes>
+</rowdata>
+<rowdata REPEATINGINDEX="6">
+<pxObjClass>Embed-Reference-Rule</pxObjClass>
+<pyRuleName>D_CustomerList</pyRuleName>
+<pzIndexOwnerKey>RULE-UI-VIEW OUR-SHOPS-WORK-CUSTOMERREVIEW IDENTIFYIMPROVEMENTAREAS_CUSTOMER #20250729T161804.213 GMT</pzIndexOwnerKey>
+<pxRuleObjClass>Rule-Declare-Pages</pxRuleObjClass>
+<pxRuleFamilyName>D_CUSTOMERLIST</pxRuleFamilyName>
+<pzIndexes REPEATINGTYPE="PropertyGroup">
+<rowdata REPEATINGINDEX="RuleReference">5</rowdata>
+</pzIndexes>
+</rowdata>
+</pxRuleReferences>
+<pyPagesAndClasses REPEATINGTYPE="PageList">
+<rowdata REPEATINGINDEX="1">
+<pxObjClass>Embed-PagesAndClasses</pxObjClass>
+</rowdata>
+</pyPagesAndClasses>
+<pxWarningsToDisplay REPEATINGTYPE="PageList"/>
+</pagedata>
