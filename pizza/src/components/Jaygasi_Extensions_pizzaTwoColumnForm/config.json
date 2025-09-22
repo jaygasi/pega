@@ -1,0 +1,27 @@
+{
+  "name": "Jaygasi_Extensions_pizzaTwoColumnForm",
+  "label": "pizza Two Column Form",
+  "description": "pizza Two Column Form",
+  "organization": "Jaygasi",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Jaygasi_Extensions_pizzaTwoColumnForm",
+  "type": "Template",
+  "subtype": "FORM",
+  "icon": "TwoColumn.svg",
+  "properties": [
+    {
+      "name": "A",
+      "label": "Region A",
+      "format": "CONTENTPICKER",
+      "allowCreatingGroup": true
+    },
+    {
+      "name": "B",
+      "label": "Region B",
+      "format": "CONTENTPICKER",
+      "allowCreatingGroup": true
+    }
+  ]
+}

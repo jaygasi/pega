@@ -1,0 +1,8 @@
+"use strict";
+/* eslint-disable camelcase */
+// @ts-ignore
+if (window?.__webpack_nonce__) {
+    // @ts-ignore
+    __webpack_nonce__ = window.__webpack_nonce__;
+}
+//# sourceMappingURL=create-nonce.js.map
