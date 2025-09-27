@@ -181,8 +181,9 @@ const PDFViewer: React.FC<PDFViewerProps> = ({
         if (v) {
           setResolvedPdfSrc(v);
           return;
+        }
       } catch (err) {
-  if (effectiveDebug) console.debug('PDFViewer: error resolving pdf property', cfgPdfProperty, err);
+        if (effectiveDebug) console.debug('PDFViewer: error resolving pdf property', cfgPdfProperty, err);
       }
       if (!cancelled && attempts < maxAttempts) setTimeout(tryResolve, delayMs);
     };
@@ -190,4 +191,332 @@ const PDFViewer: React.FC<PDFViewerProps> = ({
     return () => { cancelled = true; };
   }, [value, cfgPdfProperty, pConnect, effectiveDebug]);
 
-*** End Patch
+  const [resolvedParentPage, setResolvedParentPage] = useState<any>(
+    pConnect?.getValue?.(effectiveHighlightParentProp) || {}
+  );
+  useEffect(() => {
+    if (!effectiveHighlightParentProp || typeof pConnect?.getValue !== 'function') {
+      setResolvedParentPage({});
+      return undefined;
+    }
+
+    let cancelled = false;
+    let attempts = 0;
+    const maxAttempts = 6;
+    const delayMs = 300;
+
+    const tryResolveParent = () => {
+      attempts += 1;
+      try {
+        const direct = pConnect.getValue(effectiveHighlightParentProp);
+        const alt = effectiveHighlightParentProp.startsWith('.') ? pConnect.getValue(effectiveHighlightParentProp.slice(1)) : pConnect.getValue(`.${effectiveHighlightParentProp}`);
+        const v = typeof direct !== 'undefined' ? direct : alt;
+        if (v) {
+          setResolvedParentPage(v);
+          return;
+        }
+      } catch (err) {
+  if (effectiveDebug) console.debug('PDFViewer: error resolving parent prop', effectiveHighlightParentProp, err);
+      }
+      if (!cancelled && attempts < maxAttempts) setTimeout(tryResolveParent, delayMs);
+    };
+
+    tryResolveParent();
+    return () => { cancelled = true; };
+  }, [effectiveHighlightParentProp, pConnect, effectiveDebug]);
+
+  const pxResultsPages = useMemo(() => {
+    const obj = resolvedParentPage || {};
+
+    const direct = () => {
+      const v = obj?.pxResults;
+      return Array.isArray(v) && v.length ? v : null;
+    };
+
+    const scanTopLevelArrays = () => {
+      const found: any[] = [];
+      for (const key of Object.keys(obj)) {
+        const v = (obj as Record<string, any>)[key];
+        if (Array.isArray(v) && v.length && v.some((el: any) => el && (el.pageindex !== undefined || el.pageIndex !== undefined || Array.isArray(el?.pxResults)))) {
+          found.push(...v);
+        }
+      }
+      return found.length ? found : null;
+    };
+
+    const scanNestedArrays = () => {
+      const found: any[] = [];
+      for (const val of Object.values(obj)) {
+        if (Array.isArray(val) && val.length && typeof val[0] === 'object') {
+          for (const el of val) {
+            if (el && (el.pageindex !== undefined || el.pageIndex !== undefined || Array.isArray(el?.pxResults))) found.push(el);
+          }
+        }
+      }
+      return found.length ? found : null;
+    };
+
+    try {
+      return direct() ?? scanTopLevelArrays() ?? scanNestedArrays() ?? [];
+    } catch (err) {
+  if (effectiveDebug) console.debug('PDFViewer: error extracting pxResultsPages', err);
+      return [];
+    }
+  }, [resolvedParentPage, effectiveDebug]);
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const viewerRootRef = useRef<HTMLDivElement>(null);
+  const [fileUrl, setFileUrl] = useState('');
+  const [pixelHighlights, setPixelHighlights] = useState<any[]>([]);
+  const defaultLayoutPluginInstance = defaultLayoutPlugin();
+
+  useEffect(() => {
+    if (!resolvedPdfSrc) return setFileUrl('');
+    if (resolvedPdfSrc.startsWith('http')) setFileUrl(resolvedPdfSrc);
+    else setFileUrl(base64ToBlobUrl(resolvedPdfSrc));
+  }, [resolvedPdfSrc]);
+
+  // When the viewer is available and pxResultsPages change, compute pixel overlays
+  useEffect(() => {
+    if (!fileUrl) {
+      setPixelHighlights([]);
+      return undefined;
+    }
+    // Try applying the pxResultsPages into pixel overlays. If none computed,
+    // keep pixelHighlights empty and fall back to the percentage-based highlights.
+    try {
+      const applied = applyPxResultsToViewer(pxResultsPages, viewerRootRef, setPixelHighlights, effectiveDebug);
+      if (!applied) setPixelHighlights([]);
+    } catch (err) {
+  if (effectiveDebug) console.debug('PDFViewer: error applying pxResults to viewer', err);
+      setPixelHighlights([]);
+    }
+    return undefined;
+  }, [fileUrl, pxResultsPages, effectiveDebug]);
+
+  const highlights = pxResultsPages.find((p: any) => (p.pageindex ?? p.pageIndex ?? 0) === currentPage)?.pxResults || [];
+
+  const handleHighlightClick = (pageIdx: number) => {
+    setCurrentPage(pageIdx);
+  };
+
+  useEffect(() => {
+    if (!effectiveDebug) return undefined;
+    try {
+  console.group('PDFViewer debug');
+      console.log('effectiveHighlightParentProp:', effectiveHighlightParentProp);
+      console.log('resolvedParentPage:', resolvedParentPage);
+      console.log('resolvedPdfSrc present?:', Boolean(resolvedPdfSrc));
+      console.log('pxResultsPages length:', pxResultsPages.length);
+      console.groupEnd();
+    } catch (err) {
+  console.debug('PDFViewer: debug logging failed', err);
+    }
+    return undefined;
+  }, [effectiveDebug, effectiveHighlightParentProp, resolvedParentPage, resolvedPdfSrc, pxResultsPages.length]);
+
+  const pageContains = useCallback((page: any, lowercase: string) => {
+    const results = Array.isArray(page?.pxResults) ? page.pxResults : [];
+    for (const r of results) {
+      const txt = (r?.text ?? r?.content ?? r?.value ?? '')?.toString?.() || '';
+      if (txt.toLowerCase().includes(lowercase)) return true;
+    }
+    return false;
+  }, []);
+
+  function getPageIndexFromElement(el: Element | null): number | undefined {
+    if (!el) return undefined;
+    const pageEl = el.closest('[data-page-index],[data-page-number]');
+    if (!pageEl) return undefined;
+    const attr = pageEl.getAttribute('data-page-index') ?? pageEl.getAttribute('data-page-number');
+    if (!attr) return undefined;
+    const n = parseInt(attr, 10);
+    return Number.isNaN(n) ? undefined : n;
+  }
+
+  const domSearch = useCallback((lowercase: string) => {
+    try {
+      const root = viewerRootRef.current;
+      if (!root) return false;
+
+      const prev = root.querySelectorAll('[data-sipdv-search-highlight]');
+      prev.forEach((el) => {
+        if (el instanceof HTMLElement) el.style.background = '';
+        try { el.removeAttribute('data-sipdv-search-highlight'); } catch (e) { /* ignore */ }
+      });
+
+      const textLayers = root.querySelectorAll('.rpv-core__text-layer');
+      for (const tl of Array.from(textLayers)) {
+        const layer = tl as Element;
+        const content = (layer.textContent || '').toLowerCase();
+        if (!content.includes(lowercase)) continue;
+        const maybeMatch = Array.from(layer.querySelectorAll('span, div')).find((n) => (n.textContent || '').toLowerCase().includes(lowercase));
+        if (!maybeMatch || !(maybeMatch instanceof HTMLElement)) continue;
+        const pageIdx = getPageIndexFromElement(layer);
+        if (pageIdx === undefined) continue;
+        try {
+          setCurrentPage(pageIdx);
+          maybeMatch.style.background = 'rgba(255,255,0,0.6)';
+          maybeMatch.setAttribute('data-sipdv-search-highlight', 'true');
+          maybeMatch.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        } catch (e) {
+          /* ignore DOM write errors */
+        }
+  if (effectiveDebug) console.debug('PDFViewer: found in-rendered text, navigated to page', pageIdx);
+        return true;
+      }
+    } catch (err) {
+  if (effectiveDebug) console.debug('PDFViewer: DOM search error', err);
+    }
+    return false;
+  }, [effectiveDebug]);
+
+  const performSearch = useCallback((searchText: string) => {
+    const search = (searchText || '').toString().trim();
+    if (!search) return false;
+    const lowercase = search.toLowerCase();
+
+    try {
+      for (const p of pxResultsPages) {
+        if (pageContains(p, lowercase)) {
+          const pageIdx = (p?.pageindex ?? p?.pageIndex ?? p?.page);
+          if (typeof pageIdx === 'number' && !Number.isNaN(pageIdx)) {
+            setCurrentPage(pageIdx);
+            if (effectiveDebug) console.debug('PDFViewer: found in pxResultsPages, navigated to page', pageIdx);
+            return true;
+          }
+        }
+      }
+    } catch (err) {
+  if (effectiveDebug) console.debug('PDFViewer: error searching pxResultsPages', err);
+    }
+
+    return domSearch(lowercase);
+  }, [pxResultsPages, effectiveDebug, pageContains, domSearch]);
+
+  useEffect(() => {
+    try {
+      (window as any).pdfViewer = (window as any).pdfViewer || {};
+      (window as any).pdfViewer.search = performSearch;
+    } catch (e) {
+  if (effectiveDebug) console.debug('PDFViewer: failed to expose window API', e);
+    }
+
+    const onSearch = (ev: Event) => {
+      const detail = (ev as CustomEvent)?.detail || {};
+      const searchText: string = (detail?.searchText || '').toString().trim();
+      if (!searchText) return;
+      performSearch(searchText);
+    };
+
+    window.addEventListener('simplePdfViewerSearch', onSearch as EventListener);
+    return () => {
+      try {
+        if ((window as any).pdfViewer) delete (window as any).pdfViewer.search;
+      } catch (e) {
+        if (effectiveDebug) console.debug('PDFViewer: error removing window API', e);
+      }
+      window.removeEventListener('simplePdfViewerSearch', onSearch as EventListener);
+    };
+  }, [performSearch, effectiveDebug]);
+
+  useEffect(() => {
+    if (!effectiveSearchProperty || typeof pConnect?.getValue !== 'function') return undefined;
+    try {
+      const val = pConnect.getValue(effectiveSearchProperty);
+      if (val && typeof val === 'string') {
+        performSearch(val);
+      }
+    } catch (e) {
+  if (effectiveDebug) console.debug('PDFViewer: error reading search property', effectiveSearchProperty, e);
+  if (effectiveDebug) console.debug('PDFViewer: error reading search property', effectiveSearchProperty, e);
+    }
+    return undefined;
+  }, [effectiveSearchProperty, pConnect, performSearch, effectiveDebug]);
+
+  return (
+    <div style={{ position: 'relative', height }}>
+      {fileUrl ? (
+        <Worker workerUrl={workerUrl}>
+          <div ref={viewerRootRef} style={{ position: 'relative', height: '100%' }}>
+            <Viewer
+              fileUrl={fileUrl}
+              plugins={[defaultLayoutPluginInstance]}
+              defaultScale={SpecialZoomLevel.PageFit}
+              initialPage={currentPage}
+              onPageChange={(args: any) => {
+                const cp = args?.currentPage ?? args?.currentPageNumber ?? 0;
+                setCurrentPage(cp);
+              }}
+            />
+
+            {/* Render pixel-based highlights if available; otherwise fall back to fractional highlights */}
+            <div style={{ position: 'absolute', left: 0, top: 0, right: 0, bottom: 0, pointerEvents: 'none' }}>
+              {(pixelHighlights.length ? pixelHighlights : (highlights || [])).map((h: any, i: number) => {
+                const isPixel = Boolean(h && typeof h.left === 'number' && String(h.left).endsWith('') && !Number.isNaN(h.left) && !!h.pageIndex);
+                if (pixelHighlights.length) {
+                  const pageMatch = h.pageIndex ?? h.pageindex ?? h.page ?? currentPage;
+                  return (
+                    <button
+                      key={h.id || i}
+                      aria-label="Highlight"
+                      type="button"
+                      style={{
+                        position: 'absolute',
+                        left: `${h.left}px`,
+                        top: `${h.top}px`,
+                        width: `${h.width}px`,
+                        height: `${h.height}px`,
+                        background: h.color ?? highlightColor,
+                        border: 'none',
+                        borderRadius: 2,
+                        padding: 0,
+                        margin: 0,
+                        pointerEvents: 'auto',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => handleHighlightClick(pageMatch)}
+                    />
+                  );
+                }
+
+                // fractional fallback (0..1) -> percent overlay
+                const left = (h.left ?? h.left_coordinate ?? 0) * 100;
+                const top = (h.top ?? h.top_coordinate ?? 0) * 100;
+                const widthVal = (h.width ?? 0) * 100;
+                const heightVal = (h.height ?? 0) * 100;
+                const pageIdx = h.pageindex ?? h.pageIndex ?? h.page ?? currentPage;
+                return (
+                  <button
+                    key={h.id || i}
+                    aria-label="Highlight"
+                    type="button"
+                    style={{
+                      position: 'absolute',
+                      left: `${left}%`,
+                      top: `${top}%`,
+                      width: `${widthVal}%`,
+                      height: `${heightVal}%`,
+                      background: highlightColor,
+                      border: 'none',
+                      borderRadius: 2,
+                      padding: 0,
+                      margin: 0,
+                      pointerEvents: 'auto',
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => handleHighlightClick(pageIdx)}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </Worker>
+      ) : (
+        <div style={{ padding: 20 }}>No PDF source available</div>
+      )}
+    </div>
+  );
+};
+
+export default withConfiguration(PDFViewer);
