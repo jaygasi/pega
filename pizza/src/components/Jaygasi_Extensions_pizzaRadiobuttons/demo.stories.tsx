@@ -7,7 +7,7 @@ import { configProps, rawMetadata, fieldMetadata, stateProps } from './mock';
 import JaygasiExtensionsPizzaRadiobuttons from './index';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaRadiobuttons> = {
-  title: 'JaygasiExtensionsPizzaRadiobuttons',
+  title: 'Jaygasi/PizzaRadiobuttons',
   component: JaygasiExtensionsPizzaRadiobuttons,
   excludeStories: /.*Data$/
 };

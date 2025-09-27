@@ -7,7 +7,7 @@ import type { JaygasiExtensionsTextInputSearchProps } from './index';
 import { configProps, stateProps, fieldMetadata } from './mock';
 
 const meta: Meta<typeof JaygasiExtensionsTextInputSearch> = {
-  title: 'JaygasiExtensionsTextInputSearch',
+  title: 'Jaygasi/TextInputSearch',
   component: JaygasiExtensionsTextInputSearch,
   excludeStories: /.*Data$/
 };
@@ -80,7 +80,7 @@ BaseJaygasiExtensionsTextInputSearch.args = {
   variant: configProps.variant,
   validatemessage: configProps.validatemessage,
   formatter: 'TextInput',
-  onSearchAction: (searchText) => {
+  onSearchAction: (searchText: string) => {
     console.log(`Pega search action triggered for: ${searchText}`);
     // Example: Trigger a Pega action here
     // pConn.getActionsApi().updateFieldValue('.SearchText', searchText);

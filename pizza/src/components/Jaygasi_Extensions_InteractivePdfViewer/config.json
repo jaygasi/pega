@@ -1,0 +1,44 @@
+{
+  "name": "Jaygasi_Extensions_InteractivePdfViewer",
+  "label": "Interactive PDF Viewer",
+  "description": "PDF viewer coordinate-based highlights.",
+  "organization": "Jaygasi",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "type": "Field",
+  "subtype": "Text",
+  "componentKey": "Jaygasi_Extensions_InteractivePdfViewer",
+  "icon": "pi pi-file-pdf",
+  "properties": [
+    {
+      "name": "PDFReference",
+      "label": "PDF Source Property",
+      "format": "PROPERTY",
+      "required": true,
+      "description": "Select the property holding the PDF URL or Base64 string."
+    },
+    {
+      "name": "HighlightData",
+      "label": "Highlight Data Property",
+      "format": "PROPERTY",
+      "required": true,
+      "description": "Select the Page List property holding the highlight coordinates and metadata (e.g., .HighlightData)."
+    },
+    {
+      "name": "OnSelectProperty",
+      "label": "Property to Update on Click",
+      "format": "PROPERTY",
+      "description": "Select the property to populate with the FieldID when a highlight is clicked (e.g., .SelectedFieldID)."
+    },
+    {
+      "name": "height",
+      "label": "Viewer Height",
+      "format": "TEXT",
+      "placeholder": "750px",
+      "description": "Specify the height of the PDF viewer (e.g., 750px or 80vh)."
+    }
+  ],
+  "defaultConfig": {
+    "height": "750px"
+  }
+}

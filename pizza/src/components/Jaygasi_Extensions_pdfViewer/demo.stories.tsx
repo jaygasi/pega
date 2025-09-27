@@ -31,6 +31,13 @@ const getMockProps = (overrides: Partial<JaygasiExtensionsPDFViewerProps> = {}) 
       };
     },
     label: "PDF Viewer",
+    // PConnFieldProps defaults required by the component's props interface
+    required: false,
+    disabled: false,
+    value: undefined,
+    validatemessage: '',
+    readOnly: false,
+    testId: 'pdf-viewer-story',
     hideLabel: false,
     helperText: "",
     pdfSource: overrides.pdfSource || '',
@@ -40,12 +47,13 @@ const getMockProps = (overrides: Partial<JaygasiExtensionsPDFViewerProps> = {}) 
 };
 
 export default {
-  title: 'JaygasiExtensionsPDFViewer',
+  title: 'Jaygasi/PDFViewer',
   component: PDFViewer
 };
 
 export const Base = (args: JaygasiExtensionsPDFViewerProps) => {
-  return <PDFViewer {...getMockProps(args)} />;
+  const props = getMockProps(args) as any;
+  return <PDFViewer {...props} />;
 };
 
 Base.args = {

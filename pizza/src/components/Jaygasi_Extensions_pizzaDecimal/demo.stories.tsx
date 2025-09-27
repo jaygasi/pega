@@ -7,7 +7,7 @@ import { configProps, fieldMetadata, stateProps } from './mock';
 import JaygasiExtensionsPizzaDecimal from './index';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaDecimal> = {
-  title: 'JaygasiExtensionsPizzaDecimal',
+  title: 'Jaygasi/PizzaDecimal',
   component: JaygasiExtensionsPizzaDecimal,
   excludeStories: /.*Data$/
 };

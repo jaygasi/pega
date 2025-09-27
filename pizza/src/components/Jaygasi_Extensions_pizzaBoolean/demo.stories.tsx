@@ -8,7 +8,7 @@ import { configProps, stateProps } from './mock';
 import JaygasiExtensionsPizzaBoolean from './index';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaBoolean> = {
-  title: 'JaygasiExtensionsPizzaBoolean',
+  title: 'Jaygasi/PizzaBoolean',
   component: JaygasiExtensionsPizzaBoolean,
   excludeStories: /.*Data$/
 };

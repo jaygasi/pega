@@ -11,4 +11,12 @@ src/helpers/config_access.js
 *.cjs
 paths.js
 dist/*
-lib/*
+lib/
+
+# Ignore dependencies
+node_modules
+
+# Ignore build output
+build
+dist
+public

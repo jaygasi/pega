@@ -8,7 +8,7 @@ import { PhoneInput as CosmosPhone } from '@pega/cosmos-react-core';
 import { pyReviewRaw, regionChildrenResolved } from './mock';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaTwoColumnForm> = {
-  title: 'JaygasiExtensionsPizzaTwoColumnForm',
+  title: 'Jaygasi/PizzaTwoColumnForm',
   component: JaygasiExtensionsPizzaTwoColumnForm,
   excludeStories: /.*Data$/,
   parameters: {

@@ -5,7 +5,7 @@ import JaygasiExtensionsPizzaPhone from './index';
 import { stateProps, configProps } from './mock';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaPhone> = {
-  title: 'JaygasiExtensionsPizzaPhone',
+  title: 'Jaygasi/PizzaPhone',
   component: JaygasiExtensionsPizzaPhone,
   excludeStories: /.*Data$/
 };

@@ -2,7 +2,7 @@
 import styled, { css } from 'styled-components';
 export default styled.div(() => {
     return css `
-    width: 100%;
+    /* width: 100%; */
 
     & > label {
       display: block;

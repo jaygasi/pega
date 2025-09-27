@@ -7,7 +7,7 @@ import JaygasiExtensionsPizzaEmail from './index';
 import { stateProps, configProps, fieldMetadata } from './mock';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaEmail> = {
-  title: 'JaygasiExtensionsPizzaEmail',
+  title: 'Jaygasi/PizzaEmail',
   component: JaygasiExtensionsPizzaEmail,
   excludeStories: /.*Data$/
 };

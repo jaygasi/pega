@@ -1,7 +1,8 @@
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  addons: ['@storybook/addon-links', '@storybook/addon-essentials'], 
+  staticDirs: ['../src/components/public'],
   framework: {
     name: '@storybook/react-webpack5'
   },

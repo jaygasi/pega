@@ -7,7 +7,7 @@ import { configProps, rawMetadata, fieldMetadata, stateProps } from './mock';
 import JaygasiExtensionsPizzaSearchbox from './index';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaSearchbox> = {
-  title: 'JaygasiExtensionsPizzaSearchbox',
+  title: 'Jaygasi/PizzaSearchbox',
   component: JaygasiExtensionsPizzaSearchbox,
   excludeStories: /.*Data$/
 };

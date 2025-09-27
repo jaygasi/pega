@@ -4,7 +4,7 @@ import { configProps, stateProps } from './mock';
 import JaygasiExtensionsPizzaDateTime from './index';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaDateTime> = {
-  title: 'JaygasiExtensionsPizzaDateTime',
+  title: 'Jaygasi/PizzaDateTime',
   component: JaygasiExtensionsPizzaDateTime,
   excludeStories: /.*Data$/
 };

@@ -1,0 +1,96 @@
+{
+  "name": "Jaygasi_Extensions_InteractivePDFAdvanced",
+  "label": "Interactive PDF Advanced",
+  "description": "Advanced PDF viewer base64 PDF",
+  "organization": "Jaygasi",
+  "tags": ["pdf", "viewer", "interactive"],
+  "componentKey": "Jaygasi_Extensions_InteractivePDFAdvanced",
+  "type": "Field",
+  "subtype": "Text",
+  "modes": [
+    { "name": "Editable", "label": "Editable" },
+    { "name": "Read-Only", "label": "Read-only" }
+  ],
+  "properties": [
+    {
+      "name": "label",
+      "label": "Field label",
+      "format": "TEXT"
+    },
+    {
+      "name": "height",
+      "label": "Viewer Height",
+      "format": "TEXT",
+      "placeholder": "600px",
+      "description": "Specify the height of the PDF viewer (e.g., 600px or 80vh)."
+    },
+    {
+      "name": "pdfProperty",
+      "label": "PDF Property (clipboard)",
+      "format": "PROPERTY",
+      "description": "Pega property that contains the PDF base64 string (or a data URL). Example: .MyPDFBase64"
+    },
+    {
+      "name": "highlightProperty",
+      "label": "Highlight Data Property",
+      "format": "PROPERTY",
+      "//hint": "Allow selecting a Page or PageList that contains pxResults",
+      "valueType": "Page",
+      "dataType": "Page",
+      "description": "Pega property that contains highlight metadata (pxResults). Example: .MyHighlights"
+    },
+    {
+      "name": "additionalHighlightProps",
+      "label": "Additional Highlight Props",
+      "format": "TEXT",
+      "description": "Comma-separated list of other property refs to merge highlight data from (optional). Example: .OtherHighlights,.MoreHighlights"
+    },
+    {
+      "name": "onSelectProperty",
+      "label": "On Select Property",
+      "format": "PROPERTY",
+      "description": "Property to update when a highlight is selected (e.g., set to the highlight id)."
+    },
+    {
+      "name": "searchPropRef",
+      "label": "Search Property Reference",
+      "format": "PROPERTY",
+      "description": "Property to bind the search term to (the control will write the search term to this property when typing)."
+    },
+    {
+      "name": "enableSearch",
+      "label": "Enable Search UI",
+      "format": "BOOLEAN",
+      "description": "When true, shows a small search input above the viewer and writes the term to the configured Search Property Reference."
+    },
+    {
+      "name": "enablePegaWorkaround",
+      "label": "Enable Pega layout workaround",
+      "format": "BOOLEAN",
+      "description": "Enable a targeted workaround for Pega skins that force toolbar buttons to stack vertically. Turn on only if your environment requires it."
+    },
+    {
+      "name": "enableDebugging",
+      "label": "Enable debug panel",
+      "format": "BOOLEAN",
+      "description": "Show an on-screen debug panel (bottom-right) that displays values read from configured clipboard properties. Useful when DevTools/console isn't visible (e.g., inside iframes)."
+    },
+    {
+      "name": "testPxResultsJson",
+      "label": "Test Highlight JSON",
+      "format": "TEXT",
+      "description": "Paste a JSON string (pxResults array or object with pxResults) to render test highlights in the viewer for debugging. Leave empty in production."
+    },
+    {
+      "name": "confidenceFilter",
+      "label": "Confidence Filter (min)",
+      "format": "TEXT",
+      "description": "Minimum confidence (0-1) to display highlights. Can be a literal or a PROPERTY reference."
+    }
+  ],
+  "defaultConfig": {
+    "height": "600px",
+    "enableSearch": false,
+    "enableDebugging": false
+  }
+}

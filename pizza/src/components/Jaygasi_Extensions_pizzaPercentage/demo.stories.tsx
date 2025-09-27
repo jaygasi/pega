@@ -7,7 +7,7 @@ import { configProps, stateProps, fieldMetadata } from './mock';
 import JaygasiExtensionsPizzaPercentage from './index';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaPercentage> = {
-  title: 'JaygasiExtensionsPizzaPercentage',
+  title: 'Jaygasi/PizzaPercentage',
   component: JaygasiExtensionsPizzaPercentage,
   excludeStories: /.*Data$/
 };

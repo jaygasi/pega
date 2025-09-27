@@ -2,12 +2,12 @@
 import styled, { css } from 'styled-components';
 export default styled.div(() => {
     return css `
-    margin: 0px 0;
-    & > div:first-child {  // Style for label Flex container
-      margin-bottom: 8px;  // Space between label/icon and input
-    }
-    & svg {  // Icon styling
-      color: var(--neutral-light-05, #6c757d);  // Example color, adjust as needed
+    display: flex;
+    align-items: flex-end; /* Aligns button with the bottom of the input field */
+    gap: 0.5rem; /* Adds a small space between the input and the button */
+
+    & > div:first-child { /* Targets the Cosmos Input component's wrapper */
+      flex-grow: 1; /* Allows the input field to take up available space */
     }
   `;
 });

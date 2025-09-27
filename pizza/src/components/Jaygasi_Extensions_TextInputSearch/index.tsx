@@ -13,7 +13,7 @@ import * as search from '@pega/cosmos-react-core/lib/components/Icon/icons/searc
 registerIcon(search);
 
 // Prop interface
-interface JaygasiExtensionsTextInputSearchProps extends PConnFieldProps {
+export interface JaygasiExtensionsTextInputSearchProps extends PConnFieldProps {
   readonly searchPropRef?: string;
 }
 
@@ -51,6 +51,41 @@ function JaygasiExtensionsTextInputSearch(props: Readonly<JaygasiExtensionsTextI
        // This is the correct API call. It posts the value to the server and
        // triggers the server-side processing configured in the view.
        actions.triggerFieldChange(searchPropRef, inputValue);
+      // Notify any local PDF viewer on the page about the search so it can
+      // navigate/highlight the matching text (viewer listens for this event).
+      const dispatchSearchEvent = (text?: string) => {
+        if (typeof window === 'undefined') return;
+        // Prefer standard CustomEvent constructor; if not available, attempt
+        // to use a vendor-provided fallback factory and otherwise skip.
+        try {
+          if (typeof (window as any).CustomEvent === 'function') {
+            const ev = new CustomEvent('simplePdfViewerSearch', { detail: { searchText: text, property: searchPropRef } });
+            window.dispatchEvent(ev);
+          } else if (typeof (window as any).CustomEvent === 'object') {
+            // some hosts expose CustomEvent as an object factory
+            const evPoly = (window as any).CustomEvent('simplePdfViewerSearch', { detail: { searchText: text, property: searchPropRef } });
+            window.dispatchEvent(evPoly);
+          } else if (typeof console !== 'undefined' && (console as any).debug) {
+            console.debug('TextInputSearch: CustomEvent unsupported; search event not dispatched');
+          }
+        } catch (err) {
+          if (typeof console !== 'undefined' && (console as any).debug) console.debug('TextInputSearch: failed to dispatch search event', err);
+        }
+      };
+
+      // Prefer the programmatic API when available for immediate response
+      try {
+        if (typeof window !== 'undefined' && (window as any).simplePdfViewer && typeof (window as any).simplePdfViewer.search === 'function') {
+          const handled = (window as any).simplePdfViewer.search(inputValue);
+          // If the viewer indicates it handled the search, skip event dispatch
+          if (handled) return;
+        }
+      } catch (err) {
+        if (typeof console !== 'undefined' && (console as any).debug) console.debug('TextInputSearch: error calling simplePdfViewer.search', err);
+      }
+
+      // Fallback to event dispatch for viewers that listen for the custom event
+      dispatchSearchEvent(inputValue);
      }
    };
  

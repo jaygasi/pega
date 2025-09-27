@@ -1,0 +1,31 @@
+{
+  "name": "Jaygasi_Extensions_SimpleInteractivePDFViewer",
+  "label": "Simple Interactive PDF Viewer",
+  "description": "Minimal PDF viewer with highlight overlays for Pega.",
+  "organization": "Jaygasi",
+  "componentKey": "Jaygasi_Extensions_SimpleInteractivePDFViewer",
+  "type": "Field",
+  "subtype": "Text",
+  "properties": [
+    {
+      "name": "highlightParentProp",
+      "label": "Highlight Parent Page Property",
+      "format": "TEXT",
+      "description": "Pega property for the parent page containing pxResults. Example: .myPage",
+      "required": true
+    },
+    {
+      "name": "height",
+      "label": "Viewer Height",
+      "format": "TEXT",
+      "placeholder": "600px",
+      "description": "Specify the height of the PDF viewer (e.g., 600px or 80vh)."
+    },
+    {
+      "name": "debug",
+      "label": "Enable Debug Logging",
+      "format": "BOOLEAN",
+      "description": "If enabled, logs details about highlightParentProp and overlays to the browser console."
+    }
+  ]
+}

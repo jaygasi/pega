@@ -6,7 +6,7 @@ import JaygasiExtensionsPizzaIconButtonUrl from './index';
 import { configProps } from './mock';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaIconButtonUrl> = {
-  title: 'JaygasiExtensionsPizzaIconButtonUrl',
+  title: 'Jaygasi/PizzaIconButtonUrl',
   component: JaygasiExtensionsPizzaIconButtonUrl,
   excludeStories: /.*Data$/
 };

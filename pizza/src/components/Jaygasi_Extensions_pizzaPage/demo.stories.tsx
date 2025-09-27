@@ -9,7 +9,7 @@ import JaygasiExtensionsPizzaPage from './index';
 import { pyHome1Resolved, pyHome1Raw } from './mock';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaPage> = {
-  title: 'JaygasiExtensionsPizzaPage',
+  title: 'Jaygasi/PizzaPage',
   component: JaygasiExtensionsPizzaPage,
   excludeStories: /.*Data$/,
 };

@@ -9,7 +9,7 @@ import Operator from './Operator';
 import type C11nEnv from '@pega/pcore-pconnect-typedefs/interpreter/c11n-env';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaDetails> = {
-  title: 'JaygasiExtensionsPizzaDetails',
+  title: 'Jaygasi/PizzaDetails',
   component: JaygasiExtensionsPizzaDetails,
   excludeStories: /.*Data$/,
   parameters: {

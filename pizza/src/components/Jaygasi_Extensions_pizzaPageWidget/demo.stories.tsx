@@ -8,7 +8,7 @@ import JaygasiExtensionsPizzaPageWidget from './index';
 import configProps from './mock';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaPageWidget> = {
-  title: 'JaygasiExtensionsPizzaPageWidget',
+  title: 'Jaygasi/PizzaPageWidget',
   component: JaygasiExtensionsPizzaPageWidget,
   excludeStories: /.*Data$/
 };

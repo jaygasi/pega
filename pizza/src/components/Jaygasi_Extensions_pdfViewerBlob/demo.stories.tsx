@@ -6,7 +6,7 @@ import { configProps, stateProps, rawMetadata } from './mock';
 import JaygasiExtensionsPDFViewerBlob from './index';
 
 const meta: Meta<typeof JaygasiExtensionsPDFViewerBlob> = {
-  title: 'JaygasiExtensionsPDFViewerBlob',
+  title: 'Jaygasi/PDFViewerBlob',
   component: JaygasiExtensionsPDFViewerBlob,
   excludeStories: /.*Data$/
 };

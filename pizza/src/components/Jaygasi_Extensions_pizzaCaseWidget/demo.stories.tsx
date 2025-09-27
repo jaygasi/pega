@@ -6,7 +6,7 @@ import JaygasiExtensionsPizzaCaseWidget from './index';
 import historyData from './mock';
 
 const meta: Meta<typeof JaygasiExtensionsPizzaCaseWidget> = {
-  title: 'JaygasiExtensionsPizzaCaseWidget',
+  title: 'Jaygasi/PizzaCaseWidget',
   component: JaygasiExtensionsPizzaCaseWidget,
   excludeStories: /.*Data$/
 };
