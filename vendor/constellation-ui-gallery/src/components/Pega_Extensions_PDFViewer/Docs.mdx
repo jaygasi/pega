@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="PDF Viewer" />
+
+# PDF Viewer
+
+This Constellation DX component renders a PDF from a URL or base64 source and overlays highlights provided via a configured parent property (typically `pxResults` from an AI/insights result or an attachments mapping).
+
+Props
+- `value` — PDF source (URL or base64 data URL)
+- `highlightParentProp` — clipboard property to read highlight metadata (pxResults array expected)
+- `searchProperty` — optional clipboard property to trigger searches
+- `height` — height of the viewer (e.g., `600px`)
+- `debug` — enable debug logging
+
+Integration notes
+- Use `actions.triggerFieldChange(prop, value)` to notify Constellation of highlight/selection changes.
+- The component exposes `window.simplePdfViewer.search(text)` for quick programmatic search triggers.

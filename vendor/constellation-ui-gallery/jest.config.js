@@ -13,6 +13,9 @@ module.exports = {
   verbose: true,
   moduleNameMapper: {
     shortcuts: '<rootDir>/node_modules/shortcuts/dist/index.js',
+    // Map style imports to a mock so Jest won't try to parse CSS files from node_modules
+    '\\.(css|less|scss|sass)$': '<rootDir>/__mocks__/styleMock.js',
+    '^.+\\.module\\.(css|scss|sass)$': 'identity-obj-proxy',
   },
   collectCoverageFrom: ['src/components/**/*.{ts,tsx,js,jsx}', '!**/*.(test|stories).{ts,tsx,js,jsx}'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],

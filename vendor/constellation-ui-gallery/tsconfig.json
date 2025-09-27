@@ -14,7 +14,7 @@
   "compilerOptions": {
     "noEmit": true,
     "allowJs": true,
-    "importsNotUsedAsValues": "remove",
+    "verbatimModuleSyntax": true,
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
