@@ -1,8 +1,8 @@
 {
     "components-directory-path": "src/components",
     "server-config": {
-        "rulesetName": "DX_Components_Branch_BP-1",
-        "rulesetVersion": "01-01-01",
+        "rulesetName": "DX_Components",
+        "rulesetVersion": "01-01-04",
         "sourceOfComponents": "Server",
         "devBuild": false,
         "serverType": "infinity",

@@ -1,5 +1,4 @@
 {
-  "extends": "@pega/tsconfig/index.json",
   "include": ["./**/*", ".storybook/**/*"],
   "compilerOptions": {
     "noEmit": true,
@@ -9,6 +8,13 @@
     "baseUrl": "./",
     "paths": {
       "@pega/pcore-pconnect-typedefs/*": ["node_modules/@pega/pcore-pconnect-typedefs/*"]
-    }
+    },
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "target": "ES2023"
   }
 }
