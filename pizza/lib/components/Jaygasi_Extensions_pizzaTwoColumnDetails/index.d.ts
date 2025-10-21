@@ -8,4 +8,3 @@ interface JaygasiExtensionsPizzaTwoColumnDetailsProps extends PConnFieldProps {
 }
 declare const _default: (props: JaygasiExtensionsPizzaTwoColumnDetailsProps) => JSX.Element;
 export default _default;
-//# sourceMappingURL=index.d.ts.map

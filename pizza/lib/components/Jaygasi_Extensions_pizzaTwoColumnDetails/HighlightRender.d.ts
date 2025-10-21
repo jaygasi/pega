@@ -4,4 +4,3 @@ interface HighlightRenderProps extends PConnProps {
 }
 declare const HighlightRender: (props: HighlightRenderProps) => import("react/jsx-runtime").JSX.Element;
 export default HighlightRender;
-//# sourceMappingURL=HighlightRender.d.ts.map

@@ -14,7 +14,7 @@ export declare function isHybrid(): boolean;
 export declare const isPageListInPath: (propertyName: any, currentClassID: any) => any;
 export declare const isEmbeddedField: (field: any) => boolean;
 export declare const getFieldListFromFilter: (filterExpression: any) => any[];
-export declare function isGroupingAdded(state: any): any;
+export declare function isGroupingAdded(state: any): boolean;
 export declare function getDataViewParameters(parameters: any, runtimeParams: any): {};
 export declare function generateKeyFromCompositeKeys(compositeKeys: any, rowData: any): string;
 export declare function getLookUpDataPageInfo(classID: any): {
@@ -24,11 +24,11 @@ export declare function getLookUpDataPageInfo(classID: any): {
 export declare function isAlternateKeyStorageForLookUp(lookUpDataPageInfo: any): boolean;
 export declare const isSelfReferencedProperty: (param: any, referenceProp: any) => boolean;
 export declare function getDescriptorsFieldName(property: any, pageClass: any): any;
-export declare function preparePatchQueryFields(fields: any, isDataObject: boolean | undefined, classID: string | undefined, getPConnect: any): any[];
-export declare function prepareFilters(keys?: never[], data?: {}, logicOperator?: string): {
+export declare function preparePatchQueryFields(fields: any, isDataObject: boolean, classID: string, getPConnect: any): any[];
+export declare function prepareFilters(keys?: any[], data?: {}, logicOperator?: string): {
     logic: string;
     filterConditions: {};
-} | null;
+};
 export declare function prepareAdditionalApiParams({ useExtendedTimeout, includeTotalCount }?: {
     useExtendedTimeout: any;
     includeTotalCount: any;
@@ -64,7 +64,7 @@ export declare function isOpenViewInModal(additionalDetails: any): any;
       }
     ]
 */
-export declare function formatPromotedFiltersAsFilterConditions(promotedFiltersObject?: {}): never[];
+export declare function formatPromotedFiltersAsFilterConditions(promotedFiltersObject?: {}): any[];
 /**
  * @param {Object} state
  * @param {Object} meta
@@ -80,8 +80,7 @@ export declare function updatePaginationStatesForMultipleCalls(state: any, meta:
 export declare function processRequests(state: any, meta: any, requests: any): Promise<{
     data: any[];
     queryStats: any;
-    count: undefined;
+    count: any;
 }>;
 export declare function getLeafValue(data: any, fieldName: any, fieldSeparator: any): any;
 export declare const buildAggOrCalcId: (columnId: any, functionName: any) => string;
-//# sourceMappingURL=repeat-utils.d.ts.map

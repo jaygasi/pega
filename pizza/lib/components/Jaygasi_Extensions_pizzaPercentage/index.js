@@ -121,4 +121,3 @@ function JaygasiExtensionsPizzaPercentage(props) {
             }, onResolveSuggestion: onResolveSuggestionHandler }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaPercentage);
-//# sourceMappingURL=index.js.map

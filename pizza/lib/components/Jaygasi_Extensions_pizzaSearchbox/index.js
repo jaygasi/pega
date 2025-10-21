@@ -841,4 +841,3 @@ function JaygasiExtensionsPizzaSearchbox(props) {
             }, mode: AC_TYPE, onResolveSuggestion: onResolveSuggestionHandler }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaSearchbox);
-//# sourceMappingURL=index.js.map

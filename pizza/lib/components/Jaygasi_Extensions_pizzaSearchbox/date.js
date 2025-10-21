@@ -151,4 +151,3 @@ export default {
     'Date-Time-Default': (value, options) => format(value, { ...options, formatter: 'Date-Time-Default' }),
     'Time-Default': (value, options) => format(value, { ...options, formatter: 'Time-Default' })
 };
-//# sourceMappingURL=date.js.map

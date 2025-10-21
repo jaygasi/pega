@@ -50,4 +50,3 @@ function JaygasiExtensionsPizzaDetails(props) {
                         container: { direction: 'column', alignItems: 'normal', colGap: 1, rowGap: 1.5 }, children: _jsx(DetailsRender, { child: child }) }, `r-${i + 1}`))) })] }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaDetails);
-//# sourceMappingURL=index.js.map

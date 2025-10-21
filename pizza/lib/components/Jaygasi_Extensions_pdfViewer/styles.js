@@ -16,4 +16,3 @@ export default styled.div(() => {
     }
   `;
 });
-//# sourceMappingURL=styles.js.map

@@ -48,4 +48,3 @@ export const operatorDetails = {
     },
     request: {}
 };
-//# sourceMappingURL=mock.js.map

@@ -42,4 +42,3 @@ export const stateProps = {
     },
     hasSuggestions: false
 };
-//# sourceMappingURL=mock.js.map

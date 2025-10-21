@@ -87,4 +87,3 @@ export const pyHome1Resolved = {
     ],
     classID: 'DIXL-MediaCo-UIPages'
 };
-//# sourceMappingURL=mock.js.map

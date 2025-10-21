@@ -30,4 +30,3 @@ function JaygasiExtensionsPizzaTwoColumnForm(props) {
                 _jsx(Flex, { container: flexContainer, children: child }, `r-${i + 1}`))) }) }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaTwoColumnForm);
-//# sourceMappingURL=index.js.map

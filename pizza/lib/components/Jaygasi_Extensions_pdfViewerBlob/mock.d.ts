@@ -26,4 +26,3 @@ export declare const rawMetadata: {
         testId: string;
     };
 };
-//# sourceMappingURL=mock.d.ts.map

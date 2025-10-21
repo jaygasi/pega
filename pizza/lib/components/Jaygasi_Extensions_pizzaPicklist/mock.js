@@ -71,4 +71,3 @@ export const fieldMetadata = {
         ]
     }
 };
-//# sourceMappingURL=mock.js.map

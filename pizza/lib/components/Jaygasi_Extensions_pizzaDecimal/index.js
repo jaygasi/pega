@@ -122,4 +122,3 @@ function JaygasiExtensionsPizzaDecimal(props) {
             }, onResolveSuggestion: onResolveSuggestionHandler }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaDecimal);
-//# sourceMappingURL=index.js.map

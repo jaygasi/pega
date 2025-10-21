@@ -3,4 +3,3 @@ export default {
     WORK_BASKET: 'workbasket',
     WORK_QUEUE: 'workqueue'
 };
-//# sourceMappingURL=component-constants.js.map

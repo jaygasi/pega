@@ -253,4 +253,3 @@ export const getDateTimeOptions = (withSeconds, is12h = false) => {
         ...getTimeOptions(withSeconds, is12h)
     };
 };
-//# sourceMappingURL=time-of-day.js.map

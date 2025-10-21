@@ -109,4 +109,3 @@ function JaygasiExtensionsPizzaParagraph(props) {
             }, onResolveSuggestion: onResolveSuggestionHandler }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaParagraph);
-//# sourceMappingURL=index.js.map

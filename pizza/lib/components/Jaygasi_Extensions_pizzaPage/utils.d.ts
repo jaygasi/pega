@@ -3,7 +3,7 @@
  * metadata of all regions.
  * @param {Function} pConnect PConnect of a Template component.
  */
-export declare function getAllFields(pConnect: Function): any;
+export declare function getAllFields(pConnect: Function): any[];
 /**
  * A helper function to create an object consisting react component as per the type.
  * This is used by CaseSummary template.
@@ -30,4 +30,3 @@ export declare function getIsAssignmentView(pConnect: Function): boolean;
  * @param {string} [instructions="casestep"] 'casestep', 'none', or the html content of a Rule-UI-Paragraph rule (processed via core's paragraph annotation handler)
  */
 export declare function getInstructions(pConnect: Function, instructions?: string): any;
-//# sourceMappingURL=utils.d.ts.map

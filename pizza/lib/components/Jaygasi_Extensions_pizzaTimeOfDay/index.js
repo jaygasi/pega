@@ -96,4 +96,3 @@ function JaygasiExtensionsPizzaTimeOfDay(props) {
             onFocus: actions.onFocus, onChange: handleChange, onBlur: handleBlur, onResolveSuggestion: onResolveSuggestionHandler }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaTimeOfDay);
-//# sourceMappingURL=index.js.map

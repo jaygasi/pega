@@ -23,7 +23,6 @@ export declare const preProcessColumns: (columns: any) => any;
 export declare const getDisplayFieldsMetaData: (columns: any) => {
     key: string;
     primary: string;
-    secondary: never[];
-    hidden: never[];
+    secondary: any[];
+    hidden: any[];
 };
-//# sourceMappingURL=picklist-utils.d.ts.map

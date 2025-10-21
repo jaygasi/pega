@@ -90,4 +90,3 @@ function JaygasiExtensionsPizzaRadiobuttons(props) {
             }, disabled: disabled, className: 'standard', name: fullReference, children: items }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaRadiobuttons);
-//# sourceMappingURL=index.js.map

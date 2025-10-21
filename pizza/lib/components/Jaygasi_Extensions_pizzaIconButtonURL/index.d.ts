@@ -7,4 +7,3 @@ interface JaygasiExtensionsPizzaIconButtonUrlProps extends PConnFieldProps {
 export declare const textFormatter: (value: string) => import("react/jsx-runtime").JSX.Element;
 declare const _default: (props: JaygasiExtensionsPizzaIconButtonUrlProps) => JSX.Element;
 export default _default;
-//# sourceMappingURL=index.d.ts.map

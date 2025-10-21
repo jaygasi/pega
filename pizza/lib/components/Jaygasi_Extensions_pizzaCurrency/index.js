@@ -136,4 +136,3 @@ function JaygasiExtensionsPizzaCurrency(props) {
             }, onResolveSuggestion: onResolveSuggestionHandler }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaCurrency);
-//# sourceMappingURL=index.js.map

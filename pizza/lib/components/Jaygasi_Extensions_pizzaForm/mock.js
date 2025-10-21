@@ -135,4 +135,3 @@ export const regionChildrenResolved = [
         key: 'serviceDate'
     }
 ];
-//# sourceMappingURL=mock.js.map

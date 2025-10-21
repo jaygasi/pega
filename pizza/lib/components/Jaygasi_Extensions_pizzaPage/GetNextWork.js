@@ -1,6 +1,4 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react';
 import { Button, useToaster } from '@pega/cosmos-react-core';
 export default function GetNextWork(props) {
     const { getPConnect, variant } = props;
@@ -23,4 +21,3 @@ export default function GetNextWork(props) {
     };
     return (_jsx(Button, { variant: variant, onClick: getNextWork, children: getPConnect().getLocalizedValue('Get next work', '', '') }));
 }
-//# sourceMappingURL=GetNextWork.js.map

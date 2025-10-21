@@ -7,4 +7,3 @@ export interface JaygasiExtensionsPDFViewerProps extends Readonly<PConnFieldProp
     debug?: boolean;
 }
 export default function JaygasiExtensionsPDFViewer(props: Readonly<JaygasiExtensionsPDFViewerProps>): import("react/jsx-runtime").JSX.Element;
-//# sourceMappingURL=index.d.ts.map

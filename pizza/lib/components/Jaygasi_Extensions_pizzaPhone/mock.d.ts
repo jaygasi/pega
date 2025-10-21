@@ -31,4 +31,3 @@ export declare const stateProps: {
     };
     hasSuggestions: boolean;
 };
-//# sourceMappingURL=mock.d.ts.map

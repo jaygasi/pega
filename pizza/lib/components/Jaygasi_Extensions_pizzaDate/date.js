@@ -388,4 +388,3 @@ export function format(value, type, options) {
     }
     return formattedValue;
 }
-//# sourceMappingURL=date.js.map

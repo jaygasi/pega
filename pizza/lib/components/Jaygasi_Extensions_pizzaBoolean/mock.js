@@ -19,4 +19,3 @@ export const configProps = {
 export const stateProps = {
     value: '.Test'
 };
-//# sourceMappingURL=mock.js.map

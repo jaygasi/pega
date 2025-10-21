@@ -116,4 +116,3 @@ function JaygasiExtensionsPizzaEmail(props) {
             onFocus: actions.onFocus, onResolveSuggestion: onResolveSuggestionHandler }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaEmail);
-//# sourceMappingURL=index.js.map

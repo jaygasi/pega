@@ -107,7 +107,7 @@ export declare const is12HClockFormat: (locale: string) => boolean;
  */
 export declare const getTimeOptions: (withSeconds: boolean, is12h?: boolean) => {
     hour12: boolean;
-    second?: string | undefined;
+    second: string;
     hour: string;
     minute: string;
 };
@@ -121,11 +121,10 @@ export declare const getTimeOptions: (withSeconds: boolean, is12h?: boolean) => 
  */
 export declare const getDateTimeOptions: (withSeconds: boolean, is12h?: boolean) => {
     hour12: boolean;
-    second?: string | undefined;
+    second: string;
     hour: string;
     minute: string;
     year: string;
     month: string;
     day: string;
 };
-//# sourceMappingURL=time-of-day.d.ts.map

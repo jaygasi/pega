@@ -50,4 +50,3 @@ export declare const fieldMetadata: {
         }[];
     };
 };
-//# sourceMappingURL=mock.d.ts.map

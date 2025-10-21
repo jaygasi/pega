@@ -15,4 +15,3 @@ const handleEvent = (actions, eventType, propName, value) => {
     }
 };
 export default handleEvent;
-//# sourceMappingURL=event-utils.js.map

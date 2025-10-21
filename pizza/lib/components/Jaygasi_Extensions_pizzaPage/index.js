@@ -29,4 +29,3 @@ function JaygasiExtensionsPizzaPage(props) {
             actions: enableGetNextWork ? _jsx(GetNextWork, { getPConnect: getPConnect }) : null }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaPage);
-//# sourceMappingURL=index.js.map

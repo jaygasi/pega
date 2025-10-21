@@ -1,3 +1,2 @@
-declare const _default: import("styled-components").StyledComponent<"div", import("styled-components").DefaultTheme, {}, never>;
+declare const _default: import("styled-components").StyledComponent<"div", any, {}, never>;
 export default _default;
-//# sourceMappingURL=styles.d.ts.map

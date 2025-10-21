@@ -167,4 +167,3 @@ export const updatePropertiesForNewRecord = (dataConfig, contextName, dataApiObj
         });
     });
 };
-//# sourceMappingURL=utils.js.map

@@ -388,4 +388,3 @@ const historyData = {
     request: {}
 };
 export default historyData;
-//# sourceMappingURL=mock.js.map

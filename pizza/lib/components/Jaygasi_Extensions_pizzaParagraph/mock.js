@@ -24,4 +24,3 @@ export const stateProps = {
     value: '.ParagraphSample',
     hasSuggestions: false
 };
-//# sourceMappingURL=mock.js.map

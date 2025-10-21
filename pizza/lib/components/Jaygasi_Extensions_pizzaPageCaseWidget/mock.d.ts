@@ -46,4 +46,3 @@ export declare const operatorDetails: {
     };
     request: {};
 };
-//# sourceMappingURL=mock.d.ts.map

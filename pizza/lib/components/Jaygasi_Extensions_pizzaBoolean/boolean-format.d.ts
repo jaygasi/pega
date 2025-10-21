@@ -3,4 +3,3 @@ declare const _default: {
 };
 export default _default;
 export declare function format(value: any, type: string): any;
-//# sourceMappingURL=boolean-format.d.ts.map

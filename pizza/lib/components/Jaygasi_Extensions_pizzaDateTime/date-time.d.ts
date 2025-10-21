@@ -12,4 +12,3 @@ declare const _default: {
     "Time-Default": (value: any, options: any) => any;
 };
 export default _default;
-//# sourceMappingURL=date-time.d.ts.map

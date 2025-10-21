@@ -20,4 +20,3 @@ interface JaygasiExtensionsPizzaCurrencyProps extends PConnFieldProps {
 }
 declare const _default: (props: JaygasiExtensionsPizzaCurrencyProps) => JSX.Element;
 export default _default;
-//# sourceMappingURL=index.d.ts.map

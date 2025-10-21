@@ -2,14 +2,14 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import JaygasiExtensionsPizzaTwoColumnForm from './index';
+import JaygasiExtensionsTwoColumnForm from './index';
 import { DateInput, Input, FieldValueList, Text } from '@pega/cosmos-react-core';
 import { PhoneInput as CosmosPhone } from '@pega/cosmos-react-core';
 import { pyReviewRaw, regionChildrenResolved } from './mock';
 
-const meta: Meta<typeof JaygasiExtensionsPizzaTwoColumnForm> = {
-  title: 'Jaygasi/PizzaTwoColumnForm',
-  component: JaygasiExtensionsPizzaTwoColumnForm,
+const meta: Meta<typeof JaygasiExtensionsTwoColumnForm> = {
+  title: 'Jaygasi/TwoColumnForm',
+  component: JaygasiExtensionsTwoColumnForm,
   excludeStories: /.*Data$/,
   parameters: {
     type: 'TwoColumnForm'
@@ -17,7 +17,7 @@ const meta: Meta<typeof JaygasiExtensionsPizzaTwoColumnForm> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof JaygasiExtensionsPizzaTwoColumnForm>;
+type Story = StoryObj<typeof JaygasiExtensionsTwoColumnForm>;
 
 const renderField = resolvedProps => {
   const { displayMode, value = '', label = '', key, readOnly } = resolvedProps;
@@ -161,7 +161,7 @@ const renderField = resolvedProps => {
   );
 };
 
-export const BaseJaygasiExtensionsPizzaTwoColumnForm: Story = args => {
+export const BaseJaygasiExtensionsTwoColumnForm: Story = args => {
   const { readOnly } = args;
 
   const props = {
@@ -256,13 +256,13 @@ export const BaseJaygasiExtensionsPizzaTwoColumnForm: Story = args => {
       });
 
   return (
-    <JaygasiExtensionsPizzaTwoColumnForm {...props} {...args}>
+    <JaygasiExtensionsTwoColumnForm {...props} {...args}>
       {[regionAChildren, regionBChildren]}
-    </JaygasiExtensionsPizzaTwoColumnForm>
+    </JaygasiExtensionsTwoColumnForm>
   );
 };
 
-BaseJaygasiExtensionsPizzaTwoColumnForm.args = {
+BaseJaygasiExtensionsTwoColumnForm.args = {
   readOnly: false,
   showLabel: true,
   label: 'Form Region template',

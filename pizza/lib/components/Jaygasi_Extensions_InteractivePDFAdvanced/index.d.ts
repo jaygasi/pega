@@ -10,4 +10,3 @@ export interface JaygasiExtensionsInteractivePDFAdvancedProps {
     workerUrl?: string;
 }
 export default function JaygasiExtensionsInteractivePDFAdvanced(props: Readonly<JaygasiExtensionsInteractivePDFAdvancedProps>): import("react/jsx-runtime").JSX.Element;
-//# sourceMappingURL=index.d.ts.map

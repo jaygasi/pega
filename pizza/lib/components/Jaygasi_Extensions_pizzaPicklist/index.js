@@ -196,4 +196,3 @@ function JaygasiExtensionsPizzaPicklist(props) {
             }, onResolveSuggestion: onResolveSuggestionHandler }, items) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaPicklist);
-//# sourceMappingURL=index.js.map

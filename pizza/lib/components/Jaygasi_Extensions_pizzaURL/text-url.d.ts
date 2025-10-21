@@ -7,5 +7,4 @@ export declare const textFormatter: (formatter: string, value: any) => any;
  * @param {object} options options for formatting
  * { displayAs,tableDisplayAs,isTableFormatter,altText,altTextOfImage,propaltTextOfImage,urlLabelSelection, urlLabel,propUrlLabel, widthSel, customWidth}
  */
-export declare const urlFormatter: (value: string, options: any) => import("react/jsx-runtime").JSX.Element;
-//# sourceMappingURL=text-url.d.ts.map
+export declare const urlFormatter: (value: string, options: any) => any;

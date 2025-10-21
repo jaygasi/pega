@@ -14,4 +14,3 @@ export default function FormattedText(props) {
     ];
     return _jsx(FieldValueList, { variant: variant, fields: fields, "data-testid": testId });
 }
-//# sourceMappingURL=FormattedText.js.map

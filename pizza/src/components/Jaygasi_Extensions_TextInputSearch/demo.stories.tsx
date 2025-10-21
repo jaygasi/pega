@@ -9,7 +9,71 @@ import { configProps, stateProps, fieldMetadata } from './mock';
 const meta: Meta<typeof JaygasiExtensionsTextInputSearch> = {
   title: 'Jaygasi/TextInputSearch',
   component: JaygasiExtensionsTextInputSearch,
-  excludeStories: /.*Data$/
+  excludeStories: /.*Data$/,
+  parameters: {
+    docs: {
+      page: () => import('./Docs.mdx'),
+    },
+  },
+  argTypes: {
+    fieldMetadata: {
+      table: {
+        disable: true,
+      },
+    },
+    additionalProps: {
+      table: {
+        disable: true,
+      },
+    },
+    displayMode: {
+      control: {
+        type: 'select',
+      },
+      options: {
+        'Edit Mode (Default)': '',
+        'Display Only (Read-only)': 'DISPLAY_ONLY', 
+        'Labels Left (Read-only)': 'LABELS_LEFT',
+        'Stacked Large Value (Read-only)': 'STACKED_LARGE_VAL'
+      },
+      table: {
+        defaultValue: { summary: '' },
+      },
+      description: 'Display modes: Edit allows input & search, others are read-only for showing existing values'
+    },
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: ['inline', 'stacked'],
+      table: {
+        defaultValue: { summary: 'inline' },
+      },
+    },
+    formatter: {
+      control: {
+        type: 'select',
+      },
+      options: ['TextInput', 'SearchInput', 'TextArea'],
+      table: {
+        defaultValue: { summary: 'TextInput' },
+      },
+    },
+    status: {
+      control: {
+        type: 'select',
+      },
+      options: ['', 'success', 'warning', 'error'],
+      table: {
+        defaultValue: { summary: '' },
+      },
+    },
+    getPConnect: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 };
 
 export default meta;
@@ -17,9 +81,9 @@ type Story = StoryObj<typeof JaygasiExtensionsTextInputSearch>;
 
 const getMockProps = (overrides: Partial<JaygasiExtensionsTextInputSearchProps> = {}) => {
   return {
-    value: configProps.value,
-    hasSuggestions: configProps.hasSuggestions,
-    formatter: configProps.formatter || 'TextInput',
+    value: overrides.value ?? configProps.value, // Use override value first
+    hasSuggestions: overrides.hasSuggestions ?? configProps.hasSuggestions,
+    formatter: overrides.formatter ?? configProps.formatter ?? 'TextInput',
     displayAsStatus: false,
     isTableFormatter: false,
     fieldMetadata,
@@ -30,8 +94,13 @@ const getMockProps = (overrides: Partial<JaygasiExtensionsTextInputSearchProps> 
         },
         getActionsApi: () => {
           return {
-            updateFieldValue: () => {/* nothing */},
-            triggerFieldChange: () => {/* nothing */},
+            updateFieldValue: (prop: string, value: any) => {
+              console.log('Mock updateFieldValue called:', { prop, value });
+            },
+            triggerFieldChange: (prop: string, value: any) => {
+              console.log('Mock triggerFieldChange called:', { prop, value });
+              alert(`Search triggered for: "${value}" on property: ${prop}`);
+            },
             onFocus: () => {/* nothing */}
           };
         },
@@ -54,14 +123,34 @@ const getMockProps = (overrides: Partial<JaygasiExtensionsTextInputSearchProps> 
     displayMode: overrides.displayMode ?? configProps.displayMode,
     variant: overrides.variant ?? configProps.variant,
     validatemessage: overrides.validatemessage ?? configProps.validatemessage,
+    searchPropRef: overrides.searchPropRef ?? configProps.searchPropRef, // Add searchPropRef
     ...overrides
   };
 };
 
 export const BaseJaygasiExtensionsTextInputSearch = (args: JaygasiExtensionsTextInputSearchProps) => {
+  // Merge args with mock props to make controls responsive
+  const props = getMockProps({
+    ...args,
+    // Ensure these Storybook controls are passed through
+    displayMode: args.displayMode,
+    variant: args.variant,
+    formatter: args.formatter,
+    status: args.status,
+    disabled: args.disabled,
+    readOnly: args.readOnly,
+    required: args.required,
+    hideLabel: args.hideLabel,
+    value: args.value,
+    label: args.label,
+    placeholder: args.placeholder,
+    helperText: args.helperText,
+    validatemessage: args.validatemessage
+  });
+
   return (
     <>
-      <JaygasiExtensionsTextInputSearch {...getMockProps(args)} />
+      <JaygasiExtensionsTextInputSearch {...props} />
     </>
   );
 };
@@ -80,11 +169,8 @@ BaseJaygasiExtensionsTextInputSearch.args = {
   variant: configProps.variant,
   validatemessage: configProps.validatemessage,
   formatter: 'TextInput',
-  onSearchAction: (searchText: string) => {
-    console.log(`Pega search action triggered for: ${searchText}`);
-    // Example: Trigger a Pega action here
-    // pConn.getActionsApi().updateFieldValue('.SearchText', searchText);
-  }
+  searchPropRef: configProps.searchPropRef, // Add searchPropRef to make button clickable
+  value: 'Sample search text' // Add default value to make button clickable
 };
 
 export const DisplayOnlyMode = (args: JaygasiExtensionsTextInputSearchProps) => {

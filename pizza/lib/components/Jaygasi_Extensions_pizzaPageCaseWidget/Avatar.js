@@ -1,6 +1,4 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-/* eslint-disable react-hooks/rules-of-hooks */
-import React from 'react';
 import { useEffect, useState } from 'react';
 import { Avatar as CosmosAvatar, withConfiguration } from '@pega/cosmos-react-core';
 function Avatar(props) {
@@ -54,4 +52,3 @@ function Avatar(props) {
     return _jsx(CosmosAvatar, { name: userName, imageSrc: imageBlobUrl });
 }
 export default withConfiguration(Avatar);
-//# sourceMappingURL=Avatar.js.map

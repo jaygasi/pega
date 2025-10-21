@@ -27,4 +27,3 @@ const DetailsRender = (props) => {
     return _jsx(_Fragment, { children: displayCompArr });
 };
 export default DetailsRender;
-//# sourceMappingURL=DetailsRender.js.map

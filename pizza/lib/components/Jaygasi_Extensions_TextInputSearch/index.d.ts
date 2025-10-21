@@ -6,4 +6,3 @@ export interface JaygasiExtensionsTextInputSearchProps extends PConnFieldProps {
 }
 declare const _default: (props: Readonly<JaygasiExtensionsTextInputSearchProps>) => JSX.Element;
 export default _default;
-//# sourceMappingURL=index.d.ts.map

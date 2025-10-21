@@ -26,4 +26,3 @@ export const fieldMetadata = {
     label: 'Email sample',
     validateAs: 'ValidEmailAddress'
 };
-//# sourceMappingURL=mock.js.map

@@ -10,4 +10,3 @@ interface JaygasiExtensionsPDFViewerProps extends PConnFieldProps {
 }
 export default function JaygasiExtensionsInteractivePdfViewer(props: Readonly<JaygasiExtensionsPDFViewerProps>): import("react/jsx-runtime").JSX.Element;
 export {};
-//# sourceMappingURL=index.d.ts.map

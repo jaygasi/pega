@@ -64,4 +64,3 @@ function JaygasiExtensionsPizzaPageWidget(props) {
     return (_jsxs(StyledJaygasiExtensionsPizzaPageWidgetWrapper, { children: [_jsx(PegaAppAnnouncement, { heading: header, description: description, details: details, whatsNewLink: whatsnewlink, image: image.replace(/ /g, '+') }), _jsx("br", {}), _jsx(Table, { title: PConnect.getLocalizedValue('Work list', '', ''), columns: columns, data: worklist, loading: isLoading, loadingMessage: PConnect.getLocalizedValue('Loading Work list', '', '') })] }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaPageWidget);
-//# sourceMappingURL=index.js.map

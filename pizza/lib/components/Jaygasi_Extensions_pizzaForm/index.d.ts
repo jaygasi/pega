@@ -8,4 +8,3 @@ interface JaygasiExtensionsPizzaFormProps extends PConnFieldProps {
 }
 declare const _default: (props: JaygasiExtensionsPizzaFormProps) => JSX.Element;
 export default _default;
-//# sourceMappingURL=index.d.ts.map

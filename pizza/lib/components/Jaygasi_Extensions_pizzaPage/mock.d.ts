@@ -71,4 +71,3 @@ export declare const pyHome1Resolved: {
     }[];
     classID: string;
 };
-//# sourceMappingURL=mock.d.ts.map

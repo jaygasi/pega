@@ -5,13 +5,13 @@ import './create-nonce';
 import DetailsRender from './DetailsRender';
 import HighlightRender from './HighlightRender';
 
-import StyledJaygasiExtensionsPizzaTwoColumnDetailsWrapper, { StyledDetailsGridContainer, StyledHighlightedFieldsHrLine } from './styles';
+import StyledJaygasiExtensionsTwoColumnDetailsWrapper, { StyledDetailsGridContainer, StyledHighlightedFieldsHrLine } from './styles';
 
 // includes in bundle
 import { getAllFields } from './utils';
 
 // interface for props
-interface JaygasiExtensionsPizzaTwoColumnDetailsProps extends PConnFieldProps {
+interface JaygasiExtensionsTwoColumnDetailsProps extends PConnFieldProps {
   // If any, enter additional props that only exist on TextInput here
   showLabel: boolean;
   showHighlightedData: boolean;
@@ -20,7 +20,7 @@ interface JaygasiExtensionsPizzaTwoColumnDetailsProps extends PConnFieldProps {
 
 // props passed in combination of props from property panel (config.json) and run time props from Constellation
 // any default values in config.pros should be set in defaultProps at bottom of this file
-function JaygasiExtensionsPizzaTwoColumnDetails(props: JaygasiExtensionsPizzaTwoColumnDetailsProps) {
+function JaygasiExtensionsTwoColumnDetails(props: Readonly<JaygasiExtensionsTwoColumnDetailsProps>) {
 
   const { getPConnect, label, children, showLabel = true, showHighlightedData = false  } = props;
   const propsToUse = { label, showLabel, ...getPConnect().getInheritedProps() };
@@ -32,7 +32,7 @@ function JaygasiExtensionsPizzaTwoColumnDetails(props: JaygasiExtensionsPizzaTwo
   });
 
   const numRegions = getAllFields(getPConnect)?.length;
-  const gridRepeat = "repeat(".concat(numRegions).concat(", 1fr)");
+  const gridRepeat = "repeat(".concat(String(numRegions)).concat(", 1fr)");
 
   const gridContainer: GridContainerProps = { colGap: 6 };
   gridContainer.cols = gridRepeat;
@@ -49,7 +49,7 @@ function JaygasiExtensionsPizzaTwoColumnDetails(props: JaygasiExtensionsPizzaTwo
   }
 
   return (
-    <StyledJaygasiExtensionsPizzaTwoColumnDetailsWrapper>
+    <StyledJaygasiExtensionsTwoColumnDetailsWrapper>
     <FieldGroup name={propsToUse.showLabel ? propsToUse.label : ''}>
       {showHighlightedData && highlightedDataArr.length > 0 && (
           <>
@@ -79,9 +79,9 @@ function JaygasiExtensionsPizzaTwoColumnDetails(props: JaygasiExtensionsPizzaTwo
        ))}
       </Grid>
     </FieldGroup>
-    </StyledJaygasiExtensionsPizzaTwoColumnDetailsWrapper>
+    </StyledJaygasiExtensionsTwoColumnDetailsWrapper>
   );
 
 }
 
-export default withConfiguration(JaygasiExtensionsPizzaTwoColumnDetails);
+export default withConfiguration(JaygasiExtensionsTwoColumnDetails);

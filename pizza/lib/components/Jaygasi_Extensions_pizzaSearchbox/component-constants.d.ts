@@ -4,4 +4,3 @@ declare const _default: {
     WORK_QUEUE: string;
 };
 export default _default;
-//# sourceMappingURL=component-constants.d.ts.map

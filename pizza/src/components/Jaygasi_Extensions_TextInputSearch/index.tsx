@@ -1,7 +1,7 @@
 // src/components/Jaygasi_Extensions_TextInputSearch/index.tsx
 
 import { useEffect, useState } from 'react';
-import { Icon, Button, Input, withConfiguration, registerIcon } from '@pega/cosmos-react-core';
+import { Icon, Button, Input, withConfiguration, registerIcon, FieldValueList, Text } from '@pega/cosmos-react-core';
 import type { PConnFieldProps } from './PConnProps';
 import './create-nonce';
 
@@ -15,6 +15,7 @@ registerIcon(search);
 // Prop interface
 export interface JaygasiExtensionsTextInputSearchProps extends PConnFieldProps {
   readonly searchPropRef?: string;
+  readonly displayMode?: string;
 }
 
 // Main Component Function
@@ -29,7 +30,8 @@ function JaygasiExtensionsTextInputSearch(props: Readonly<JaygasiExtensionsTextI
      testId,
      additionalProps = {},
      value,
-     searchPropRef
+     searchPropRef,
+     displayMode
    } = props;
 
    const pConn = getPConnect();
@@ -46,50 +48,109 @@ function JaygasiExtensionsTextInputSearch(props: Readonly<JaygasiExtensionsTextI
      setInputValue(event.target.value);
    };
  
-   const handleSearchIconClick = () => {
-     if (searchPropRef) {
-       // This is the correct API call. It posts the value to the server and
-       // triggers the server-side processing configured in the view.
-       actions.triggerFieldChange(searchPropRef, inputValue);
-      // Notify any local PDF viewer on the page about the search so it can
-      // navigate/highlight the matching text (viewer listens for this event).
-      const dispatchSearchEvent = (text?: string) => {
-        if (typeof window === 'undefined') return;
-        // Prefer standard CustomEvent constructor; if not available, attempt
-        // to use a vendor-provided fallback factory and otherwise skip.
-        try {
-          if (typeof (window as any).CustomEvent === 'function') {
-            const ev = new CustomEvent('simplePdfViewerSearch', { detail: { searchText: text, property: searchPropRef } });
-            window.dispatchEvent(ev);
-          } else if (typeof (window as any).CustomEvent === 'object') {
-            // some hosts expose CustomEvent as an object factory
-            const evPoly = (window as any).CustomEvent('simplePdfViewerSearch', { detail: { searchText: text, property: searchPropRef } });
-            window.dispatchEvent(evPoly);
-          } else if (typeof console !== 'undefined' && (console as any).debug) {
-            console.debug('TextInputSearch: CustomEvent unsupported; search event not dispatched');
-          }
-        } catch (err) {
-          if (typeof console !== 'undefined' && (console as any).debug) console.debug('TextInputSearch: failed to dispatch search event', err);
-        }
-      };
+  const handleSearchIconClick = () => {
+    console.log('TextInputSearch: Search button clicked!', { inputValue, searchPropRef, disabled, readOnly });
+    
+    if (!inputValue?.trim()) {
+      console.warn('TextInputSearch: No search text provided');
+      alert('Please enter search text first');
+      return;
+    }
 
-      // Prefer the programmatic API when available for immediate response
+    // Pega DX Pattern 1: Server-side integration using triggerFieldChange
+    if (searchPropRef) {
       try {
-        if (typeof window !== 'undefined' && (window as any).simplePdfViewer && typeof (window as any).simplePdfViewer.search === 'function') {
-          const handled = (window as any).simplePdfViewer.search(inputValue);
-          // If the viewer indicates it handled the search, skip event dispatch
-          if (handled) return;
-        }
+        actions.triggerFieldChange(searchPropRef, inputValue);
+        console.log('TextInputSearch: Triggered server search for:', inputValue);
       } catch (err) {
-        if (typeof console !== 'undefined' && (console as any).debug) console.debug('TextInputSearch: error calling simplePdfViewer.search', err);
+        console.error('TextInputSearch: Failed to trigger server search:', err);
       }
+    }
 
-      // Fallback to event dispatch for viewers that listen for the custom event
-      dispatchSearchEvent(inputValue);
-     }
-   };
- 
-   return (
+    // Pega DX Pattern 2: Multi-method PDF communication (inspired by SmartTextInput)
+    const triggerPDFSearch = (searchTerm: string) => {
+      try {
+        // Method 1: Standard CustomEvent for PDF viewers
+        window.dispatchEvent(new CustomEvent('pdfViewerSearch', {
+          detail: { searchText: searchTerm, property: searchPropRef }
+        }));
+
+        // Method 2: Legacy SimplePdfViewer event
+        window.dispatchEvent(new CustomEvent('simplePdfViewerSearch', {
+          detail: { searchText: searchTerm, property: searchPropRef }
+        }));
+
+        // Method 3: Global PDF Search Manager (UI_Gallery pattern)
+        if ((window as any).PDFSearchManager) {
+          (window as any).PDFSearchManager.triggerSearch(searchTerm);
+        }
+
+        // Method 4: Direct API call to PDF viewer
+        if ((window as any).simplePdfViewer?.search) {
+          const handled = (window as any).simplePdfViewer.search(searchTerm);
+          if (handled) console.log('TextInputSearch: PDF viewer handled search directly');
+        }
+
+        // Method 5: Generic PDF viewer API fallback
+        if ((window as any).pdfViewer?.search) {
+          (window as any).pdfViewer.search(searchTerm);
+        }
+
+        console.log('TextInputSearch: Dispatched PDF search events for:', searchTerm);
+      } catch (err) {
+        console.error('TextInputSearch: Error in PDF search communication:', err);
+      }
+    };
+
+    // Execute the PDF search
+    triggerPDFSearch(inputValue);
+  };
+
+  // Handle READ-ONLY display modes (no input, just display existing values)
+  if (displayMode === 'DISPLAY_ONLY') {
+    let displayComp = value || <span aria-hidden='true'>&ndash;&ndash;</span>;
+    return (
+      <StyledJaygasiExtensionsTextInputSearchWrapper> 
+        {displayComp} 
+      </StyledJaygasiExtensionsTextInputSearchWrapper>
+    );
+  }
+
+  if (displayMode === 'LABELS_LEFT') {
+    let displayComp = value || <span aria-hidden='true'>&ndash;&ndash;</span>;
+    return (
+      <StyledJaygasiExtensionsTextInputSearchWrapper>
+        <FieldValueList
+          variant={hideLabel ? 'stacked' : 'inline'}
+          data-testid={testId}
+          fields={[{ id: '1', name: hideLabel ? '' : label, value: displayComp }]}
+        />
+      </StyledJaygasiExtensionsTextInputSearchWrapper>
+    );
+  }
+
+  if (displayMode === 'STACKED_LARGE_VAL') {
+    const isValDefined = value !== undefined && value !== '';
+    const val = isValDefined ? (
+      <Text variant='h1' as='span'>
+        {value}
+      </Text>
+    ) : (
+      ''
+    );
+    return (
+      <StyledJaygasiExtensionsTextInputSearchWrapper>
+        <FieldValueList
+          variant='stacked'
+          data-testid={testId}
+          fields={[{ id: '2', name: hideLabel ? '' : label, value: val }]}
+        />
+      </StyledJaygasiExtensionsTextInputSearchWrapper>
+    );
+  }
+
+  // Default editable mode with search functionality
+  return (
      <StyledJaygasiExtensionsTextInputSearchWrapper>
        <Input
          {...additionalProps}
@@ -111,8 +172,9 @@ function JaygasiExtensionsTextInputSearch(props: Readonly<JaygasiExtensionsTextI
          label="Search"
          iconOnly
          onClick={handleSearchIconClick}
-         disabled={disabled || readOnly || !inputValue}
+         disabled={disabled || readOnly || !inputValue?.trim()}
          data-testid={`${testId}-search`}
+         title={`Search for: ${inputValue || 'Enter text first'}`}
        >
          <Icon name="search" />
        </Button>

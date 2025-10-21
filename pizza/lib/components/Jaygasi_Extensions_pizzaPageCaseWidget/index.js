@@ -18,4 +18,3 @@ function JaygasiExtensionsPizzaPageCaseWidget(props) {
     return user.userId && user.userName ? (_jsx(StyledJaygasiExtensionsPizzaPageCaseWidgetWrapper, { children: _jsxs(Card, { children: [_jsx(CardHeader, { children: title }), _jsx(CardContent, { children: _jsxs(Flex, { container: { direction: 'row' }, children: [_jsx(Operator, { label: hideLabel ? '' : _label, name: user.userName, id: user.userId, getPConnect: getPConnect, value: undefined, validatemessage: '', hideLabel: false, readOnly: false, required: false, disabled: false, externalUser: undefined, metaObj: undefined, testId: '', helperText: '' }), dateTimeValue && (_jsxs(Fragment, { children: [' ', _jsx(DateTimeDisplay, { value: dateTimeValue, variant: 'relative' })] }))] }) })] }) })) : (_jsx(StyledJaygasiExtensionsPizzaPageCaseWidgetWrapper, { children: "defVal" }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaPageCaseWidget);
-//# sourceMappingURL=index.js.map

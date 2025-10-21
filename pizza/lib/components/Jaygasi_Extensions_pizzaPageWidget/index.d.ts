@@ -10,4 +10,3 @@ interface JaygasiExtensionsPizzaPageWidgetProps extends PConnFieldProps {
 }
 declare const _default: (props: JaygasiExtensionsPizzaPageWidgetProps) => JSX.Element;
 export default _default;
-//# sourceMappingURL=index.d.ts.map

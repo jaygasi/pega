@@ -11,4 +11,3 @@ interface JaygasiExtensionsPizzaRadiobuttonsProps extends PConnFieldProps {
 }
 declare const _default: (props: JaygasiExtensionsPizzaRadiobuttonsProps) => JSX.Element;
 export default _default;
-//# sourceMappingURL=index.d.ts.map

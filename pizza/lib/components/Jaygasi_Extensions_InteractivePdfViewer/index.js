@@ -112,4 +112,3 @@ export default function JaygasiExtensionsInteractivePdfViewer(props) {
                     highlightPluginInstance
                 ], defaultScale: SpecialZoomLevel.PageFit }) })) : (_jsx("div", { style: { display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }, children: _jsx("p", { style: { color: 'red' }, children: "InteractivePdfViewer: No PDF Source. Check configuration for 'PDFReference'." }) })) }));
 }
-//# sourceMappingURL=index.js.map

@@ -5,4 +5,3 @@ interface DetailsRenderProps {
 }
 declare const DetailsRender: (props: DetailsRenderProps) => import("react/jsx-runtime").JSX.Element;
 export default DetailsRender;
-//# sourceMappingURL=DetailsRender.d.ts.map

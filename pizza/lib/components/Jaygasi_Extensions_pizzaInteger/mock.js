@@ -25,4 +25,3 @@ export const fieldMetadata = {
     displayAs: 'pxInteger',
     label: 'Integer sample'
 };
-//# sourceMappingURL=mock.js.map

@@ -21,5 +21,4 @@ export function getIsAssignmentView(pConnect: Function): boolean;
  * @param {Function} pConnect PConnect object for the component
  * @param {string} [instructions="casestep"] 'casestep', 'none', or the html content of a Rule-UI-Paragraph rule (processed via core's paragraph annotation handler)
  */
-export function getInstructions(pConnect: Function, instructions?: string | undefined): any;
-//# sourceMappingURL=utils.d.ts.map
+export function getInstructions(pConnect: Function, instructions?: string): any;

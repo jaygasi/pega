@@ -135,4 +135,3 @@ function JaygasiExtensionsPizzaPhone(props) {
             }, onResolveSuggestion: onResolveSuggestionHandler }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaPhone);
-//# sourceMappingURL=index.js.map

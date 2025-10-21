@@ -26,4 +26,3 @@ interface JaygasiExtensionsPizzaIntegerProps extends PConnFieldProps {
 }
 declare const _default: (props: JaygasiExtensionsPizzaIntegerProps) => JSX.Element;
 export default _default;
-//# sourceMappingURL=index.d.ts.map

@@ -242,4 +242,3 @@ export const configProps = {
     key: '_532zx1dah',
     displayMode: 'LABELS_LEFT'
 };
-//# sourceMappingURL=mock.js.map

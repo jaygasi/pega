@@ -288,4 +288,3 @@ export function mergePageListFieldsAggregation(fields, select, existingAggregati
 export function hasPageListProperty(fieldDefs) {
     return fieldDefs?.find((field) => isPageListProperty(field.name));
 }
-//# sourceMappingURL=embed-utils.js.map

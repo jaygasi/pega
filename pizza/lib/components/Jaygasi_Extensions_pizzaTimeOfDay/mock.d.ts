@@ -18,4 +18,3 @@ export declare const configProps: {
 export declare const stateProps: {
     value: string;
 };
-//# sourceMappingURL=mock.d.ts.map

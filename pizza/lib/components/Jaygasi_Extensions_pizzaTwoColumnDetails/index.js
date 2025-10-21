@@ -18,7 +18,7 @@ function JaygasiExtensionsPizzaTwoColumnDetails(props) {
         child.props.getPConnect().setInheritedProp('displayMode', 'DISPLAY_ONLY');
     });
     const numRegions = getAllFields(getPConnect)?.length;
-    const gridRepeat = "repeat(".concat(numRegions).concat(", 1fr)");
+    const gridRepeat = "repeat(".concat(String(numRegions)).concat(", 1fr)");
     const gridContainer = { colGap: 6 };
     gridContainer.cols = gridRepeat;
     gridContainer.alignItems = 'start';
@@ -38,4 +38,3 @@ function JaygasiExtensionsPizzaTwoColumnDetails(props) {
                         container: { direction: 'column', alignItems: 'normal', colGap: 1, rowGap: 1.5 }, children: _jsx(DetailsRender, { child: child }) }, `r-${i + 1}`))) })] }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaTwoColumnDetails);
-//# sourceMappingURL=index.js.map

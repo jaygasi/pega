@@ -26,4 +26,3 @@ export declare const fieldMetadata: {
     label: string;
     validateAs: string;
 };
-//# sourceMappingURL=mock.d.ts.map

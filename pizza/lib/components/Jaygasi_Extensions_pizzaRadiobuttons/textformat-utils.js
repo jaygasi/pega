@@ -118,4 +118,3 @@ export const urlFormatter = (value, options) => {
     }
     return urlFormatComp;
 };
-//# sourceMappingURL=textformat-utils.js.map

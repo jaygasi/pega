@@ -12,4 +12,3 @@ declare const configProps: {
     };
 };
 export default configProps;
-//# sourceMappingURL=mock.d.ts.map

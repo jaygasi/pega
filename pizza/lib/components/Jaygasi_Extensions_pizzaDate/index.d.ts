@@ -15,4 +15,3 @@ interface JaygasiExtensionsPizzaDateProps extends PConnFieldProps {
 }
 declare const _default: (props: JaygasiExtensionsPizzaDateProps) => JSX.Element;
 export default _default;
-//# sourceMappingURL=index.d.ts.map

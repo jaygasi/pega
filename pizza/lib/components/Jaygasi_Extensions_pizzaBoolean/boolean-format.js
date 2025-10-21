@@ -15,4 +15,3 @@ export function format(value, type) {
     }
     return formattedValue;
 }
-//# sourceMappingURL=boolean-format.js.map

@@ -2,11 +2,11 @@
     "components-directory-path": "src/components",
     "server-config": {
         "rulesetName": "DX_Components",
-        "rulesetVersion": "01-01-04",
+        "rulesetVersion": "01-01-01",
         "sourceOfComponents": "Server",
         "devBuild": false,
         "serverType": "infinity",
-        "server": "https://scxvlhmb.pegace.net/prweb",
+        "server": "https://gy5wfltx.pegace.net/prweb",
         "clientId": "10095186356008396159",
         "clientSecret_comment": "Needed only when using 'passwordCreds' or 'clientCreds' grantType",
         "clientSecret": "",

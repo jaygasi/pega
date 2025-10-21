@@ -19,13 +19,56 @@ function JaygasiExtensionsTextInputSearch(props) {
         setInputValue(event.target.value);
     };
     const handleSearchIconClick = () => {
-        if (searchPropRef) {
-            // This is the correct API call. It posts the value to the server and
-            // triggers the server-side processing configured in the view.
-            actions.triggerFieldChange(searchPropRef, inputValue);
+        console.log('TextInputSearch: Search button clicked!', { inputValue, searchPropRef, disabled, readOnly });
+        if (!inputValue?.trim()) {
+            console.warn('TextInputSearch: No search text provided');
+            alert('Please enter search text first');
+            return;
         }
+        // Pega DX Pattern 1: Server-side integration using triggerFieldChange
+        if (searchPropRef) {
+            try {
+                actions.triggerFieldChange(searchPropRef, inputValue);
+                console.log('TextInputSearch: Triggered server search for:', inputValue);
+            }
+            catch (err) {
+                console.error('TextInputSearch: Failed to trigger server search:', err);
+            }
+        }
+        // Pega DX Pattern 2: Multi-method PDF communication (inspired by SmartTextInput)
+        const triggerPDFSearch = (searchTerm) => {
+            try {
+                // Method 1: Standard CustomEvent for PDF viewers
+                window.dispatchEvent(new CustomEvent('pdfViewerSearch', {
+                    detail: { searchText: searchTerm, property: searchPropRef }
+                }));
+                // Method 2: Legacy SimplePdfViewer event
+                window.dispatchEvent(new CustomEvent('simplePdfViewerSearch', {
+                    detail: { searchText: searchTerm, property: searchPropRef }
+                }));
+                // Method 3: Global PDF Search Manager (UI_Gallery pattern)
+                if (window.PDFSearchManager) {
+                    window.PDFSearchManager.triggerSearch(searchTerm);
+                }
+                // Method 4: Direct API call to PDF viewer
+                if (window.simplePdfViewer?.search) {
+                    const handled = window.simplePdfViewer.search(searchTerm);
+                    if (handled)
+                        console.log('TextInputSearch: PDF viewer handled search directly');
+                }
+                // Method 5: Generic PDF viewer API fallback
+                if (window.pdfViewer?.search) {
+                    window.pdfViewer.search(searchTerm);
+                }
+                console.log('TextInputSearch: Dispatched PDF search events for:', searchTerm);
+            }
+            catch (err) {
+                console.error('TextInputSearch: Error in PDF search communication:', err);
+            }
+        };
+        // Execute the PDF search
+        triggerPDFSearch(inputValue);
     };
-    return (_jsxs(StyledJaygasiExtensionsTextInputSearchWrapper, { children: [_jsx(Input, { ...additionalProps, type: 'text', label: label, labelHidden: hideLabel, value: inputValue, placeholder: placeholder, helperText: helperText, info: validatemessage, onChange: handleChange, readOnly: readOnly, disabled: disabled, required: required, "data-testid": testId }), _jsx(Button, { variant: "simple", label: "Search", iconOnly: true, onClick: handleSearchIconClick, disabled: disabled || readOnly || !inputValue, "data-testid": `${testId}-search`, children: _jsx(Icon, { name: "search" }) })] }));
+    return (_jsxs(StyledJaygasiExtensionsTextInputSearchWrapper, { children: [_jsx(Input, { ...additionalProps, type: 'text', label: label, labelHidden: hideLabel, value: inputValue, placeholder: placeholder, helperText: helperText, info: validatemessage, onChange: handleChange, readOnly: readOnly, disabled: disabled, required: required, "data-testid": testId }), _jsx(Button, { variant: "simple", label: "Search", iconOnly: true, onClick: handleSearchIconClick, disabled: disabled || readOnly || !inputValue?.trim(), "data-testid": `${testId}-search`, title: `Search for: ${inputValue || 'Enter text first'}`, children: _jsx(Icon, { name: "search" }) })] }));
 }
 export default withConfiguration(JaygasiExtensionsTextInputSearch);
-//# sourceMappingURL=index.js.map

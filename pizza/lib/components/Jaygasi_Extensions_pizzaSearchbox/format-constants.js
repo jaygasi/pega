@@ -39,4 +39,3 @@ export default {
     Address: 'Address',
     ObjectReference: 'ObjectReference'
 };
-//# sourceMappingURL=format-constants.js.map

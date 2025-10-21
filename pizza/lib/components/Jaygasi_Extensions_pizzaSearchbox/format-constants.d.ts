@@ -39,4 +39,3 @@ declare const _default: {
     ObjectReference: string;
 };
 export default _default;
-//# sourceMappingURL=format-constants.d.ts.map

@@ -28,4 +28,3 @@ export const fieldMetadata = {
     displayAs: 'pxCurrency',
     label: 'Currency sample'
 };
-//# sourceMappingURL=mock.js.map

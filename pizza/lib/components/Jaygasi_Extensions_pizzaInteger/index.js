@@ -139,4 +139,3 @@ function JaygasiExtensionsPizzaInteger(props) {
             }, onResolveSuggestion: onResolveSuggestionHandler }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaInteger);
-//# sourceMappingURL=index.js.map

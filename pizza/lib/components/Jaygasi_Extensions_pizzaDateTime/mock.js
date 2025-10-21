@@ -23,4 +23,3 @@ export const configProps = {
 export const stateProps = {
     value: '.DateTimeLabel'
 };
-//# sourceMappingURL=mock.js.map

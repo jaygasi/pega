@@ -36,19 +36,19 @@ export declare const pyReviewRaw: {
     classID: string;
 };
 export declare const regionChildrenResolved: ({
-    readOnly: undefined;
+    readOnly: any;
     value: string;
     label: string;
     hasSuggestions: boolean;
     key: string;
     datasource?: undefined;
 } | {
-    readOnly: undefined;
+    readOnly: any;
     value: string;
     label: string;
     datasource: {
         fields: {
-            value: undefined;
+            value: any;
         };
         source: {
             value: string;
@@ -57,4 +57,3 @@ export declare const regionChildrenResolved: ({
     hasSuggestions: boolean;
     key: string;
 })[];
-//# sourceMappingURL=mock.d.ts.map

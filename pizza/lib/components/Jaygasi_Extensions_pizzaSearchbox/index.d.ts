@@ -31,8 +31,8 @@ export declare const preProcessColumns: (columns: Array<any>) => any[];
 export declare const getDisplayFieldsMetaData: (columns: Array<any>) => {
     key: string;
     primary: string;
-    secondary: never[];
-    hidden: never[];
+    secondary: any[];
+    hidden: any[];
 };
 export declare const buildColumnForDisplayValue: (dataObj: any) => void;
 export declare const doSearch: (searchText: string, displayFieldMeta: {
@@ -60,4 +60,3 @@ export declare const setValuesToPropertyList: (selectedItem: any, assocProp: any
 export declare const setValueToAssocProp: (assocProp: any, selectedItem: any, listType: string, listSource: Array<any>, actions: any, columns: Array<any>) => any;
 declare const _default: (props: JaygasiExtensionsPizzaSearchboxProps) => JSX.Element;
 export default _default;
-//# sourceMappingURL=index.d.ts.map

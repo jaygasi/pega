@@ -1,6 +1,4 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react';
 import { Status } from '@pega/cosmos-react-core';
 export default function StatusWorkRenderer({ value }) {
     // need to cast variant
@@ -24,4 +22,3 @@ export default function StatusWorkRenderer({ value }) {
     }
     return _jsx(Status, { variant: variant, children: value });
 }
-//# sourceMappingURL=StatusWork.js.map

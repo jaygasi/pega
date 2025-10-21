@@ -29,4 +29,3 @@ function JaygasiExtensionsPizzaForm(props) {
                 }, children: children }) }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaForm);
-//# sourceMappingURL=index.js.map

@@ -47,4 +47,3 @@ function JaygasiExtensionsPizzaCaseWidget(props) {
     return (_jsx(StyledJaygasiExtensionsPizzaCaseWidgetWrapper, { children: _jsx(Table, { title: pConn.getLocalizedValue(label, '', ''), columns: columns, data: history, loading: isLoading, loadingMessage: pConn.getLocalizedValue('Loading case history', '', '') }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaCaseWidget);
-//# sourceMappingURL=index.js.map

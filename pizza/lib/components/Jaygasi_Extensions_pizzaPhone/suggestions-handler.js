@@ -8,4 +8,3 @@ export const suggestionsHandler = (accepted, pConn, setStatus) => {
         setStatus(undefined);
     }
 };
-//# sourceMappingURL=suggestions-handler.js.map

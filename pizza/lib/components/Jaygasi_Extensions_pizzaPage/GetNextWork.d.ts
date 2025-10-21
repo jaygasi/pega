@@ -4,4 +4,3 @@ interface JaygasiExtensionsPizzaPageWorkProps extends PConnFieldProps {
 }
 export default function GetNextWork(props: JaygasiExtensionsPizzaPageWorkProps): import("react/jsx-runtime").JSX.Element;
 export {};
-//# sourceMappingURL=GetNextWork.d.ts.map

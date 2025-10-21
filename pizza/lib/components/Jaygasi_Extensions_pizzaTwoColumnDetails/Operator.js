@@ -104,4 +104,3 @@ function Operator(props) {
 }
 ;
 export default withConfiguration(Operator);
-//# sourceMappingURL=Operator.js.map

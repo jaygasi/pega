@@ -25,4 +25,3 @@ export const fieldMetadata = {
     displayAs: 'pxNumber',
     label: 'Decimal sample'
 };
-//# sourceMappingURL=mock.js.map

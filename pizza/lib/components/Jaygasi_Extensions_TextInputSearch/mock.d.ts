@@ -1,9 +1,9 @@
 export declare const configProps: {
     readonly value: "";
-    readonly label: "TextInput Sample";
-    readonly placeholder: "TextInput Placeholder";
-    readonly helperText: "TextInput Helper Text";
-    readonly testId: "TextInput-12345678";
+    readonly label: "Search Documents";
+    readonly placeholder: "Enter search terms...";
+    readonly helperText: "Type to search within documents or PDF files";
+    readonly testId: "TextInputSearch-12345678";
     readonly hasSuggestions: false;
     readonly displayMode: "";
     readonly variant: "inline";
@@ -14,6 +14,7 @@ export declare const configProps: {
     readonly disabled: false;
     readonly status: "";
     readonly validatemessage: "";
+    readonly searchPropRef: "DocumentSearchText";
 };
 export declare const stateProps: {
     value: string;
@@ -26,4 +27,3 @@ export declare const fieldMetadata: {
     displayAs: string;
     label: string;
 };
-//# sourceMappingURL=mock.d.ts.map

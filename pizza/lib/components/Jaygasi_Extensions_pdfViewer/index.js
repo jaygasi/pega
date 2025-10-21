@@ -28,4 +28,3 @@ export default function JaygasiExtensionsPDFViewer(props) {
     }
     return (_jsxs(StyledJaygasiExtensionsPDFViewerWrapper, { className: `${disabled ? 'disabled' : ''} ${readOnly || displayMode ? 'read-only' : ''}`, children: [!hideLabel && _jsx(CosmosText, { children: required ? `${label} *` : label }), _jsx("iframe", { src: pdfUrl, width: '100%', height: height, title: resolvedFileName || label }, pdfUrl), helperText && _jsx(CosmosText, { children: helperText }), required && (!value && !propPdfSource) && _jsx(CosmosText, { style: { color: 'red' }, children: "This field is required" })] }));
 }
-//# sourceMappingURL=index.js.map

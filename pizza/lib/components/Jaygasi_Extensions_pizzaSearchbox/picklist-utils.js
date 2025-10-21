@@ -84,4 +84,3 @@ export const getDisplayFieldsMetaData = (columns) => {
     }
     return metaDataObj;
 };
-//# sourceMappingURL=picklist-utils.js.map

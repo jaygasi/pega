@@ -13,18 +13,17 @@ export declare const DATE_TYPES: {
     DATE_TIME: string;
     TIME: string;
 };
-export declare function format(value: any, options: any): string | null;
+export declare function format(value: any, options: any): string;
 declare const _default: {
-    'DateTime-Long': (value: any, options: any) => string | null;
-    'DateTime-Short': (value: any, options: any) => string | null;
-    'DateTime-Since': (value: any, options: any) => string | null;
-    'Time-Only': (value: any, options: any) => string | null;
+    'DateTime-Long': (value: any, options: any) => string;
+    'DateTime-Short': (value: any, options: any) => string;
+    'DateTime-Since': (value: any, options: any) => string;
+    'Time-Only': (value: any, options: any) => string;
     convertToTimezone: (value: any, options: any) => any;
     convertFromTimezone: (value: any, timezone: any) => any;
     Date: (value: any, options: any) => any;
-    'Date-Default': (value: any, options: any) => string | null;
-    'Date-Time-Default': (value: any, options: any) => string | null;
-    'Time-Default': (value: any, options: any) => string | null;
+    'Date-Default': (value: any, options: any) => string;
+    'Date-Time-Default': (value: any, options: any) => string;
+    'Time-Default': (value: any, options: any) => string;
 };
 export default _default;
-//# sourceMappingURL=date.d.ts.map

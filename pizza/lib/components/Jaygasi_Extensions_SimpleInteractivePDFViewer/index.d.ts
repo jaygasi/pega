@@ -5,9 +5,9 @@ interface SimpleInteractivePDFViewerProps {
     getPConnect: () => any;
     value: string;
     highlightParentProp: string;
+    searchProperty?: string;
     height?: string;
     debug?: boolean;
 }
 declare const SimpleInteractivePDFViewer: React.FC<SimpleInteractivePDFViewerProps>;
 export default SimpleInteractivePDFViewer;
-//# sourceMappingURL=index.d.ts.map

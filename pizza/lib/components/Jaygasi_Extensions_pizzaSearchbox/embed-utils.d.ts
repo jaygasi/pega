@@ -40,7 +40,7 @@ export declare function updateMetaEmbeddedFieldID(metaFields: any[]): void;
  * @param {string} classID    clasID of datapage
  * @returns {Array}           Metadata of configured embedded fields
  */
-export declare function getConfigEmbeddedFieldsMeta(configFields: any, classID: string): (object | null)[];
+export declare function getConfigEmbeddedFieldsMeta(configFields: any, classID: string): object[];
 /**
  * [mergeConfigEmbeddedFieldsMeta]
  * Description    -           Get the metadata for configured embedded fields
@@ -149,4 +149,3 @@ export declare function mergePageListFieldsAggregation(fields: any[], select: {
  * @returns {object | undefined} value of first pageListProperty found
  */
 export declare function hasPageListProperty(fieldDefs: any[]): any;
-//# sourceMappingURL=embed-utils.d.ts.map

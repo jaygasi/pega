@@ -112,4 +112,3 @@ function JaygasiExtensionsPizzaDate(props) {
     return dateComponent;
 }
 export default withConfiguration(JaygasiExtensionsPizzaDate);
-//# sourceMappingURL=index.js.map

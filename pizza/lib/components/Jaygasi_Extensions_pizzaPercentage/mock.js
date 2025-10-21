@@ -25,4 +25,3 @@ export const fieldMetadata = {
     displayAs: 'pxPercentage',
     label: 'Percentage sample'
 };
-//# sourceMappingURL=mock.js.map

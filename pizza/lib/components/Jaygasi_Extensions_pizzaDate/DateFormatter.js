@@ -50,4 +50,3 @@ export default {
         format: 'hh:mm A'
     })
 };
-//# sourceMappingURL=DateFormatter.js.map

@@ -113,4 +113,3 @@ function JaygasiExtensionsPizzaDateTime(props) {
     return (_jsx(StyledJaygasiExtensionsPizzaDateTimeWrapper, { children: _jsx(DateTimeInput, { ...additionalProps, label: label, labelHidden: hideLabel, info: validatemessage || helperText, status: status, value: DateTimeFormatter.convertToTimezone(value, { timezone }) || undefined, withSeconds: withSeconds, disabled: disabled, readOnly: readOnly, required: required, pickerInterval: pickerInterval, clockFormat: clockFormat || undefined, showWeekNumber: showWeekNumber, min: minDate, max: maxDate, "data-testid": testId, onFocus: actionsProps.onFocus, onChange: handleChange, onBlur: handleBlur, onResolveSuggestion: onResolveSuggestionHandler }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaDateTime);
-//# sourceMappingURL=index.js.map

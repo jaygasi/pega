@@ -28,4 +28,3 @@ export const rawMetadata = {
         testId: 'pdf-viewer-12345678'
     }
 };
-//# sourceMappingURL=mock.js.map

@@ -6,4 +6,3 @@ interface JaygasiExtensionsPizzaPageCaseWidgetAvatarProps extends PConnFieldProp
 }
 declare const _default: (props: JaygasiExtensionsPizzaPageCaseWidgetAvatarProps) => JSX.Element;
 export default _default;
-//# sourceMappingURL=Avatar.d.ts.map

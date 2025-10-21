@@ -25,4 +25,3 @@ export default {
         cross: 'False'
     })
 };
-//# sourceMappingURL=Boolean.js.map

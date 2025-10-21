@@ -79,4 +79,3 @@ export default {
         format: "hh:mm A"
     })
 };
-//# sourceMappingURL=date-time.js.map

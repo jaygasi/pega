@@ -107,7 +107,12 @@ export declare const is12HClockFormat: (locale: any) => boolean;
  * @returns {object} options object time formatting
  * Example : getTimeOptions(false, true) returns {hour: 'numeric',minute: 'numeric',hour12: true}
  */
-export declare const getTimeOptions: (withSeconds: any, is12h?: boolean) => any;
+export declare const getTimeOptions: (withSeconds: any, is12h?: boolean) => {
+    hour12: boolean;
+    second: string;
+    hour: string;
+    minute: string;
+};
 /**
  * Return Option object for Datetime formatting
  *
@@ -116,5 +121,12 @@ export declare const getTimeOptions: (withSeconds: any, is12h?: boolean) => any;
  * @returns {object} options object datetime formatting
  * Example : getDateTimeOptions(false, true) returns {year: 'numeric',month: 'numeric',day: 'numeric',hour: 'numeric',minute: 'numeric',hour12: true}
  */
-export declare const getDateTimeOptions: (withSeconds: any, is12h?: boolean) => any;
-//# sourceMappingURL=date.d.ts.map
+export declare const getDateTimeOptions: (withSeconds: any, is12h?: boolean) => {
+    hour12: boolean;
+    second: string;
+    hour: string;
+    minute: string;
+    year: string;
+    month: string;
+    day: string;
+};

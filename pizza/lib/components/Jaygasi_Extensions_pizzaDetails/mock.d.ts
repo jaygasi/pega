@@ -190,4 +190,3 @@ export declare const configProps: {
     key: string;
     displayMode: string;
 };
-//# sourceMappingURL=mock.d.ts.map

@@ -70,4 +70,3 @@ function JaygasiExtensionsPizzaText(props) {
 }
 ;
 export default withConfiguration(JaygasiExtensionsPizzaText);
-//# sourceMappingURL=index.js.map

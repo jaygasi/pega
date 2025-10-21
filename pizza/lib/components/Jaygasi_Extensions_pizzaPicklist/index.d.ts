@@ -23,4 +23,3 @@ export declare const textFormatter: (formatter: string, value: any) => any;
 export declare const setDefaultValue: (dropdownOptions: Array<any>, pConnect: any, propName: string) => void;
 declare const _default: (props: JaygasiExtensionsPizzaPicklistProps) => JSX.Element;
 export default _default;
-//# sourceMappingURL=index.d.ts.map

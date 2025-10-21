@@ -130,4 +130,3 @@ function JaygasiExtensionsPizzaIconButtonUrl(props) {
                             name: 'globe', role: 'img', "aria-label": 'open link' }) })] }), showTable && (_jsx(Table, { title: PConnect.getLocalizedValue('State list', '', ''), columns: columns, data: statelist, loading: isLoading, loadingMessage: PConnect.getLocalizedValue('Loading state list', '', '') }))] }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaIconButtonUrl);
-//# sourceMappingURL=index.js.map

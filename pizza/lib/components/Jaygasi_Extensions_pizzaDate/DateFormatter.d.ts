@@ -4,4 +4,3 @@ declare const _default: {
     'Time-Default': (value: any, options: any) => any;
 };
 export default _default;
-//# sourceMappingURL=DateFormatter.d.ts.map

@@ -21,4 +21,3 @@ const configProps = {
     }
 };
 export default configProps;
-//# sourceMappingURL=mock.js.map

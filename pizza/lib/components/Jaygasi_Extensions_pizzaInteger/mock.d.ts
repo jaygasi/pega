@@ -25,4 +25,3 @@ export declare const fieldMetadata: {
     displayAs: string;
     label: string;
 };
-//# sourceMappingURL=mock.d.ts.map

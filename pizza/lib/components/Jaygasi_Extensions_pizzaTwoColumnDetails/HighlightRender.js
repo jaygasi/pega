@@ -1,6 +1,4 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react';
 import { FieldValueList, Text } from '@pega/cosmos-react-core';
 const HighlightRender = (props) => {
     const { getPConnect, field } = props;
@@ -22,4 +20,3 @@ const HighlightRender = (props) => {
         ] }));
 };
 export default HighlightRender;
-//# sourceMappingURL=HighlightRender.js.map

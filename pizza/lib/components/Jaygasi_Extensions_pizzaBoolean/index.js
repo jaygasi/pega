@@ -49,4 +49,3 @@ function JaygasiExtensionsPizzaBoolean(props) {
 }
 ;
 export default withConfiguration(JaygasiExtensionsPizzaBoolean);
-//# sourceMappingURL=index.js.map

@@ -1,9 +1,9 @@
 export const configProps = {
     value: '',
-    label: 'TextInput Sample',
-    placeholder: 'TextInput Placeholder',
-    helperText: 'TextInput Helper Text',
-    testId: 'TextInput-12345678',
+    label: 'Search Documents',
+    placeholder: 'Enter search terms...',
+    helperText: 'Type to search within documents or PDF files',
+    testId: 'TextInputSearch-12345678',
     hasSuggestions: false,
     displayMode: '',
     variant: 'inline',
@@ -13,7 +13,8 @@ export const configProps = {
     required: false,
     disabled: false,
     status: '',
-    validatemessage: ''
+    validatemessage: '',
+    searchPropRef: 'DocumentSearchText' // Added search property reference
 };
 export const stateProps = {
     value: '.TextInputSample',
@@ -26,4 +27,3 @@ export const fieldMetadata = {
     displayAs: 'pxTextInput',
     label: 'TextInput Sample'
 };
-//# sourceMappingURL=mock.js.map

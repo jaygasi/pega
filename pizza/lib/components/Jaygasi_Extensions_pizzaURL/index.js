@@ -91,4 +91,3 @@ function JaygasiExtensionsPizzaUrl(props) {
             onFocus: actions.onFocus, onResolveSuggestion: onResolveSuggestionHandler }) }));
 }
 export default withConfiguration(JaygasiExtensionsPizzaUrl);
-//# sourceMappingURL=index.js.map

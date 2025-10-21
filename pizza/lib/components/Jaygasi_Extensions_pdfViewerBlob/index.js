@@ -1,5 +1,5 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import React, { useState, useEffect, Component } from 'react';
+import { useState, useEffect, Component } from 'react';
 import { Text as CosmosText } from '@pega/cosmos-react-core';
 import './create-nonce';
 import StyledJaygasiExtensionsPDFViewerBlobWrapper from './styles';
@@ -175,4 +175,3 @@ export default function JaygasiExtensionsPDFViewerBlob(props) {
     const showLabel = !hideLabel && !isReadOnly;
     return (_jsxs(StyledJaygasiExtensionsPDFViewerBlobWrapper, { className: `${disabled ? 'disabled' : ''} ${isReadOnly ? 'read-only' : ''}`, children: [showLabel && _jsx(CosmosText, { children: required ? `${label} *` : label }), searchText && _jsx(SearchToolbar, { searchPluginInstance: searchPluginInstance, initialSearchText: searchText }), _jsx(Worker, { workerUrl: pdfjs, children: _jsx(PDFDisplayController, { pdfSource: pdfSource, errorMessage: errorMessage, pdfUrl: pdfUrl, height: height, plugins: [searchPluginInstance], onDocLoad: handleDocumentLoad }) }), helperText && _jsx(CosmosText, { children: helperText })] }));
 }
-//# sourceMappingURL=index.js.map

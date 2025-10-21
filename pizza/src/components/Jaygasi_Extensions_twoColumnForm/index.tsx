@@ -4,10 +4,10 @@ import type { PConnFieldProps } from './PConnProps';
 import './create-nonce';
 import DetailsRender from './DetailsRender';
 
-import StyledJaygasiExtensionsPizzaTwoColumnFormWrapper from './styles';
+import StyledJaygasiExtensionsTwoColumnFormWrapper from './styles';
 
 // interface for props
-interface JaygasiExtensionsPizzaTwoColumnFormProps extends PConnFieldProps {
+interface JaygasiExtensionsTwoColumnFormProps extends PConnFieldProps {
   // If any, enter additional props that only exist on TextInput here
   showLabel: boolean;
   children: any;
@@ -15,7 +15,7 @@ interface JaygasiExtensionsPizzaTwoColumnFormProps extends PConnFieldProps {
 
 // props passed in combination of props from property panel (config.json) and run time props from Constellation
 // any default values in config.pros should be set in defaultProps at bottom of this file
-function JaygasiExtensionsPizzaTwoColumnForm(props: JaygasiExtensionsPizzaTwoColumnFormProps) {
+function JaygasiExtensionsTwoColumnForm(props: Readonly<JaygasiExtensionsTwoColumnFormProps>) {
 
 
   const { children = [], label, showLabel, getPConnect, readOnly, displayMode  } = props;
@@ -35,7 +35,7 @@ function JaygasiExtensionsPizzaTwoColumnForm(props: JaygasiExtensionsPizzaTwoCol
 
   if (readOnly && readOnly === true || displayMode && displayMode === 'DISPLAY_ONLY') {
     return (
-      <StyledJaygasiExtensionsPizzaTwoColumnFormWrapper>
+      <StyledJaygasiExtensionsTwoColumnFormWrapper>
         <FieldGroup name={propsToUse.showLabel ? propsToUse.label : ''}>
           <Grid container={gridContainer} data-testid={`column-count-${numRegions}`}>
             {children.map((child: any, i: number) => (
@@ -49,12 +49,12 @@ function JaygasiExtensionsPizzaTwoColumnForm(props: JaygasiExtensionsPizzaTwoCol
             ))}
           </Grid>
         </FieldGroup>
-      </StyledJaygasiExtensionsPizzaTwoColumnFormWrapper>
+      </StyledJaygasiExtensionsTwoColumnFormWrapper>
     );
   }
 
   return (
-    <StyledJaygasiExtensionsPizzaTwoColumnFormWrapper>
+    <StyledJaygasiExtensionsTwoColumnFormWrapper>
       <FieldGroup name={propsToUse.showLabel ? propsToUse.label : ''}>
         <Grid container={gridContainer}>
         {children.map((child: any, i: number) => (
@@ -65,10 +65,10 @@ function JaygasiExtensionsPizzaTwoColumnForm(props: JaygasiExtensionsPizzaTwoCol
         ))}
         </Grid>
       </FieldGroup>
-    </StyledJaygasiExtensionsPizzaTwoColumnFormWrapper>
+    </StyledJaygasiExtensionsTwoColumnFormWrapper>
   );
 
 }
 
 
-export default withConfiguration(JaygasiExtensionsPizzaTwoColumnForm);
+export default withConfiguration(JaygasiExtensionsTwoColumnForm);
