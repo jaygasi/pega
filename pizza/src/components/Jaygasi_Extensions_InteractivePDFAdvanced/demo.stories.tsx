@@ -177,72 +177,30 @@ export const DirectJSON: Story = {
     enableDebugging: true,
     height: '600px'
   },
-};
-
-function TestHarness() {
-  const [text, setText] = useState('');
-
-  const apply = () => {
-    if (!text) return;
-    try {
-      const parsed = JSON.parse(text);
-      console.log('Parsed JSON for highlights:', parsed);
-      // TODO: Implement dynamic highlight application
-      alert('Dynamic highlight application not yet implemented. Use the textHighlightJSON control instead.');
-    } catch (err) {
-      console.warn('Invalid JSON', err);
-      alert('Invalid JSON format');
-    }
-  };
-
-  const clear = () => {
-    console.log('Clear highlights requested');
-    // TODO: Implement dynamic highlight clearing
-    alert('Dynamic highlight clearing not yet implemented.');
-  };
-
-  return (
-    <div style={{ fontFamily: 'sans-serif' }}>
-      <h4>Test Highlight JSON</h4>
-      <textarea
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        style={{ width: '100%', height: 300, fontFamily: 'monospace', fontSize: 12 }}
-        placeholder='Paste text highlight JSON here. Format: [{"id": "text1", "text": "word", "confidence": 0.95, "pageIndex": 0}]'
-      />
-      <div style={{ marginTop: 8, display: 'flex', gap: 8 }}>
-        <button onClick={apply}>Apply JSON</button>
-        <button onClick={() => {
-          const sample = { 
-            pxResults: [
-              { id: 'word1', confidence: 0.95, area: { left: 15, top: 25, width: 8, height: 2.5, pageindex: 0 } },
-              { id: 'word2', confidence: 0.88, area: { left: 25, top: 25, width: 12, height: 2.5, pageindex: 0 } },
-              { id: 'word3', confidence: 0.92, area: { left: 40, top: 30, width: 15, height: 2.5, pageindex: 0 } },
-              { id: 'word4', confidence: 0.87, area: { left: 20, top: 35, width: 10, height: 2.5, pageindex: 0 } }
-            ]
-          };
-          let attempts = 0;
-          const tryCall = () => {
-            const fn = (globalThis as any).__applyPDFHighlights;
-            if (typeof fn === 'function') {
-              fn(sample);
-            } else if (attempts < 10) {
-              attempts += 1;
-              setTimeout(tryCall, 100);
-            } else {
-              try { globalThis.postMessage({ type: 'InteractivePDFAdvanced:apply', payload: sample }, globalThis.location.origin); } catch (err) { console.warn('Apply sample failed', err); }
-            }
-          };
-          tryCall();
-        }}>Apply Sample</button>
-        <button onClick={clear}>Clear Highlights</button>
+  render: (args) => (
+    <div style={{ display: 'flex', gap: 12 }}>
+      <div style={{ flex: 1 }}>
+        <div style={{ height: 600 }}>
+          <StorybookWrapper {...args} />
+        </div>
       </div>
-      <div style={{ marginTop: 12, fontSize: 12, color: '#666' }}>
-        Tip: click Apply to call the viewer's global helper. If the helper is missing, enable debugging via component config.
+      <div style={{ width: 360, padding: 8, boxSizing: 'border-box' }}>
+        <div style={{ fontFamily: 'sans-serif' }}>
+          <h4>Testing Information</h4>
+          <p>Use the Storybook controls to test different highlight configurations:</p>
+          <ul style={{ fontSize: '12px' }}>
+            <li><strong>textHighlightJSON:</strong> Enter JSON array of text highlights</li>
+            <li><strong>defaultTextHighlightsJson:</strong> Set default text highlights</li>
+            <li><strong>testPxResultsJson:</strong> Test coordinate-based highlights</li>
+          </ul>
+          <p style={{ fontSize: '12px', color: '#666', marginTop: '12px' }}>
+            The component automatically finds and highlights text in the PDF based on the configuration.
+          </p>
+        </div>
       </div>
     </div>
-  );
-}
+  )
+};
 
 const TextHighlightingComponent = () => {
   const [textJson, setTextJson] = useState(JSON.stringify([
