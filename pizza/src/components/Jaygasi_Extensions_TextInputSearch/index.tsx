@@ -108,7 +108,7 @@ function JaygasiExtensionsTextInputSearch(props: Readonly<JaygasiExtensionsTextI
 
   // Handle READ-ONLY display modes (no input, just display existing values)
   if (displayMode === 'DISPLAY_ONLY') {
-    let displayComp = value || <span aria-hidden='true'>&ndash;&ndash;</span>;
+    const displayComp = value || <span aria-hidden='true'>&ndash;&ndash;</span>;
     return (
       <StyledJaygasiExtensionsTextInputSearchWrapper> 
         {displayComp} 
@@ -117,7 +117,7 @@ function JaygasiExtensionsTextInputSearch(props: Readonly<JaygasiExtensionsTextI
   }
 
   if (displayMode === 'LABELS_LEFT') {
-    let displayComp = value || <span aria-hidden='true'>&ndash;&ndash;</span>;
+    const displayComp = value || <span aria-hidden='true'>&ndash;&ndash;</span>;
     return (
       <StyledJaygasiExtensionsTextInputSearchWrapper>
         <FieldValueList

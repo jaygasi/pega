@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 // src/components/Jaygasi_Extensions_TextInputSearch/index.tsx
 import { useEffect, useState } from 'react';
-import { Icon, Button, Input, withConfiguration, registerIcon } from '@pega/cosmos-react-core';
+import { Icon, Button, Input, withConfiguration, registerIcon, FieldValueList, Text } from '@pega/cosmos-react-core';
 import './create-nonce';
 import StyledJaygasiExtensionsTextInputSearchWrapper from './styles';
 // Import and register the search icon
@@ -9,7 +9,7 @@ import * as search from '@pega/cosmos-react-core/lib/components/Icon/icons/searc
 registerIcon(search);
 // Main Component Function
 function JaygasiExtensionsTextInputSearch(props) {
-    const { getPConnect, placeholder, validatemessage, label, hideLabel = false, helperText, testId, additionalProps = {}, value, searchPropRef } = props;
+    const { getPConnect, placeholder, validatemessage, label, hideLabel = false, helperText, testId, additionalProps = {}, value, searchPropRef, displayMode } = props;
     const pConn = getPConnect();
     const actions = pConn.getActionsApi();
     const [readOnly, required, disabled] = [props.readOnly, props.required, props.disabled].map((prop) => prop === true || (typeof prop === 'string' && prop === 'true'));
@@ -69,6 +69,21 @@ function JaygasiExtensionsTextInputSearch(props) {
         // Execute the PDF search
         triggerPDFSearch(inputValue);
     };
+    // Handle READ-ONLY display modes (no input, just display existing values)
+    if (displayMode === 'DISPLAY_ONLY') {
+        const displayComp = value || _jsx("span", { "aria-hidden": 'true', children: "\u2013\u2013" });
+        return (_jsx(StyledJaygasiExtensionsTextInputSearchWrapper, { children: displayComp }));
+    }
+    if (displayMode === 'LABELS_LEFT') {
+        const displayComp = value || _jsx("span", { "aria-hidden": 'true', children: "\u2013\u2013" });
+        return (_jsx(StyledJaygasiExtensionsTextInputSearchWrapper, { children: _jsx(FieldValueList, { variant: hideLabel ? 'stacked' : 'inline', "data-testid": testId, fields: [{ id: '1', name: hideLabel ? '' : label, value: displayComp }] }) }));
+    }
+    if (displayMode === 'STACKED_LARGE_VAL') {
+        const isValDefined = value !== undefined && value !== '';
+        const val = isValDefined ? (_jsx(Text, { variant: 'h1', as: 'span', children: value })) : ('');
+        return (_jsx(StyledJaygasiExtensionsTextInputSearchWrapper, { children: _jsx(FieldValueList, { variant: 'stacked', "data-testid": testId, fields: [{ id: '2', name: hideLabel ? '' : label, value: val }] }) }));
+    }
+    // Default editable mode with search functionality
     return (_jsxs(StyledJaygasiExtensionsTextInputSearchWrapper, { children: [_jsx(Input, { ...additionalProps, type: 'text', label: label, labelHidden: hideLabel, value: inputValue, placeholder: placeholder, helperText: helperText, info: validatemessage, onChange: handleChange, readOnly: readOnly, disabled: disabled, required: required, "data-testid": testId }), _jsx(Button, { variant: "simple", label: "Search", iconOnly: true, onClick: handleSearchIconClick, disabled: disabled || readOnly || !inputValue?.trim(), "data-testid": `${testId}-search`, title: `Search for: ${inputValue || 'Enter text first'}`, children: _jsx(Icon, { name: "search" }) })] }));
 }
 export default withConfiguration(JaygasiExtensionsTextInputSearch);

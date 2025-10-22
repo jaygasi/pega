@@ -5,7 +5,8 @@ import {
   ModalManager,
   PopoverManager,
   ShortcutManager,
-  Toaster
+  Toaster,
+  WorkTheme
 } from '@pega/cosmos-react-core';
 
 const preview: Preview = {
@@ -26,7 +27,7 @@ const preview: Preview = {
     // Sets up contexts
     (Story, context) => {
       return (
-        <Configuration disableDefaultFontLoading id='Preview'>
+          <Configuration disableDefaultFontLoading id='Preview' theme={WorkTheme}>
           <ShortcutManager>
             <LiveLog maxLength={context.args.liveLogMaxLength || 50}>
               <PopoverManager>

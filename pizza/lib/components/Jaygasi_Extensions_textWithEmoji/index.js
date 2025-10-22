@@ -21,7 +21,7 @@ const getEmojiForValue = (value, emojiConfig) => {
 // props passed in combination of props from property panel (config.json) and run time props from Constellation
 // any default values in config.pros should be set in defaultProps at bottom of this file
 function JaygasiExtensionsTextWithEmoji(props) {
-    const { getPConnect, value, placeholder, disabled = false, displayMode, readOnly = false, required = false, label, hideLabel = false, testId, isTableFormatter = false, variant = 'inline', emojiConfig, helperText, validatemessage, additionalProps } = props;
+    const { getPConnect, value, placeholder, disabled = false, displayMode, readOnly = false, required = false, label, hideLabel = false, testId, variant = 'inline', emojiConfig, helperText, validatemessage, additionalProps } = props;
     const pConn = getPConnect();
     const actions = pConn.getActionsApi();
     const stateProps = pConn.getStateProps();
@@ -41,7 +41,7 @@ function JaygasiExtensionsTextWithEmoji(props) {
         setHasInteracted(true);
         actions.updateFieldValue(propName, updatedValue);
     };
-    const handleBlur = (event) => {
+    const handleBlur = () => {
         if (hasInteracted) {
             actions.triggerFieldChange(propName, inputValue);
         }

@@ -43,10 +43,22 @@ export const ViewerWrapper = styled.div<{ height?: string }>`
 
 export const Highlight = styled.div<{ $confidenceColor?: string }>`
   position: absolute;
-  border-radius: 4px;
+  border-radius: 2px;
   pointer-events: auto;
   cursor: pointer;
-  background: ${(p) => p.$confidenceColor || 'rgba(255,193,7,0.4)'};
-  transition: transform 120ms ease, box-shadow 120ms ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  background: transparent; /* Remove filled background for outline-only effect */
+  border: 2px solid ${(p) => p.$confidenceColor?.replace('rgba', 'rgb').replace(/,\s*[\d.]+\)/, ')') || 'rgb(255,193,7)'};
+  transition: transform 120ms ease, border-color 120ms ease, border-width 120ms ease;
+  
+  /* Hover effect to make border more prominent when hovering over words */
+  &:hover {
+    border-width: 3px;
+    transform: scale(1.02); /* Slight scale to make the word border more noticeable */
+  }
+  
+  /* Active/selected state for clicked words */
+  &:active {
+    border-width: 4px;
+    border-color: #ff6b35; /* Orange highlight for selected words */
+  }
 `;

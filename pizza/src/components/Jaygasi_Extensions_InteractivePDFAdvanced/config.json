@@ -46,6 +46,21 @@
       "description": "Comma-separated list of other property refs to merge highlight data from (optional). Example: .OtherHighlights,.MoreHighlights"
     },
     {
+      "name": "textHighlightProperty",
+      "label": "Text Highlight Data Property",
+      "format": "PROPERTY",
+      "valueType": "Page",
+      "dataType": "Page",
+      "description": "Pega property that contains text-based highlights (words/phrases to search and highlight). Example: .MyTextHighlights"
+    },
+    {
+      "name": "textHighlightJSON",
+      "label": "Text Highlight JSON (Direct)",
+      "format": "TEXTAREA",
+      "placeholder": "{\"textHighlights\":[{\"text\":\"word\",\"confidence\":0.95}]}",
+      "description": "Direct JSON string for text highlights. Use this OR the property above, not both. Takes priority over property reference."
+    },
+    {
       "name": "onSelectProperty",
       "label": "On Select Property",
       "format": "PROPERTY",

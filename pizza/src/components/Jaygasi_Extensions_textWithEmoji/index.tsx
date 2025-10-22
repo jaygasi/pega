@@ -69,7 +69,6 @@ function JaygasiExtensionsTextWithEmoji(props: Readonly<JaygasiExtensionsTextWit
     label, 
     hideLabel = false, 
     testId, 
-    isTableFormatter = false, 
     variant = 'inline',
     emojiConfig,
     helperText,
@@ -101,7 +100,7 @@ function JaygasiExtensionsTextWithEmoji(props: Readonly<JaygasiExtensionsTextWit
     actions.updateFieldValue(propName, updatedValue);
   };
 
-  const handleBlur = (event: any) => {
+  const handleBlur = () => {
     if (hasInteracted) {
       actions.triggerFieldChange(propName, inputValue);
     }

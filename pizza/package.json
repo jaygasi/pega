@@ -94,6 +94,7 @@
     "lodash": "^4.17.21",
     "lodash.get": "^4.4.2",
     "npm": "^10.8.1",
+    "pdf-lib": "^1.17.1",
     "pdfjs-dist": "3.4.120",
     "react-autosuggest": "^10.1.0",
     "react-is": "^18.3.1",
