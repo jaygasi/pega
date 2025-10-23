@@ -31,34 +31,18 @@
       "description": "Pega property that contains the PDF base64 string (or a data URL). Example: .MyPDFBase64"
     },
     {
-      "name": "highlightProperty",
-      "label": "Highlight Data Property",
-      "format": "PROPERTY",
-      "//hint": "Allow selecting a Page or PageList that contains pxResults",
-      "valueType": "Page",
-      "dataType": "Page",
-      "description": "Pega property that contains highlight metadata (pxResults). Example: .MyHighlights"
-    },
-    {
-      "name": "additionalHighlightProps",
-      "label": "Additional Highlight Props",
-      "format": "TEXT",
-      "description": "Comma-separated list of other property refs to merge highlight data from (optional). Example: .OtherHighlights,.MoreHighlights"
-    },
-    {
-      "name": "textHighlightProperty",
-      "label": "Text Highlight Data Property",
-      "format": "PROPERTY",
-      "valueType": "Page",
-      "dataType": "Page",
-      "description": "Pega property that contains text-based highlights (words/phrases to search and highlight). Example: .MyTextHighlights"
-    },
-    {
       "name": "textHighlightJSON",
-      "label": "Text Highlight JSON (Direct)",
+      "label": "Text Highlight JSON",
       "format": "TEXTAREA",
-      "placeholder": "{\"textHighlights\":[{\"text\":\"word\",\"confidence\":0.95}]}",
-      "description": "Direct JSON string for text highlights. Use this OR the property above, not both. Takes priority over property reference."
+      "placeholder": "{\"textHighlights\":[{\"text\":\"word\",\"confidence\":0.95},{\"text\":\"phrase\",\"confidence\":0.88}]}",
+      "description": "JSON string for text-based highlights. The component will automatically search for and highlight these words/phrases within the PDF content. Only text and confidence are required - bounding boxes are calculated automatically."
+    },
+    {
+      "name": "coordinateHighlightJSON",
+      "label": "Coordinate Highlight JSON",
+      "format": "TEXTAREA",
+      "placeholder": "[{\"id\":\"highlight1\",\"confidence\":0.95,\"pageIndex\":0,\"boundingBox\":{\"left\":0.15,\"top\":0.2,\"right\":0.27,\"bottom\":0.23}},{\"id\":\"highlight2\",\"confidence\":0.88,\"pageIndex\":0,\"boundingBox\":{\"left\":0.3,\"top\":0.2,\"right\":0.45,\"bottom\":0.23}},{\"id\":\"highlight3\",\"confidence\":0.92,\"pageIndex\":0,\"boundingBox\":{\"left\":0.5,\"top\":0.35,\"right\":0.68,\"bottom\":0.38}}]",
+      "description": "JSON array of coordinate-based highlights. Each highlight specifies exact position coordinates (0-1 percentages) on specific pages."
     },
     {
       "name": "onSelectProperty",
@@ -76,25 +60,7 @@
       "name": "enableSearch",
       "label": "Enable Search UI",
       "format": "BOOLEAN",
-      "description": "When true, shows a small search input above the viewer and writes the term to the configured Search Property Reference."
-    },
-    {
-      "name": "enablePegaWorkaround",
-      "label": "Enable Pega layout workaround",
-      "format": "BOOLEAN",
-      "description": "Enable a targeted workaround for Pega skins that force toolbar buttons to stack vertically. Turn on only if your environment requires it."
-    },
-    {
-      "name": "enableDebugging",
-      "label": "Enable debug panel",
-      "format": "BOOLEAN",
-      "description": "Show an on-screen debug panel (bottom-right) that displays values read from configured clipboard properties. Useful when DevTools/console isn't visible (e.g., inside iframes)."
-    },
-    {
-      "name": "testPxResultsJson",
-      "label": "Test Highlight JSON",
-      "format": "TEXT",
-      "description": "Paste a JSON string (pxResults array or object with pxResults) to render test highlights in the viewer for debugging. Leave empty in production."
+      "description": "When true, shows a search input above the viewer and writes the term to the configured Search Property Reference."
     },
     {
       "name": "confidenceFilter",

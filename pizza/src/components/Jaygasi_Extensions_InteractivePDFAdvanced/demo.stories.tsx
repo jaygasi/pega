@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import JaygasiExtensionsInteractivePDFAdvanced from './index';
 // reuse the sample base64 from the existing pdfViewer mock
@@ -7,11 +7,12 @@ import { configProps as pdfViewerMockConfig } from '../Jaygasi_Extensions_pdfVie
 // Extract the sample base64 PDF at the top level
 const sampleBase64Pdf = pdfViewerMockConfig?.pdfSource || '';
 
-// Default text highlight data - TEXT-BASED highlighting (no coordinates needed)
+// Default highlight data
 const defaultTextHighlights = [
-  { id: 'text-1', text: 'Jay', confidence: 0.95, pageIndex: 0 },
-  { id: 'text-2', text: 'PROFESSIONAL', confidence: 0.9, pageIndex: 0 },
-  { id: 'text-3', text: 'Data', confidence: 0.85, pageIndex: 0 }
+  { id: 'text1', text: 'Jay', confidence: 0.95 },
+  { id: 'text2', text: 'PROFESSIONAL', confidence: 0.9 },
+  { id: 'text3', text: 'Data', confidence: 0.85 },
+  { id: 'text4', text: '20', confidence: 0.88 }
 ];
 
 const defaultCoordinateHighlights = [
@@ -20,42 +21,9 @@ const defaultCoordinateHighlights = [
   { id: 'coord3', confidence: 0.92, pageIndex: 0, boundingBox: { left: 50/100, top: 35/100, right: 68/100, bottom: 38/100 } }
 ];
 const mockPConnect = (args?: any) => {
-  // Parse highlight data from args or use defaults
-  let textHighlights = defaultTextHighlights;
-  let coordinateHighlights = defaultCoordinateHighlights;
-
-  // Handle default text highlights JSON (for programmatic control)
-  try {
-    if (args?.defaultTextHighlightsJson) {
-      const parsed = JSON.parse(args.defaultTextHighlightsJson);
-      if (Array.isArray(parsed)) {
-        textHighlights = parsed;
-      }
-    }
-  } catch (e) {
-    console.warn('Error parsing defaultTextHighlightsJson:', e);
-  }
-
-  // Handle default coordinate highlights JSON (for programmatic control)
-  try {
-    if (args?.defaultCoordinateHighlightsJson) {
-      const parsed = JSON.parse(args.defaultCoordinateHighlightsJson);
-      if (Array.isArray(parsed)) {
-        coordinateHighlights = parsed;
-      }
-    }
-  } catch (e) {
-    console.warn('Error parsing defaultCoordinateHighlightsJson:', e);
-  }
-
   return {
     getValue: (path: string) => {
       if (path === (args?.pdfProperty || 'pdfBase64')) return sampleBase64Pdf;
-      if (path === (args?.highlightProperty || 'highlights')) return { pxResults: [] };
-      // Only return textHighlights if textHighlightJSON is not set (to avoid double processing)
-      if (path === (args?.textHighlightProperty || 'textHighlights') && !args?.textHighlightJSON) {
-        return { pxResults: textHighlights };
-      }
       return null;
     },
     getActionsApi: () => ({ updateFieldValue: (_path: string, _value: any) => {} }),
@@ -64,15 +32,12 @@ const mockPConnect = (args?: any) => {
     },
     getConfigProps: () => ({
       enableDebugging: args?.enableDebugging ?? true,
-      pdfProperty: args?.pdfProperty || 'pdfBase64',
-      highlightProperty: args?.highlightProperty || 'highlights',
-      textHighlightProperty: args?.textHighlightProperty || 'textHighlights',
-      additionalHighlightProps: args?.additionalHighlightProps || '',
-      textHighlightJSON: args?.textHighlightJSON || '', // User can override with JSON string
-      onSelectProperty: 'selectedHighlight',
+      pdfProperty: 'pdfBase64',
+      textHighlightJSON: args?.textHighlightJSON ?? JSON.stringify(defaultTextHighlights),
+      coordinateHighlightJSON: args?.coordinateHighlightJSON ?? JSON.stringify(defaultCoordinateHighlights),
+      enableSearch: args?.enableSearch ?? false,
       height: args?.height || '600px',
-      confidenceFilter: args?.confidenceFilter || '',
-      testPxResultsJson: args?.testPxResultsJson || JSON.stringify(coordinateHighlights)
+      confidenceFilter: args?.confidenceFilter || ''
     })
   };
 };
@@ -87,65 +52,35 @@ const meta: Meta = {
   title: 'Jaygasi/InteractivePDFAdvanced',
   component: StorybookWrapper,
   argTypes: {
-    pdfProperty: {
+    height: {
       control: 'text',
-      description: 'Property name for PDF base64 data',
-      defaultValue: 'pdfBase64'
-    },
-    highlightProperty: {
-      control: 'text',
-      description: 'Property name for coordinate highlights',
-      defaultValue: 'highlights'
-    },
-    textHighlightProperty: {
-      control: 'text',
-      description: 'Property name for text highlights',
-      defaultValue: 'textHighlights'
-    },
-    additionalHighlightProps: {
-      control: 'text',
-      description: 'Comma-separated list of additional highlight properties',
-      defaultValue: ''
-    },
-    textHighlightJSON: {
-      control: 'text',
-      description: 'JSON string for additional text highlights',
-      defaultValue: ''
-    },
-    enableSearch: {
-      control: 'boolean',
-      description: 'Enable search functionality',
-      defaultValue: false
+      description: 'Component height (CSS value)',
+      defaultValue: '600px'
     },
     enableDebugging: {
       control: 'boolean',
       description: 'Show debug information panel',
       defaultValue: true
     },
+    textHighlightJSON: {
+      control: 'text',
+      description: 'JSON string for text-based highlights',
+      defaultValue: JSON.stringify(defaultTextHighlights)
+    },
+    coordinateHighlightJSON: {
+      control: 'text',
+      description: 'JSON string for coordinate-based highlights',
+      defaultValue: JSON.stringify(defaultCoordinateHighlights)
+    },
     confidenceFilter: {
       control: 'text',
       description: 'Minimum confidence threshold (0-1)',
       defaultValue: ''
     },
-    height: {
-      control: 'text',
-      description: 'Component height (CSS value)',
-      defaultValue: '600px'
-    },
-    testPxResultsJson: {
-      control: 'text',
-      description: 'JSON string for test coordinate highlights',
-      defaultValue: ''
-    },
-    defaultTextHighlightsJson: {
-      control: 'text',
-      description: 'JSON string for default text highlights data',
-      defaultValue: JSON.stringify(defaultTextHighlights)
-    },
-    defaultCoordinateHighlightsJson: {
-      control: 'text',
-      description: 'JSON string for default coordinate highlights data',
-      defaultValue: JSON.stringify(defaultCoordinateHighlights)
+    enableSearch: {
+      control: 'boolean',
+      description: 'Enable search functionality',
+      defaultValue: false
     }
   }
 };
@@ -157,117 +92,92 @@ export const Base: Story = {
   args: {
     enableDebugging: true,
     height: '600px',
-    defaultTextHighlightsJson: JSON.stringify(defaultTextHighlights)
+    textHighlightJSON: JSON.stringify(defaultTextHighlights),
+    coordinateHighlightJSON: JSON.stringify(defaultCoordinateHighlights)
   },
 };
 
-export const WithTextHighlightJSON: Story = {
+export const NoCoordinateHighlights: Story = {
   args: {
     enableDebugging: true,
     height: '600px',
-    textHighlightJSON: JSON.stringify([
-      { id: 'custom-1', text: 'Jay', confidence: 0.95, pageIndex: 0 },
-      { id: 'custom-2', text: 'Data', confidence: 0.85, pageIndex: 0 }
-    ])
+    textHighlightJSON: JSON.stringify(defaultTextHighlights),
+    coordinateHighlightJSON: ''
   },
 };
 
 export const DirectJSON: Story = {
   args: {
     enableDebugging: true,
-    height: '600px'
+    height: '700px'
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: 12 }}>
       <div style={{ flex: 1 }}>
-        <div style={{ height: 600 }}>
+        <div style={{ height: 700 }}>
           <StorybookWrapper {...args} />
         </div>
       </div>
       <div style={{ width: 360, padding: 8, boxSizing: 'border-box' }}>
-        <div style={{ fontFamily: 'sans-serif' }}>
-          <h4>Testing Information</h4>
-          <p>Use the Storybook controls to test different highlight configurations:</p>
-          <ul style={{ fontSize: '12px' }}>
-            <li><strong>textHighlightJSON:</strong> Enter JSON array of text highlights</li>
-            <li><strong>defaultTextHighlightsJson:</strong> Set default text highlights</li>
-            <li><strong>testPxResultsJson:</strong> Test coordinate-based highlights</li>
-          </ul>
-          <p style={{ fontSize: '12px', color: '#666', marginTop: '12px' }}>
-            The component automatically finds and highlights text in the PDF based on the configuration.
-          </p>
-        </div>
+        <TestHarness />
       </div>
     </div>
   )
 };
 
-const TextHighlightingComponent = () => {
-  const [textJson, setTextJson] = useState(JSON.stringify([
-    { id: 'text-1', text: 'Jay', confidence: 0.95, pageIndex: 0 },
-    { id: 'text-2', text: 'PROFESSIONAL', confidence: 0.9, pageIndex: 0 },
-    { id: 'text-3', text: 'Data', confidence: 0.85, pageIndex: 0 }
-  ], null, 2));
-
-  const getMockPConnect = () => {
-    let textHighlights = [];
-    try {
-      const parsed = JSON.parse(textJson);
-      textHighlights = Array.isArray(parsed) ? parsed : [];
-    } catch (e) {
-      console.warn('Error parsing text JSON:', e);
-      textHighlights = [];
-    }
-
-    return {
-      getValue: (path: string) => {
-        if (path === 'pdfBase64') return sampleBase64Pdf;
-        if (path === 'highlights') return { pxResults: [] };
-        if (path === 'textHighlights') return { pxResults: textHighlights };
-        return null;
-      },
-      getActionsApi: () => ({ updateFieldValue: (_path: string, _value: any) => {} }),
-      registerComponent: (_pdfUrl: string, _searchTerms: string) => {},
-      getConfigProps: () => ({
-        enableDebugging: true,
-        pdfProperty: 'pdfBase64',
-        highlightProperty: 'highlights',
-        textHighlightProperty: 'textHighlights',
-        additionalHighlightProps: '',
-        textHighlightJSON: '',
-        onSelectProperty: 'selectedHighlight',
-        height: '600px',
-        confidenceFilter: '',
-        testPxResultsJson: JSON.stringify(defaultCoordinateHighlights)
-      })
-    };
-  };
-
+function TestHarness() {
   return (
     <div style={{ fontFamily: 'sans-serif' }}>
-      <h4>Text-Based Highlighting Test</h4>
-      <p>This tests the new text-based highlighting feature that searches for text within the PDF.</p>
-
-      <div style={{ display: 'flex', gap: 20 }}>
-        <div style={{ flex: 1 }}>
-          <label htmlFor="textHighlightsInput">Text Highlights JSON:</label>
-          <textarea
-            id="textHighlightsInput"
-            value={textJson}
-            onChange={(e) => setTextJson(e.target.value)}
-            style={{ width: '100%', height: 200, fontFamily: 'monospace', fontSize: 12, marginTop: 4 }}
-          />
-        </div>
-        <div style={{ flex: 2 }}>
-          <JaygasiExtensionsInteractivePDFAdvanced
-            getPConnect={getMockPConnect}
-          />
-        </div>
+      <h4>JSON Format Examples</h4>
+      <p>This component now accepts JSON directly through the textHighlightJSON and coordinateHighlightJSON properties.</p>
+      
+      <div style={{ marginTop: 12 }}>
+        <h5>Text Highlights JSON Format (Simplified):</h5>
+        <p>Now only text and confidence are required - bounding boxes are calculated automatically!</p>
+        <pre style={{ backgroundColor: '#f5f5f5', padding: 8, fontSize: 12, overflow: 'auto' }}>
+{JSON.stringify([
+  { "id": "text1", "text": "word", "confidence": 0.95 },
+  { "id": "text2", "text": "phrase", "confidence": 0.88 }
+], null, 2)}
+        </pre>
       </div>
-
+      
+      <div style={{ marginTop: 12 }}>
+        <h5>Coordinate Highlights JSON Format (Simplified):</h5>
+        <p>Now accepts a direct array of highlights - no pxResults wrapper needed!</p>
+        <pre style={{ backgroundColor: '#f5f5f5', padding: 8, fontSize: 12, overflow: 'auto' }}>
+{JSON.stringify([
+  { "id": "highlight1", "confidence": 0.95, "pageIndex": 0, "boundingBox": { "left": 0.1, "top": 0.2, "right": 0.3, "bottom": 0.25 } },
+  { "id": "highlight2", "confidence": 0.88, "pageIndex": 0, "boundingBox": { "left": 0.4, "top": 0.3, "right": 0.6, "bottom": 0.35 } }
+], null, 2)}
+        </pre>
+      </div>
+      
       <div style={{ marginTop: 12, fontSize: 12, color: '#666' }}>
-        Instructions: The component will automatically search for the text specified in the JSON and highlight matches.
-        Open browser console to see detailed debugging information.
+        Use the Storybook controls above to modify the JSON and see the highlights update in real-time.
+      </div>
+    </div>
+  );
+}
+
+const TextHighlightingComponent = () => {
+  return (
+    <div style={{ fontFamily: 'sans-serif' }}>
+      <h4>Text-Based Highlighting Example</h4>
+      <p>This demonstrates text-based highlighting where the component searches for specific words/phrases within the PDF content.</p>
+      
+      <div style={{ marginTop: 12 }}>
+        <StorybookWrapper 
+          textHighlightJSON={JSON.stringify([
+            { "id": "text1", "text": "Jay", "confidence": 0.95, "pageIndex": 0, "boundingBox": { "left": 0.1, "top": 0.15, "right": 0.2, "bottom": 0.2 } },
+            { "id": "text2", "text": "Data", "confidence": 0.88, "pageIndex": 0, "boundingBox": { "left": 0.5, "top": 0.3, "right": 0.6, "bottom": 0.35 } }
+          ])}
+          enableDebugging={true}
+        />
+      </div>
+      
+      <div style={{ marginTop: 12, fontSize: 12, color: '#666' }}>
+        The component automatically searches for the specified text within the PDF and highlights matches.
       </div>
     </div>
   );

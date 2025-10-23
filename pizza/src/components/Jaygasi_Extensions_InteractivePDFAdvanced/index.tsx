@@ -8,20 +8,197 @@ import { highlightPlugin } from '@react-pdf-viewer/highlight';
 
 import { searchPlugin } from '@react-pdf-viewer/search';
 
-import { Flex, Status } from '@pega/cosmos-react-core';
+import { Flex, Status, Text } from '@pega/cosmos-react-core';
 
 import { logError } from './logger';
-
-// PDF.js imports for text extraction
-import * as pdfjsLib from 'pdfjs-dist';
 
 // PDF.js worker URL
 const WORKER_URL = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.worker.min.js';
 
-// Configure PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = WORKER_URL;
+// Helper function to search for text in PDF and calculate bounding boxes
+const searchTextInPDF = async (pdfUrl: string, textSearchTerms: any[], enableDebugging: boolean) => {
+  const pdfjsLib = await import('pdfjs-dist');
+  pdfjsLib.GlobalWorkerOptions.workerSrc = WORKER_URL;
 
-const InteractivePDFAdvanced = ({
+  const loadingTask = pdfjsLib.getDocument(pdfUrl);
+  const pdf = await loadingTask.promise;
+
+  const foundHighlights = [];
+
+  for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+    const highlights = await searchPageForTerms(pdf, pageNum, textSearchTerms, enableDebugging);
+    foundHighlights.push(...highlights);
+  }
+
+  return foundHighlights;
+};
+
+// Helper function to search a single page
+const searchPageForTerms = async (pdf: any, pageNum: number, textSearchTerms: any[], enableDebugging: boolean) => {
+  const page = await pdf.getPage(pageNum);
+  const textContent = await page.getTextContent();
+  
+  const pageText = textContent.items
+    .filter((item): item is any => 'str' in item)
+    .map(item => item.str)
+    .join(' ');
+  
+  const highlights = [];
+
+  for (const term of textSearchTerms) {
+    const matches = findTextMatches(pageText, term.text);
+    for (const match of matches) {
+      const result = calculateBoundingBox(textContent.items, match.index, match.text, page, enableDebugging);
+      if (result) {
+        highlights.push({
+          id: `${term.id}_${pageNum}_${match.index}`,
+          confidence: term.confidence,
+          pageIndex: pageNum - 1,
+          boundingBox: result.boundingBox,
+          debug: result.debug
+        });
+      }
+    }
+  }
+
+  return highlights;
+};
+
+// Helper function to find text matches
+const findTextMatches = (pageText: string, searchText: string) => {
+  const regex = new RegExp(searchText.replaceAll(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`), 'gi');
+  const matches = [];
+  let match;
+  
+  while ((match = regex.exec(pageText)) !== null) {
+    matches.push({ index: match.index, text: match[0] });
+    if (match.index === regex.lastIndex) {
+      regex.lastIndex++;
+    }
+  }
+  
+  return matches;
+};
+
+// Helper function to calculate bounding box with improved precision
+const calculateBoundingBox = (textItems: any[], matchIndex: number, matchText: string, page: any, enableDebugging = false) => {
+  let charIndex = 0;
+  let foundItem = null;
+  let charOffsetInItem = 0;
+  let matchSpansMultipleItems = false;
+  let endItem = null;
+  let endCharOffset = 0;
+
+  // Find the text item containing the match start
+  for (const item of textItems) {
+    if ('str' in item) {
+      const itemEndIndex = charIndex + item.str.length;
+      if (matchIndex >= charIndex && matchIndex < itemEndIndex) {
+        foundItem = item;
+        charOffsetInItem = matchIndex - charIndex;
+
+        // Check if match spans multiple items
+        const matchEndIndex = matchIndex + matchText.length;
+        if (matchEndIndex > itemEndIndex) {
+          matchSpansMultipleItems = true;
+          // Find the end item
+          let tempCharIndex = charIndex;
+          for (const endItemCandidate of textItems) {
+            if ('str' in endItemCandidate) {
+              const endItemEndIndex = tempCharIndex + endItemCandidate.str.length;
+              if (matchEndIndex <= endItemEndIndex) {
+                endItem = endItemCandidate;
+                endCharOffset = matchEndIndex - tempCharIndex;
+                break;
+              }
+              tempCharIndex = endItemEndIndex + 1;
+            }
+          }
+        }
+        break;
+      }
+      charIndex = itemEndIndex + 1; // +1 for space
+    }
+  }
+
+  if (!foundItem?.transform) return null;
+
+  const [scaleX, , , scaleY, translateX, translateY] = foundItem.transform;
+  const fontSize = Math.hypot(scaleX, scaleY);
+
+  // Get text item dimensions
+  const itemWidth = foundItem.width || (foundItem.str.length * fontSize * 0.6);
+  const itemHeight = foundItem.height || (fontSize * 1.2);
+
+  let matchStartX = translateX;
+  let matchEndX = translateX + itemWidth;
+  let matchTopY = translateY;
+  let matchBottomY = translateY + itemHeight;
+
+  if (matchSpansMultipleItems && endItem?.transform) {
+    // Handle multi-item spans
+    const [endScaleX, , , endScaleY, endTranslateX, endTranslateY] = endItem.transform;
+    const endItemWidth = endItem.width || (endItem.str.length * Math.hypot(endScaleX, endScaleY) * 0.6);
+    const endItemHeight = endItem.height || (Math.hypot(endScaleX, endScaleY) * 1.2);
+
+    matchStartX = translateX + (charOffsetInItem * (itemWidth / foundItem.str.length));
+    matchEndX = endTranslateX + (endCharOffset * (endItemWidth / endItem.str.length));
+    matchTopY = Math.min(translateY, endTranslateY);
+    matchBottomY = Math.max(translateY + itemHeight, endTranslateY + endItemHeight);
+  } else {
+    // Single item match - use precise positioning
+    const avgCharWidth = itemWidth / foundItem.str.length;
+    const startOffset = charOffsetInItem * avgCharWidth;
+    const matchWidth = matchText.length * avgCharWidth;
+
+    matchStartX = translateX + startOffset;
+    matchEndX = matchStartX + matchWidth;
+
+    // Ensure bounds are within the text item
+    matchStartX = Math.max(translateX, Math.min(matchStartX, translateX + itemWidth - matchWidth));
+    matchEndX = Math.min(translateX + itemWidth, matchEndX);
+  }
+
+  const viewport = page.getViewport({ scale: 1 });
+
+  // Convert to viewport coordinates (0-1 range)
+  const left = matchStartX / viewport.width;
+  const right = matchEndX / viewport.width;
+  const top = (viewport.height - matchBottomY) / viewport.height;
+  const bottom = (viewport.height - matchTopY) / viewport.height;
+
+  // Add small padding for better visual alignment (PDF text extraction can be slightly offset)
+  const padding = 0.002; // 0.2% padding on each side
+  const paddedLeft = Math.max(0, left - padding);
+  const paddedRight = Math.min(1, right + padding);
+  const paddedTop = Math.max(0, top - padding);
+  const paddedBottom = Math.min(1, bottom + padding);
+
+  return {
+    boundingBox: {
+      left: Math.max(0, Math.min(1, paddedLeft)),
+      top: Math.max(0, Math.min(1, paddedTop)),
+      right: Math.max(0, Math.min(1, paddedRight)),
+      bottom: Math.max(0, Math.min(1, paddedBottom))
+    },
+    debug: enableDebugging ? {
+      matchText,
+      charOffset: charOffsetInItem,
+      fontSize,
+      itemWidth,
+      itemHeight,
+      translateX,
+      translateY,
+      matchStartX,
+      matchEndX,
+      matchSpansMultipleItems,
+      padding,
+      finalBounds: { left: paddedLeft, top: paddedTop, right: paddedRight, bottom: paddedBottom },
+      viewportWidth: viewport.width,
+      viewportHeight: viewport.height
+    } : undefined
+  };
+};const InteractivePDFAdvanced = ({
   getPConnect
 }) => {
   const pConnect = getPConnect();
@@ -30,249 +207,80 @@ const InteractivePDFAdvanced = ({
   // Extract configuration with defaults
   const {
     pdfProperty = 'pdfBase64',
-    highlightProperty = 'highlights',
-    additionalHighlightProps,
-    textHighlightProperty = 'textHighlights',
     textHighlightJSON,
+    coordinateHighlightJSON,
     enableSearch = false,
     enableDebugging = false,
-    testPxResultsJson,
     confidenceFilter,
     height = '600px'
   } = configProps;
 
-  // State for PDF document and text highlights with positions
-  const [pdfDocument, setPdfDocument] = useState(null);
-  const [textHighlightsWithPositions, setTextHighlightsWithPositions] = useState([]);
-
   // Read values from Pega clipboard
   const pdfBase64 = pConnect.getValue(pdfProperty);
-  const highlightData = pConnect.getValue(highlightProperty);
-  const textHighlightData = pConnect.getValue(textHighlightProperty);
 
-  // Load PDF document when base64 data changes
-  useEffect(() => {
-    if (!pdfBase64) {
-      setPdfDocument(null);
-      setTextHighlightsWithPositions([]);
-      return;
-    }
-
-    const loadPdfDocument = async () => {
-      try {
-        // Convert base64 to Uint8Array
-        const byteCharacters = atob(pdfBase64);
-        const byteNumbers = new Array(byteCharacters.length);
-        for (let i = 0; i < byteCharacters.length; i++) {
-          byteNumbers[i] = byteCharacters.codePointAt(i) || 0;
-        }
-        const uint8Array = new Uint8Array(byteNumbers);
-
-        // Load PDF document
-        const loadingTask = pdfjsLib.getDocument({ data: uint8Array });
-        const pdf = await loadingTask.promise;
-        setPdfDocument(pdf);
-      } catch (error) {
-        logError('Error loading PDF document:', error);
-        setPdfDocument(null);
-        setTextHighlightsWithPositions([]);
-      }
-    };
-
-    loadPdfDocument();
-  }, [pdfBase64]);
-
-  // Process coordinate-based highlights
+  // Process coordinate highlights
   const processedHighlights = useMemo(() => {
-    let mergedHighlights = highlightData?.pxResults || [];
-
-    // Handle additional highlight props
-    if (additionalHighlightProps) {
-      const additionalProps = additionalHighlightProps.split(',').map(p => p.trim());
-      for (const prop of additionalProps) {
-        const additionalData = pConnect.getValue(prop);
-        if (additionalData?.pxResults) {
-          mergedHighlights = mergedHighlights.concat(additionalData.pxResults);
-        }
-      }
-    }
-
-    // Filter by confidence
-    if (confidenceFilter) {
-      const minConfidence = Number.parseFloat(confidenceFilter);
-      mergedHighlights = mergedHighlights.filter(h => h.confidence >= minConfidence);
-    }
-
-    return mergedHighlights;
-  }, [highlightData, additionalHighlightProps, confidenceFilter, pConnect]);
-
-  // State to prevent concurrent text position finding
-  const [isFindingPositions, setIsFindingPositions] = useState(false);
-
-  // Find text positions when PDF document or text highlights change
-  useEffect(() => {
-    if (!pdfDocument || isFindingPositions) {
-      return;
-    }
-
-    setIsFindingPositions(true);
-
-    const findTextPositions = async () => {
-      // Add timeout to prevent hanging
-      const timeout = setTimeout(() => {
-        logError('Text position finding timed out');
-        setIsFindingPositions(false);
-      }, 10000); // 10 second timeout
-
-      try {
-        // Collect all text highlights
-        let textHighlights = [];
-        if (textHighlightData?.pxResults) {
-          textHighlights = textHighlightData.pxResults;
-          if (enableDebugging) console.log('Processing textHighlightData:', textHighlights);
-        }
-        if (textHighlightJSON) {
-          try {
-            const parsed = JSON.parse(textHighlightJSON);
-            if (Array.isArray(parsed)) {
-              textHighlights = textHighlights.concat(parsed);
-              if (enableDebugging) console.log('Processing textHighlightJSON:', parsed);
-            } else {
-              logError('textHighlightJSON must be an array');
-            }
-          } catch (e) {
-            logError('Error parsing textHighlightJSON:', e);
-            // Don't fail completely, just skip this input
-          }
-        }
-
-        if (enableDebugging) console.log('Total text highlights to process:', textHighlights.length);
-
-        // Filter by confidence if specified
-        if (confidenceFilter) {
-          const minConfidence = Number.parseFloat(confidenceFilter);
-          textHighlights = textHighlights.filter(h => h.confidence >= minConfidence);
-        }
-
-        // Find positions for each text highlight
-        const highlightsWithPositions = await Promise.all(
-          textHighlights.map(async (highlight) => {
-            if (highlight.boundingBox) {
-              // Already has coordinates
-              return highlight;
-            }
-
-            try {
-              // Check if the page exists
-              const numPages = pdfDocument.numPages;
-              if (highlight.pageIndex + 1 > numPages) {
-                logError(`Page ${highlight.pageIndex + 1} does not exist. PDF has ${numPages} pages.`);
-                return {
-                  ...highlight,
-                  boundingBox: { left: 0, top: 0, right: 0, bottom: 0 }
-                };
-              }
-
-              const page = await pdfDocument.getPage(highlight.pageIndex + 1);
-              const textContent = await page.getTextContent();
-              const viewport = page.getViewport({ scale: 1 });
-
-              // Debug: log all text found on this page
-              if (enableDebugging) {
-                console.log(`Page ${highlight.pageIndex + 1} text items:`, textContent.items.map(item => item.str));
-              }
-
-              // Find text matches
-              const items = textContent.items;
-              for (const item of items) {
-                if (item.str.includes(highlight.text)) {
-                  // Calculate bounding box from text item
-                  const x = item.transform[4] / viewport.width;
-                  const y = (viewport.height - item.transform[5] - item.height) / viewport.height;
-                  const width = item.width / viewport.width;
-                  const height = item.height / viewport.height;
-
-                  if (enableDebugging) {
-                    console.log(`Found "${highlight.text}" on page ${highlight.pageIndex + 1} at position:`, { x, y, width, height });
-                  }
-
-                  return {
-                    ...highlight,
-                    boundingBox: {
-                      left: Math.max(0, x),
-                      top: Math.max(0, y),
-                      right: Math.min(1, x + width),
-                      bottom: Math.min(1, y + height)
-                    }
-                  };
-                }
-              }
-
-              // If no exact match found, try case-insensitive search
-              for (const item of items) {
-                if (item.str.toLowerCase().includes(highlight.text.toLowerCase())) {
-                  const x = item.transform[4] / viewport.width;
-                  const y = (viewport.height - item.transform[5] - item.height) / viewport.height;
-                  const width = item.width / viewport.width;
-                  const height = item.height / viewport.height;
-
-                  if (enableDebugging) {
-                    console.log(`Found "${highlight.text}" (case-insensitive) on page ${highlight.pageIndex + 1} at position:`, { x, y, width, height });
-                  }
-
-                  return {
-                    ...highlight,
-                    boundingBox: {
-                      left: Math.max(0, x),
-                      top: Math.max(0, y),
-                      right: Math.min(1, x + width),
-                      bottom: Math.min(1, y + height)
-                    }
-                  };
-                }
-              }
-
-              // If no match found, return with zero bounding box
-              logError(`Text "${highlight.text}" not found on page ${highlight.pageIndex + 1}`);
-              return {
-                ...highlight,
-                boundingBox: { left: 0, top: 0, right: 0, bottom: 0 }
-              };
-            } catch (error) {
-              logError(`Error finding position for "${highlight.text}":`, error);
-              return {
-                ...highlight,
-                boundingBox: { left: 0, top: 0, right: 0, bottom: 0 }
-              };
-            }
-          })
-        );
-
-        setTextHighlightsWithPositions(highlightsWithPositions);
-        clearTimeout(timeout);
-      } catch (error) {
-        logError('Error finding text positions:', error);
-        setTextHighlightsWithPositions([]);
-        clearTimeout(timeout);
-      } finally {
-        setIsFindingPositions(false);
-      }
-    };
-
-    findTextPositions();
-  }, [pdfDocument, textHighlightData, textHighlightJSON, confidenceFilter]);
-
-  // Process test highlights
-  const processedTestHighlights = useMemo(() => {
-    if (!testPxResultsJson) return [];
+    if (!coordinateHighlightJSON || coordinateHighlightJSON.trim() === '') return [];
     try {
-      const parsed = JSON.parse(testPxResultsJson);
-      return Array.isArray(parsed) ? parsed : [];
+      const parsed = JSON.parse(coordinateHighlightJSON.trim());
+      let highlights = Array.isArray(parsed) ? parsed : parsed.pxResults || [];
+      
+      // Filter out invalid highlights and ensure they have required properties
+      highlights = highlights.filter(h => 
+        h && 
+        typeof h === 'object' && 
+        h.boundingBox && 
+        typeof h.pageIndex === 'number' &&
+        typeof h.confidence === 'number'
+      );
+      
+      // Filter by confidence
+      if (confidenceFilter) {
+        const minConfidence = Number.parseFloat(confidenceFilter);
+        highlights = highlights.filter(h => h.confidence >= minConfidence);
+      }
+      
+      return highlights;
     } catch (e) {
-      logError('Error parsing testPxResultsJson:', e);
+      logError('Error parsing coordinateHighlightJSON:', e);
       return [];
     }
-  }, [testPxResultsJson]);
+  }, [coordinateHighlightJSON, confidenceFilter]);
+
+  // Process text highlights - extract text and confidence for searching
+  const textSearchTerms = useMemo(() => {
+    if (!textHighlightJSON || textHighlightJSON.trim() === '') return [];
+    try {
+      const parsed = JSON.parse(textHighlightJSON.trim());
+      let highlights = [];
+      
+      if (Array.isArray(parsed)) {
+        highlights = parsed;
+      } else if (parsed.textHighlights && Array.isArray(parsed.textHighlights)) {
+        highlights = parsed.textHighlights;
+      }
+      
+      // Filter out invalid highlights
+      highlights = highlights.filter(h => 
+        h && 
+        typeof h === 'object' && 
+        typeof h.text === 'string' && 
+        h.text.trim() !== '' &&
+        typeof h.confidence === 'number'
+      );
+      
+      // Filter by confidence if specified
+      if (confidenceFilter) {
+        const minConfidence = Number.parseFloat(confidenceFilter);
+        highlights = highlights.filter(h => h.confidence >= minConfidence);
+      }
+      
+      return highlights.map(h => ({ text: h.text.trim(), confidence: h.confidence, id: h.id }));
+    } catch (e) {
+      logError('Error parsing textHighlightJSON:', e);
+      return [];
+    }
+  }, [textHighlightJSON, confidenceFilter]);
 
   // Convert base64 to blob URL
   const pdfUrl = useMemo(() => {
@@ -291,6 +299,35 @@ const InteractivePDFAdvanced = ({
       return null;
     }
   }, [pdfBase64]);
+
+  // State for found text highlights with bounding boxes
+  const [foundTextHighlights, setFoundTextHighlights] = useState([]);
+
+  // Search for text in PDF and get bounding boxes
+  useEffect(() => {
+    if (!pdfUrl || textSearchTerms.length === 0) {
+      setFoundTextHighlights([]);
+      return;
+    }
+
+    // Clear previous results
+    setFoundTextHighlights([]);
+
+    // Asynchronous text search - doesn't block PDF loading
+    const performTextSearch = async () => {
+      try {
+    const foundHighlights = await searchTextInPDF(pdfUrl, textSearchTerms, enableDebugging);
+        setFoundTextHighlights(foundHighlights);
+      } catch (error) {
+        logError('Error performing text search:', error);
+        setFoundTextHighlights([]);
+      }
+    };
+
+    // Start the search asynchronously
+    performTextSearch();
+
+  }, [pdfUrl, textSearchTerms]);
 
   // Initialize plugins
   const highlightPluginInstance = highlightPlugin({
@@ -317,32 +354,9 @@ const InteractivePDFAdvanced = ({
             />
           );
         })}
-        {processedTestHighlights.map((highlight, index) => {
+        {foundTextHighlights.map((highlight, index) => {
           const { pageIndex, boundingBox } = highlight;
           if (pageIndex !== props.pageIndex) return null;
-
-          return (
-            <div
-              key={`test-${pageIndex}-${boundingBox.left}-${boundingBox.top}-${index}`}
-              style={{
-                position: 'absolute',
-                left: `${boundingBox.left * 100}%`,
-                top: `${boundingBox.top * 100}%`,
-                width: `${(boundingBox.right - boundingBox.left) * 100}%`,
-                height: `${(boundingBox.bottom - boundingBox.top) * 100}%`,
-                backgroundColor: 'rgba(255, 0, 0, 0.3)',
-                border: '1px solid #f00',
-                pointerEvents: 'none',
-                zIndex: 2,
-              }}
-            />
-          );
-        })}
-        {textHighlightsWithPositions.map((highlight, index) => {
-          // For text-based highlighting, boundingBox should be calculated automatically
-          // For text-based highlighting without boundingBox, implement PDF.js text position finding
-          const { pageIndex, boundingBox } = highlight;
-          if (pageIndex !== props.pageIndex || !boundingBox) return null;
 
           return (
             <div
@@ -408,20 +422,30 @@ const InteractivePDFAdvanced = ({
         />
       </Worker>
       {enableDebugging && (
-        <div style={{ padding: '10px', backgroundColor: '#f5f5f5', borderTop: '1px solid #ccc', fontSize: '12px' }}>
-          <div style={{ fontWeight: 'bold', marginBottom: '8px' }}>Debug Information</div>
-          <div>PDF Pages: {pdfDocument ? pdfDocument.numPages : 'Not loaded'}</div>
-          <div>Highlights: {processedHighlights.length}</div>
-          <div>Test Highlights: {processedTestHighlights.length}</div>
-          <div>Text Highlights: {textHighlightsWithPositions.length}</div>
-          <div>Confidence Filter: {confidenceFilter || 'None'}</div>
-          {textHighlightsWithPositions.map((highlight) => (
-            <div key={highlight.id} style={{ marginTop: '4px', fontSize: '11px', color: '#666' }}>
-              Text "{highlight.text}" → Page {highlight.pageIndex + 1}, Position: {highlight.boundingBox ?
-                `(${highlight.boundingBox.left.toFixed(2)}, ${highlight.boundingBox.top.toFixed(2)})` :
-                'Not found'}
+        <div style={{ padding: '10px', backgroundColor: '#f5f5f5', borderTop: '1px solid #ccc' }}>
+          <Text variant="h6">Debug Information</Text>
+          <Text>Coordinate Highlights: {processedHighlights.length}</Text>
+          <Text>Text Highlights: {foundTextHighlights.length}</Text>
+          {foundTextHighlights.some(h => h.debug) && (
+            <div style={{ marginTop: 8 }}>
+              <Text variant="h6" style={{ fontSize: 12 }}>Debug Info (First Highlight):</Text>
+              {foundTextHighlights.find(h => h.debug) && (
+                <div style={{ fontSize: 11, fontFamily: 'monospace' }}>
+                  <div>Match: "{foundTextHighlights.find(h => h.debug)?.debug?.matchText}"</div>
+                  <div>Char Offset: {foundTextHighlights.find(h => h.debug)?.debug?.charOffset}</div>
+                  <div>Font Size: {foundTextHighlights.find(h => h.debug)?.debug?.fontSize?.toFixed(2)}</div>
+                  <div>Item W×H: {foundTextHighlights.find(h => h.debug)?.debug?.itemWidth?.toFixed(1)}×{foundTextHighlights.find(h => h.debug)?.debug?.itemHeight?.toFixed(1)}</div>
+                  <div>Translate X/Y: {foundTextHighlights.find(h => h.debug)?.debug?.translateX?.toFixed(1)}, {foundTextHighlights.find(h => h.debug)?.debug?.translateY?.toFixed(1)}</div>
+                  <div>Match X Range: {foundTextHighlights.find(h => h.debug)?.debug?.matchStartX?.toFixed(1)} - {foundTextHighlights.find(h => h.debug)?.debug?.matchEndX?.toFixed(1)}</div>
+                  <div>Spans Multiple: {foundTextHighlights.find(h => h.debug)?.debug?.matchSpansMultipleItems ? 'Yes' : 'No'}</div>
+                  <div>Padding: {foundTextHighlights.find(h => h.debug)?.debug?.padding}</div>
+                  <div>Final Bounds: L{foundTextHighlights.find(h => h.debug)?.debug?.finalBounds?.left?.toFixed(3)} T{foundTextHighlights.find(h => h.debug)?.debug?.finalBounds?.top?.toFixed(3)} R{foundTextHighlights.find(h => h.debug)?.debug?.finalBounds?.right?.toFixed(3)} B{foundTextHighlights.find(h => h.debug)?.debug?.finalBounds?.bottom?.toFixed(3)}</div>
+                  <div>Viewport: {foundTextHighlights.find(h => h.debug)?.debug?.viewportWidth?.toFixed(0)}×{foundTextHighlights.find(h => h.debug)?.debug?.viewportHeight?.toFixed(0)}</div>
+                </div>
+              )}
             </div>
-          ))}
+          )}
+          <Text>Confidence Filter: {confidenceFilter || 'None'}</Text>
         </div>
       )}
     </div>
