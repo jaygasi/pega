@@ -23,7 +23,7 @@
     {
       "name": "emojiConfig",
       "label": "Emoji Configuration (JSON)",
-      "format": "TEXTAREA",
+      "format": "TEXT",
       "description": "JSON configuration mapping status values to emojis. Example: {\"status_emojis\":[{\"status\":\"Completed\",\"emoji\":\"✅\"},{\"status\":\"Failed\",\"emoji\":\"❌\"}]}"
     },
     {

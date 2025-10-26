@@ -3,6 +3,9 @@
   "label": "Interactive PDF Advanced",
   "description": "Advanced PDF viewer base64 PDF",
   "organization": "Jaygasi",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
   "tags": ["pdf", "viewer", "interactive"],
   "componentKey": "Jaygasi_Extensions_InteractivePDFAdvanced",
   "type": "Field",
@@ -13,9 +16,11 @@
   ],
   "properties": [
     {
-      "name": "label",
-      "label": "Field label",
-      "format": "TEXT"
+      "name": "value",
+      "label": "PDF Source",
+      "format": "TEXT",
+      "required": true,
+      "description": "Base64 encoded PDF data from the Pega property this control is placed on"
     },
     {
       "name": "height",
@@ -26,21 +31,21 @@
     },
     {
       "name": "pdfProperty",
-      "label": "PDF Property (clipboard)",
+      "label": "PDF Property (optional)",
       "format": "PROPERTY",
-      "description": "Pega property that contains the PDF base64 string (or a data URL). Example: .MyPDFBase64"
+      "description": "Optional: Pega property that contains the PDF base64 string. If not specified, the component will read from the property it's placed on. Use this to read from a different property than the one the control is configured on."
     },
     {
       "name": "textHighlightJSON",
       "label": "Text Highlight JSON",
-      "format": "TEXTAREA",
+      "format": "TEXT",
       "placeholder": "{\"textHighlights\":[{\"text\":\"word\",\"confidence\":0.95},{\"text\":\"phrase\",\"confidence\":0.88}]}",
       "description": "JSON string for text-based highlights. The component will automatically search for and highlight these words/phrases within the PDF content. Only text and confidence are required - bounding boxes are calculated automatically."
     },
     {
       "name": "coordinateHighlightJSON",
       "label": "Coordinate Highlight JSON",
-      "format": "TEXTAREA",
+      "format": "TEXT",
       "placeholder": "[{\"id\":\"highlight1\",\"confidence\":0.95,\"pageIndex\":0,\"boundingBox\":{\"left\":0.15,\"top\":0.2,\"right\":0.27,\"bottom\":0.23}},{\"id\":\"highlight2\",\"confidence\":0.88,\"pageIndex\":0,\"boundingBox\":{\"left\":0.3,\"top\":0.2,\"right\":0.45,\"bottom\":0.23}},{\"id\":\"highlight3\",\"confidence\":0.92,\"pageIndex\":0,\"boundingBox\":{\"left\":0.5,\"top\":0.35,\"right\":0.68,\"bottom\":0.38}}]",
       "description": "JSON array of coordinate-based highlights. Each highlight specifies exact position coordinates (0-1 percentages) on specific pages."
     },
@@ -61,6 +66,12 @@
       "label": "Enable Search UI",
       "format": "BOOLEAN",
       "description": "When true, shows a search input above the viewer and writes the term to the configured Search Property Reference."
+    },
+    {
+      "name": "enableDebugging",
+      "label": "Enable Debug Information",
+      "format": "BOOLEAN",
+      "description": "When true, displays debug information in the browser console showing which properties are being read and their values."
     },
     {
       "name": "confidenceFilter",
