@@ -9,6 +9,7 @@
     "componentKey": "Any_jaygasi_PDFViewer",
     "type": "Field",
     "subtype": "Text",
+    "icon": "PDFViewer.svg",
     "properties": [
         {
             "name": "value",
@@ -58,7 +59,7 @@
             "variant": "primary"
         }
     ],
-    "buildDate": "2025-10-27T13:37:33.142Z",
+    "buildDate": "2025-10-27T15:27:58.318Z",
     "infinityVersion": "25.1.0-95",
-    "packageCosmosVersion": "8.7.4"
+    "packageCosmosVersion": "8.4.1"
 }

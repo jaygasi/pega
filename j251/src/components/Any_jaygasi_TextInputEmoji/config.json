@@ -9,7 +9,7 @@
     "componentKey": "Any_jaygasi_TextInputEmoji",
     "type": "Field",
     "subtype": "Text",
-    "icon": "images/TextInputEmoji.svg",
+    "icon": "TextInputEmoji.svg",
     "properties": [
         {
             "name": "label",
@@ -75,7 +75,7 @@
         "isContainerWidth": false,
         "emojiConfig": "{\"status_emojis\":[{\"status\":\"Completed\",\"emoji\":\"✅\"},{\"status\":\"In Progress\",\"emoji\":\"⏳\"},{\"status\":\"Pending\",\"emoji\":\"🕒\"},{\"status\":\"Failed\",\"emoji\":\"❌\"}]}"
     },
-    "buildDate": "2025-10-27T13:37:35.587Z",
+    "buildDate": "2025-10-27T15:28:01.297Z",
     "infinityVersion": "25.1.0-95",
-    "packageCosmosVersion": "8.7.4"
+    "packageCosmosVersion": "8.4.1"
 }

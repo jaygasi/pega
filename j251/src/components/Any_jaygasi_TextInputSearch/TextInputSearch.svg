@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="100px" height="70px" viewBox="0 0 100 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <title>Text Input Search Icon</title>
-    <g id="TextInputSearch" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard" transform="translate(-198.000000, -207.000000)">
-            <g id="text-search-icon" transform="translate(198.000000, 207.000000)">
-                <rect id="bg" stroke="#A5A8BC" stroke-width="0.5" fill="#E7E9EB" x="0.25" y="0.25" width="99.5" height="69.5"></rect>
-                <g id="white" transform="translate(3.000000, 3.000000)" fill="#FFFFFF">
-                    <rect id="Rectangle" x="0" y="0" width="94" height="66.5"></rect>
-                </g>
-                <!-- Text input field -->
-                <g id="input-field" transform="translate(10.000000, 20.000000)">
-                    <rect id="input-bg" x="0" y="0" width="60" height="25" fill="#F5F5F5" stroke="#BDBDBD" stroke-width="1"></rect>
-                    <text id="placeholder-text" font-family="Arial, sans-serif" font-size="8" fill="#9E9E9E">
-                        <tspan x="5" y="15">Search...</tspan>
-                    </text>
-                </g>
-                <!-- Search icon -->
-                <g id="search" transform="translate(75.000000, 15.000000)" fill="#1976D2">
-                    <circle id="search-circle" cx="10" cy="10" r="7" stroke="#1976D2" stroke-width="2" fill="none"></circle>
-                    <rect id="handle" x="15" y="15" width="5" height="2" transform="rotate(45 17.5 16)" fill="#1976D2"></rect>
-                </g>
-            </g>
-        </g>
-    </g>
+    <circle cx="10" cy="10" r="7" stroke="#D32F2F" stroke-width="2" fill="none"></circle>
+    <line x1="15" y1="15" x2="19" y2="19" stroke="#D32F2F" stroke-width="2"></line>
 </svg>

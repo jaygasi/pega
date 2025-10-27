@@ -1,33 +1,45 @@
 {
-    "name": "Any_jaygasi_TextInputSearch",
-    "label": "Text Input Search",
-    "description": "Text Input Search",
+    "name": "Any_jaygasi_PickListEmoji",
+    "label": "Pick List Emoji",
+    "description": "Pick list with emoji based on option ",
     "organization": "Any",
     "version": "1.0.0",
     "library": "jaygasi",
-    "allowedApplications": [],
-    "componentKey": "Any_jaygasi_TextInputSearch",
+    "componentKey": "Any_jaygasi_PickListEmoji",
     "type": "Field",
-    "subtype": "Text",
-    "icon": "TextInputSearch.svg",
+    "subtype": "Picklist",
+    "subtypeLabel": "Picklist",
+    "icon": "images/pz-dropdown-active.svg",
     "properties": [
         {
-            "name": "label",
+            "name": "labelOption",
             "label": "Field label",
-            "format": "TEXT",
-            "required": true
+            "format": "SELECT",
+            "defaultValue": "Default",
+            "visibility": "@PLATFORMNAME != 'launchpad'",
+            "source": [
+                {
+                    "key": "default",
+                    "value": "Default"
+                },
+                {
+                    "key": "custom",
+                    "value": "Custom"
+                }
+            ]
+        },
+        {
+            "name": "label",
+            "label": "Custom field label",
+            "format": "VALUEINPUT",
+            "required": true,
+            "ruleType": "Paragraph",
+            "visibility": "@PLATFORMNAME != 'launchpad' && $this.labelOption == 'custom'"
         },
         {
             "name": "readOnly",
             "label": "Edit mode",
             "format": "READONLY"
-        },
-        {
-            "name": "searchPropRef",
-            "label": "Search Property References",
-            "description": "Specify the Pega property to update with the search term (e.g., .SearchTerm).",
-            "format": "PROPERTY",
-            "required": true
         },
         {
             "label": "Column settings",
@@ -73,32 +85,10 @@
                     "format": "TEXT"
                 },
                 {
-                    "name": "hasSuggestions",
-                    "label": "Enable suggestions",
-                    "format": "BOOLEAN"
-                },
-                {
-                    "name": "formatter",
-                    "label": "Formatter",
-                    "format": "SELECT",
-                    "source": [
-                        {
-                            "key": "TextInput",
-                            "value": "Text Input"
-                        },
-                        {
-                            "key": "Email",
-                            "value": "Email"
-                        },
-                        {
-                            "key": "Phone",
-                            "value": "Phone"
-                        },
-                        {
-                            "key": "URL",
-                            "value": "URL"
-                        }
-                    ]
+                    "name": "emojiConfig",
+                    "label": "Emoji Configuration (JSON)",
+                    "format": "TEXT",
+                    "description": "JSON array mapping picklist values to emojis. Example: [{\"value\":\"Completed\",\"emoji\":\"✅\"},{\"value\":\"In Progress\",\"emoji\":\"⏳\"},{\"value\":\"Pending\",\"emoji\":\"🕒\"},{\"value\":\"Failed\",\"emoji\":\"❌\"}]"
                 }
             ]
         },
@@ -153,14 +143,17 @@
         }
     ],
     "defaultConfig": {
+        "labelOption": "Default",
         "label": "@L $this.label",
+        "placeholder": "@L Select...",
+        "listType": "associated",
+        "datasource": "@ASSOCIATED .$this.name",
         "detailFVLItem": true,
         "isFormWidth": false,
         "isContainerWidth": false,
-        "hasSuggestions": false,
-        "formatter": "TextInput"
+        "emojiConfig": "[{\"value\":\"Completed\",\"emoji\":\"✅\"},{\"value\":\"In Progress\",\"emoji\":\"⏳\"},{\"value\":\"Pending\",\"emoji\":\"🕒\"},{\"value\":\"Failed\",\"emoji\":\"❌\"}]"
     },
-    "buildDate": "2025-10-27T15:28:01.358Z",
+    "buildDate": "2025-10-27T15:28:01.228Z",
     "infinityVersion": "25.1.0-95",
     "packageCosmosVersion": "8.4.1"
 }
