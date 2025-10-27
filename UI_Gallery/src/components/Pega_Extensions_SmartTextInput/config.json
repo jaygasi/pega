@@ -1,0 +1,120 @@
+{
+  "name": "Pega_Extensions_SmartTextInput",
+  "label": "Smart Text Input",
+  "description": "Text input with PDF interaction capabilities",
+  "organization": "Pega",
+  "version": "1.0.0",
+  "library": "Lib",
+  "allowedApplications": [],
+  "componentKey": "Pega_Extensions_SmartTextInput",
+  "type": "Field",
+  "subtype": "Text",
+  "icon": "images/pz-text-input-active.svg",
+  "properties": [
+    {
+      "name": "value",
+      "label": "Property",
+      "format": "PROPERTY",
+      "required": true,
+      "description": "Property to bind the input value"
+    },
+    {
+      "name": "labelOption",
+      "label": "Label value",
+      "format": "SELECT",
+      "defaultValue": "custom",
+      "source": [
+        {
+          "key": "default",
+          "value": "Default"
+        },
+        {
+          "key": "custom",
+          "value": "Custom"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "label": "Custom label value",
+      "format": "VALUEINPUT",
+      "required": true,
+      "ruleType": "Paragraph"
+    },
+    {
+      "name": "readOnly",
+      "label": "Edit mode",
+      "format": "READONLY"
+    },
+    {
+      "label": "Input settings",
+      "format": "GROUP",
+      "properties": [
+        {
+          "name": "placeholder",
+          "label": "Placeholder",
+          "format": "TEXT"
+        },
+        {
+          "name": "helperText",
+          "label": "Helper text",
+          "format": "TEXT"
+        },
+        {
+          "name": "hideLabel",
+          "label": "Hide label",
+          "format": "BOOLEAN"
+        }
+      ]
+    },
+    {
+      "label": "PDF Interaction Settings",
+      "format": "GROUP", 
+      "properties": [
+        {
+          "name": "enablePDFSearch",
+          "label": "Enable PDF Search",
+          "format": "BOOLEAN",
+          "defaultValue": false,
+          "description": "Enable interaction with PDF viewer components"
+        },
+        {
+          "name": "searchOnFocus",
+          "label": "Search on Focus",
+          "format": "BOOLEAN",
+          "defaultValue": true,
+          "description": "Trigger PDF search when field is focused"
+        },
+        {
+          "name": "searchOnChange",
+          "label": "Search on Change", 
+          "format": "BOOLEAN",
+          "defaultValue": false,
+          "description": "Trigger PDF search when field value changes"
+        },
+        {
+          "name": "searchTarget",
+          "label": "Search Target",
+          "format": "TEXT",
+          "description": "Optional: Target PDF viewer component ID (if multiple PDF viewers on page)"
+        }
+      ]
+    },
+    {
+      "label": "Validation",
+      "format": "GROUP",
+      "properties": [
+        {
+          "name": "required",
+          "label": "Required",
+          "format": "BOOLEAN"
+        },
+        {
+          "name": "disabled",
+          "label": "Disabled",
+          "format": "BOOLEAN"
+        }
+      ]
+    }
+  ]
+}

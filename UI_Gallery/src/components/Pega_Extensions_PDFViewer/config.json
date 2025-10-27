@@ -1,0 +1,49 @@
+{
+  "name": "Pega_Extensions_PDFViewer",
+  "label": "PDF Viewer",
+  "description": "PDF documents",
+  "organization": "Pega",
+  "version": "1.0.0",
+  "library": "Lib",
+  "allowedApplications": [],
+  "componentKey": "Pega_Extensions_PDFViewer",
+  "type": "Field",
+  "subtype": "Text",
+  "properties": [
+    {
+      "name": "value",
+      "label": "PDF Source",
+      "format": "TEXT",
+      "required": true,
+      "description": "URL or base64 encoded PDF data"
+    },
+    {
+      "name": "height",
+      "label": "Height",
+      "format": "TEXT",
+      "defaultValue": "600px",
+      "description": "Height of the PDF viewer"
+    },
+    {
+      "name": "showToolbar",
+      "label": "Show Toolbar",
+      "format": "BOOLEAN",
+      "defaultValue": true,
+      "description": "Whether to show the PDF toolbar"
+    },
+    {
+      "name": "showDiagnostics",
+      "label": "Show Diagnostics",
+      "format": "BOOLEAN",
+      "defaultValue": false,
+      "description": "Show diagnostic information for debugging"
+    },
+    {
+      "name": "autoScale",
+      "label": "Auto Scale",
+      "format": "BOOLEAN",
+      "defaultValue": true,
+      "description": "Automatically scale the PDF to fit the container"
+    }
+  ]
+}
