@@ -1,1 +1,0 @@
-{"version":3,"file":"DetailsRender.d.ts","sourceRoot":"","sources":["../../../src/components/Jaygasi_Extensions_pizzaDetails/DetailsRender.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAY,KAAK,YAAY,EAAE,MAAM,OAAO,CAAC;AAGpD,UAAU,kBAAkB;IAC1B,QAAQ,CAAC,EAAE,KAAK,CAAC;IACjB,KAAK,EAAE,WAAW,CAAC,YAAY,CAAC,CAAC;CAClC;AAED,QAAA,MAAM,aAAa,UAAW,kBAAkB,4CAyC/C,CAAC;AAEF,eAAe,aAAa,CAAC"}

@@ -22,7 +22,7 @@ export default styled.div(() => {
       /* Target the emoji span (like TextInputSearch targets button) */
       .status-emoji {
         align-self: center;
-        transform: translateY(8px);
+        transform: translateY(0px);
         flex-shrink: 0;
         font-size: 24px;
         width: 28px;
@@ -140,7 +140,7 @@ export default styled.div(() => {
     /* Fine-tune emoji position - Match TextInputSearch button pattern */
     &[data-display-mode="EDIT"] .status-emoji {
       align-self: center;
-      transform: translateY(10px); /* Same transform as TextInputSearch button */
+      transform: translateY(0px); /* Same transform as TextInputSearch button */
       flex-shrink: 0; /* Same as TextInputSearch button */
       font-size: 24px;
       width: 28px;

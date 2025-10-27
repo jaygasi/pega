@@ -9,7 +9,7 @@
     "componentKey": "Any_jaygasi_TextInputEmoji",
     "type": "Field",
     "subtype": "Text",
-    "icon": "TextInputEmoji.svg",
+    "icon": "images/TextInputEmoji.svg",
     "properties": [
         {
             "name": "label",
@@ -64,7 +64,7 @@
         },
         {
             "format": "LABEL",
-            "label": "Any_jaygasi 1.0.0, Sun Oct 26 2025, 25.1.0-95",
+            "label": "Any_jaygasi 1.0.0, Mon Oct 27 2025, 25.1.0-95",
             "name": "PegaAboutData",
             "variant": "primary"
         }
@@ -75,7 +75,7 @@
         "isContainerWidth": false,
         "emojiConfig": "{\"status_emojis\":[{\"status\":\"Completed\",\"emoji\":\"✅\"},{\"status\":\"In Progress\",\"emoji\":\"⏳\"},{\"status\":\"Pending\",\"emoji\":\"🕒\"},{\"status\":\"Failed\",\"emoji\":\"❌\"}]}"
     },
-    "buildDate": "2025-10-26T23:46:38.121Z",
+    "buildDate": "2025-10-27T13:37:35.587Z",
     "infinityVersion": "25.1.0-95",
     "packageCosmosVersion": "8.7.4"
 }

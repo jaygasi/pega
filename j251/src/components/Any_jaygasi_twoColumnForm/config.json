@@ -31,12 +31,12 @@
         },
         {
             "format": "LABEL",
-            "label": "Any_jaygasi 1.0.0, Sun Oct 26 2025, 25.1.0-95",
+            "label": "Any_jaygasi 1.0.0, Mon Oct 27 2025, 25.1.0-95",
             "name": "PegaAboutData",
             "variant": "primary"
         }
     ],
-    "buildDate": "2025-10-26T23:46:38.233Z",
+    "buildDate": "2025-10-27T13:37:35.703Z",
     "infinityVersion": "25.1.0-95",
     "packageCosmosVersion": "8.7.4"
 }
