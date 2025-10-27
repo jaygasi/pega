@@ -1,7 +1,7 @@
 // src/components/Any_jaygasi_TextInputSearch/index.tsx
 
 import { useEffect, useState } from 'react';
-import { Icon, Button, Input, withConfiguration, registerIcon, FieldValueList, Text } from '@pega/cosmos-react-core';
+import { Input, withConfiguration, registerIcon, FieldValueList, Text } from '@pega/cosmos-react-core';
 import type { PConnFieldProps } from './PConnProps';
 import './create-nonce';
 
@@ -149,35 +149,44 @@ function AnyExtTextInputSearch(props: Readonly<AnyExtTextInputSearchProps>) {
     );
   }
 
+  const handleSearchKeyDown = (event: any) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleSearchIconClick();
+    }
+  };
+
   // Default editable mode with search functionality
   return (
      <StyledAnyExtTextInputSearchWrapper>
-       <Input
-         {...additionalProps}
-         type='text'
-         label={label}
-         labelHidden={hideLabel}
-         value={inputValue}
-         placeholder={placeholder}
-         helperText={helperText}
-         info={validatemessage}
-         onChange={handleChange}
-         readOnly={readOnly}
-         disabled={disabled}
-         required={required}
-         data-testid={testId}
-       />
-       <Button
-         variant="simple"
-         label="Search"
-         iconOnly
-         onClick={handleSearchIconClick}
-         disabled={disabled || readOnly || !inputValue?.trim()}
-         data-testid={`${testId}-search`}
-         title={`Search for: ${inputValue || 'Enter text first'}`}
-       >
-         <Icon name="search" />
-       </Button>
+       <div className="input-with-search">
+         <Input
+           {...additionalProps}
+           type='text'
+           label={label}
+           labelHidden={hideLabel}
+           value={inputValue}
+           placeholder={placeholder}
+           helperText={helperText}
+           info={validatemessage}
+           onChange={handleChange}
+           readOnly={readOnly}
+           disabled={disabled}
+           required={required}
+           data-testid={testId}
+         />
+         <button
+           className="search-emoji-button"
+           onClick={handleSearchIconClick}
+           onKeyDown={handleSearchKeyDown}
+           disabled={disabled || readOnly || !inputValue?.trim()}
+           aria-label={`Search for: ${inputValue || 'Enter text first'}`}
+           data-testid={`${testId}-search`}
+           type="button"
+         >
+           🔍
+         </button>
+       </div>
      </StyledAnyExtTextInputSearchWrapper>
    );
  }

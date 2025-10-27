@@ -6,15 +6,44 @@ export default styled.div(() => {
     margin: 0px 0;
     
     .option-emoji {
-      font-size: 16px;
+      font-size: 18px;
       margin-left: 4px;
       vertical-align: middle;
     }
     
     .display-emoji {
-      font-size: 16px;
-      margin-left: 4px;
+      font-size: 20px;
+      margin-left: 6px;
       vertical-align: middle;
+    }
+
+    /* Container for picklist with external emoji */
+    .picklist-with-emoji {
+      display: flex;
+      align-items: flex-end; /* Align to bottom to match select field level */
+      gap: 0.5rem; /* Consistent spacing with other components */
+      position: relative;
+      width: 100%;
+      
+      /* Target the Select component wrapper (first child) */
+      & > div:first-child {
+        flex-grow: 1; /* Allows the select field to take up available space */
+        min-width: 0; /* Allow the select to shrink if needed */
+      }
+      
+      /* External emoji styling - positioned outside the select */
+      .external-emoji {
+        align-self: flex-end; /* Align emoji to bottom to match select field */
+        margin-bottom: 0.15rem; /* Adjust to lower the emoji slightly more */
+        flex-shrink: 0;
+        font-size: 30px;
+        width: 30px;
+        height: 30px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   `;
 });

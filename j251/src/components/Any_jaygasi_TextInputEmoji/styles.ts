@@ -8,8 +8,8 @@ export default styled.div(() => {
     /* Apply TextInputSearch pattern directly to the edit mode wrapper */
     &[data-display-mode="EDIT"] {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      align-items: flex-end; /* Align to bottom to match input field level */
+      gap: 0.5rem; /* Consistent spacing with other components */
       position: relative;
       width: 100%;
       
@@ -21,8 +21,8 @@ export default styled.div(() => {
       
       /* Target the emoji span (like TextInputSearch targets button) */
       .status-emoji {
-        align-self: center;
-        transform: translateY(0px);
+        align-self: flex-end; /* Align emoji to bottom to match input field */
+        margin-bottom: -0.15rem; /* Adjust to lower the emoji slightly more */
         flex-shrink: 0;
         font-size: 24px;
         width: 28px;
@@ -140,11 +140,11 @@ export default styled.div(() => {
     /* Fine-tune emoji position - Match TextInputSearch button pattern */
     &[data-display-mode="EDIT"] .status-emoji {
       align-self: center;
-      transform: translateY(0px); /* Same transform as TextInputSearch button */
+      transform: translateY(12px); /* Same transform as TextInputSearch button */
       flex-shrink: 0; /* Same as TextInputSearch button */
-      font-size: 24px;
-      width: 28px;
-      height: 28px;
+      font-size: 30px;
+      width: 30px;
+      height: 30px;
       margin: 0;
     }
   `;

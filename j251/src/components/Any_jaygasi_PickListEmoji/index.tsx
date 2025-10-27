@@ -99,10 +99,9 @@ const buildItemsAndSelectedLabel = (options: {
   localeContext: string;
   localeName: string;
   value: any;
-  emojiConfig: string | undefined;
   placeholder: string;
 }) => {
-  const { listSourceItems, isDatapage, pConnect, localePath, localeClass, localeContext, localeName, value, emojiConfig, placeholder } = options;
+  const { listSourceItems, isDatapage, pConnect, localePath, localeClass, localeContext, localeName, value, placeholder } = options;
   const items: Array<any> = [];
   let selectedLabel = '';
 
@@ -132,13 +131,13 @@ const buildItemsAndSelectedLabel = (options: {
       selectedLabel = displayText;
     }
     
-    // Get emoji for the display text
-    const emoji = getEmojiForValue(displayText, emojiConfig);
+    // Get emoji for the display text (no longer used in dropdown)
+    // const emoji = getEmojiForValue(displayText, emojiConfig);
     
     items.push(
       // @ts-ignore - Option children type is string but accepts JSX
       <Option key={item.key} value={item.key}>
-        <span>{displayText} {emoji && <span className="option-emoji">{emoji}</span>}</span>
+        <span>{displayText}</span>
       </Option>
     );
   }
@@ -361,7 +360,6 @@ function AnyJaygasiPickListEmoji(props: Readonly<AnyJaygasiPickListEmojiProps>) 
     localeContext,
     localeName,
     value,
-    emojiConfig,
     placeholder: placeholder as string
   });
 
@@ -406,38 +404,44 @@ function AnyJaygasiPickListEmoji(props: Readonly<AnyJaygasiPickListEmojiProps>) 
   };
 
 
+  // Get the emoji for current value (for external display)
+  const selectedEmoji = getEmojiForValue(selectedLabel || (value ? value.toString() : ''), emojiConfig);
+
   return (
     <StyledAnyJaygasiPickListEmojiWrapper>
-    <Select
-      {...additionalProps}
-      label={label}
-      labelHidden={hideLabel}
-      info={validatemessage || helperText}
-      status={status}
-      data-testid={testId}
-      // @ts-ignore
-      key={getPConnect().getRawMetadata().config.value}
-      value={value}
-      disabled={disabled}
-      required={required}
-      readOnly={readOnly}
-      onChange={(event) => {
-        handleEvent(actions, 'changeNblur', propName, event.target.value);
-        if (hasSuggestions) {
-          pConnect.ignoreSuggestion('');
-          setStatus(undefined);
-        }
-        if (onRecordChange) {
-          onRecordChange(event);
-        }
-      }}
-      onBlur={(event: any) => {
-        pConnect.getValidationApi().validate(event.target.value);
-      }}
-      onResolveSuggestion={onResolveSuggestionHandler}
-    >
-      {items}
-    </Select>
+      <div className="picklist-with-emoji">
+        <Select
+          {...additionalProps}
+          label={label}
+          labelHidden={hideLabel}
+          info={validatemessage || helperText}
+          status={status}
+          data-testid={testId}
+          // @ts-ignore
+          key={getPConnect().getRawMetadata().config.value}
+          value={value}
+          disabled={disabled}
+          required={required}
+          readOnly={readOnly}
+          onChange={(event) => {
+            handleEvent(actions, 'changeNblur', propName, event.target.value);
+            if (hasSuggestions) {
+              pConnect.ignoreSuggestion('');
+              setStatus(undefined);
+            }
+            if (onRecordChange) {
+              onRecordChange(event);
+            }
+          }}
+          onBlur={(event: any) => {
+            pConnect.getValidationApi().validate(event.target.value);
+          }}
+          onResolveSuggestion={onResolveSuggestionHandler}
+        >
+          {items}
+        </Select>
+        {selectedEmoji && <span className="external-emoji">{selectedEmoji}</span>}
+      </div>
     </StyledAnyJaygasiPickListEmojiWrapper>
   );
 }
