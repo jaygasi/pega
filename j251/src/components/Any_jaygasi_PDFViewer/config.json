@@ -1,0 +1,64 @@
+{
+    "name": "Any_jaygasi_PDFViewer",
+    "label": "PDF Viewer",
+    "description": "PDF documents",
+    "organization": "Any",
+    "version": "1.0.0",
+    "library": "jaygasi",
+    "allowedApplications": [],
+    "componentKey": "Any_jaygasi_PDFViewer",
+    "type": "Field",
+    "subtype": "Text",
+    "properties": [
+        {
+            "name": "value",
+            "label": "PDF Source",
+            "format": "TEXT",
+            "required": true,
+            "description": "URL or base64 encoded PDF data"
+        },
+        {
+            "name": "height",
+            "label": "Height",
+            "format": "TEXT",
+            "defaultValue": "750px",
+            "description": "Height of the PDF viewer"
+        },
+        {
+            "name": "showToolbar",
+            "label": "Show Toolbar",
+            "format": "BOOLEAN",
+            "defaultValue": true,
+            "description": "Whether to show the PDF toolbar"
+        },
+        {
+            "name": "showDiagnostics",
+            "label": "Show Diagnostics",
+            "format": "BOOLEAN",
+            "defaultValue": false,
+            "description": "Show diagnostic information for debugging"
+        },
+        {
+            "name": "autoScale",
+            "label": "Auto Scale",
+            "format": "BOOLEAN",
+            "defaultValue": true,
+            "description": "Automatically scale the PDF to fit the container"
+        },
+        {
+            "format": "LABEL",
+            "label": "About",
+            "name": "PegaAboutLabel",
+            "variant": "h3"
+        },
+        {
+            "format": "LABEL",
+            "label": "Any_jaygasi 1.0.0, Sun Oct 26 2025, 25.1.0-95",
+            "name": "PegaAboutData",
+            "variant": "primary"
+        }
+    ],
+    "buildDate": "2025-10-26T23:46:35.779Z",
+    "infinityVersion": "25.1.0-95",
+    "packageCosmosVersion": "8.7.4"
+}

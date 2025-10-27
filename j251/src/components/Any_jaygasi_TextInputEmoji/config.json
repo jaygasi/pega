@@ -1,0 +1,81 @@
+{
+    "name": "Any_jaygasi_TextInputEmoji",
+    "label": "Text Input Emoji",
+    "description": "Text input field with emoji display based on status configuration",
+    "organization": "Any",
+    "version": "1.0.0",
+    "library": "jaygasi",
+    "allowedApplications": [],
+    "componentKey": "Any_jaygasi_TextInputEmoji",
+    "type": "Field",
+    "subtype": "Text",
+    "icon": "TextInputEmoji.svg",
+    "properties": [
+        {
+            "name": "label",
+            "label": "Label value",
+            "format": "TEXT"
+        },
+        {
+            "name": "placeholder",
+            "label": "Placeholder",
+            "format": "TEXT"
+        },
+        {
+            "name": "emojiConfig",
+            "label": "Emoji Configuration (JSON)",
+            "format": "TEXT",
+            "description": "JSON configuration mapping status values to emojis. Example: {\"status_emojis\":[{\"status\":\"Completed\",\"emoji\":\"✅\"},{\"status\":\"Failed\",\"emoji\":\"❌\"}]}"
+        },
+        {
+            "name": "visibility",
+            "label": "Visible",
+            "format": "VISIBILITY"
+        },
+        {
+            "name": "disabled",
+            "label": "Disabled",
+            "format": "DISABLED"
+        },
+        {
+            "name": "required",
+            "label": "Required",
+            "format": "REQUIRED"
+        },
+        {
+            "label": "Advanced",
+            "format": "GROUP",
+            "collapsible": true,
+            "properties": [
+                {
+                    "name": "testId",
+                    "label": "Test ID",
+                    "format": "TEXT",
+                    "ignorePattern": "[^-_\\p{N}\\p{L}]",
+                    "includeAnnotations": false
+                }
+            ]
+        },
+        {
+            "format": "LABEL",
+            "label": "About",
+            "name": "PegaAboutLabel",
+            "variant": "h3"
+        },
+        {
+            "format": "LABEL",
+            "label": "Any_jaygasi 1.0.0, Sun Oct 26 2025, 25.1.0-95",
+            "name": "PegaAboutData",
+            "variant": "primary"
+        }
+    ],
+    "defaultConfig": {
+        "detailFVLItem": true,
+        "isFormWidth": false,
+        "isContainerWidth": false,
+        "emojiConfig": "{\"status_emojis\":[{\"status\":\"Completed\",\"emoji\":\"✅\"},{\"status\":\"In Progress\",\"emoji\":\"⏳\"},{\"status\":\"Pending\",\"emoji\":\"🕒\"},{\"status\":\"Failed\",\"emoji\":\"❌\"}]}"
+    },
+    "buildDate": "2025-10-26T23:46:38.121Z",
+    "infinityVersion": "25.1.0-95",
+    "packageCosmosVersion": "8.7.4"
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="70px" viewBox="0 0 100 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>PDF Viewer Advanced Icon</title>
+    <g id="PDFViewerAdvanced" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-198.000000, -207.000000)">
+            <g id="pdf-advanced-icon" transform="translate(198.000000, 207.000000)">
+                <rect id="bg" stroke="#A5A8BC" stroke-width="0.5" fill="#E7E9EB" x="0.25" y="0.25" width="99.5" height="69.5"></rect>
+                <g id="white" transform="translate(3.000000, 3.000000)" fill="#FFFFFF">
+                    <rect id="Rectangle" x="0" y="0" width="94" height="66.5"></rect>
+                </g>
+                <g id="document" transform="translate(10.000000, 10.000000)" fill="#D32F2F">
+                    <rect id="page" x="0" y="0" width="45" height="35"></rect>
+                    <text id="pdf-text" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#FFFFFF">
+                        <tspan x="8" y="12">PDF</tspan>
+                    </text>
+                    <rect id="line1" x="4" y="16" width="25" height="1.5" fill="#FFFFFF"></rect>
+                    <rect id="line2" x="4" y="20" width="20" height="1.5" fill="#FFFFFF"></rect>
+                    <!-- Highlight mark -->
+                    <rect id="highlight" x="4" y="24" width="15" height="3" fill="#FFD54F" opacity="0.7"></rect>
+                    <rect id="line3" x="4" y="28" width="30" height="1.5" fill="#FFFFFF"></rect>
+                </g>
+                <!-- Search icon -->
+                <g id="search" transform="translate(60.000000, 15.000000)" fill="#1976D2">
+                    <circle id="search-circle" cx="8" cy="8" r="6" stroke="#1976D2" stroke-width="1.5" fill="none"></circle>
+                    <rect id="handle" x="12" y="12" width="4" height="1.5" transform="rotate(45 14 12.75)" fill="#1976D2"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

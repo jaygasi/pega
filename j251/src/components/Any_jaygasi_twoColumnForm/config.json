@@ -1,0 +1,42 @@
+{
+    "name": "Any_jaygasi_twoColumnForm",
+    "label": "Two Column Form",
+    "description": "Two Column Form",
+    "organization": "Any",
+    "version": "1.0.0",
+    "library": "jaygasi",
+    "allowedApplications": [],
+    "componentKey": "Any_jaygasi_twoColumnForm",
+    "type": "Template",
+    "subtype": "FORM",
+    "icon": "TwoColumn.svg",
+    "properties": [
+        {
+            "name": "A",
+            "label": "Region A",
+            "format": "CONTENTPICKER",
+            "allowCreatingGroup": true
+        },
+        {
+            "name": "B",
+            "label": "Region B",
+            "format": "CONTENTPICKER",
+            "allowCreatingGroup": true
+        },
+        {
+            "format": "LABEL",
+            "label": "About",
+            "name": "PegaAboutLabel",
+            "variant": "h3"
+        },
+        {
+            "format": "LABEL",
+            "label": "Any_jaygasi 1.0.0, Sun Oct 26 2025, 25.1.0-95",
+            "name": "PegaAboutData",
+            "variant": "primary"
+        }
+    ],
+    "buildDate": "2025-10-26T23:46:38.233Z",
+    "infinityVersion": "25.1.0-95",
+    "packageCosmosVersion": "8.7.4"
+}
